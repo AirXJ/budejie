@@ -1,0 +1,41 @@
+//
+//  BuDeJie.pch
+//  BuDeJie
+//
+//  Created by air on 17/1/14.
+//  Copyright © 2017年 air. All rights reserved.
+//
+
+#ifndef BuDeJie_pch
+#define BuDeJie_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+/*
+ 
+ 
+ 
+ 
+ */
+#ifdef __OBJC__
+#import "UIView+AIRFrame.h"
+#import "UIBarButtonItem+AIRItem.h"
+/********屏幕适配********/
+#define AIRScreenW [UIScreen mainScreen].bounds.size.width
+#define AIRScreenH [UIScreen mainScreen].bounds.size.height
+#define iphone6P (AIRScreenH == 736)
+#define iphone6 (AIRScreenH == 667)
+#define iphone5 (AIRScreenH == 568)
+#define iphone4 (AIRScreenH == 480)
+
+/********屏幕适配********/
+#ifdef DEBUG
+#define AIRFUNCLog AIRLog(@"%s",__func__)
+#define AIRLog(...) NSLog(__VA_ARGS__)
+#else // 发布
+#define AIRLog(...)
+#endif
+#endif
+
+#endif /* BuDeJie_pch */
