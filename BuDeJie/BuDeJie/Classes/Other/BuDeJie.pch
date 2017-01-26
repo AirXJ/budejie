@@ -20,6 +20,7 @@
  */
 #ifdef __OBJC__
 #import "UIView+AIRFrame.h"
+#import "UIImage+AIRImage.h"
 #import "UIBarButtonItem+AIRItem.h"
 /********屏幕适配********/
 #define AIRScreenW [UIScreen mainScreen].bounds.size.width
