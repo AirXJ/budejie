@@ -9,8 +9,8 @@
 #import "UIBarButtonItem+AIRItem.h"
 
 @implementation UIBarButtonItem (AIRItem)
-+ (instancetype)itemWithImage:(UIImage *)image HighlightedImage:(UIImage *)hLimage isSelectedOrHighlighted:(BOOL)selected target:(id)target action:(SEL)action subViewsHandle:(void(^)( UIButton *btn))subViews{
-    //设置导航条左右按钮、titleView
++ (instancetype)Air_itemWithImage:(UIImage *)image HighlightedImage:(UIImage *)hLimage isSelectedOrHighlighted:(BOOL)selected target:(id)target action:(SEL)action subViewsHandle:(void(^)( UIButton *btn))subViews{
+    //设置导航条左右按钮
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setImage:image forState:UIControlStateNormal];
     if (selected == NO) {

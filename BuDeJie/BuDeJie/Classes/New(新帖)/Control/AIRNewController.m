@@ -16,12 +16,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setStackControllerBar];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - 设置导航条内容
+- (void)setStackControllerBar{
+    //栈顶控制器决定导航条内容
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem Air_itemWithImage:[UIImage imageNamed:@"MainTagSubIcon"] HighlightedImage:[UIImage imageNamed:@"MainTagSubIconClick"] isSelectedOrHighlighted:NO target:self action:@selector(game) subViewsHandle:^(UIButton *btn) {
+    }];
+    self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage AIR_OriginalImageWithDefaultImageName:@"MainTitle"]];
+    
+    
+    
 }
 
 /*

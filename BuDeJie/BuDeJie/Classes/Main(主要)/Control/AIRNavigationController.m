@@ -16,7 +16,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     // Do any additional setup after loading the view.
+}
+
++ (void)load{
+   UINavigationBar *bar = [UINavigationBar appearanceWhenContainedIn:self, nil];
+    [bar setBackgroundImage:[UIImage AIR_OriginalImageWithDefaultImageName:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+    NSMutableDictionary *attri = [NSMutableDictionary dictionary];
+    attri[NSFontAttributeName] = [UIFont boldSystemFontOfSize:21];
+    [bar setTitleTextAttributes:attri];
 }
 
 - (void)didReceiveMemoryWarning {

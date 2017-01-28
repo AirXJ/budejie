@@ -29,8 +29,8 @@
 		457E59931E39EBED00D98AFA /* AIRPublishController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E59921E39EBED00D98AFA /* AIRPublishController.m */; };
 		457E59961E39EC0600D98AFA /* AIRFriendTrendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E59951E39EC0600D98AFA /* AIRFriendTrendController.m */; };
 		457E59991E39EC1F00D98AFA /* AIRMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E59981E39EC1F00D98AFA /* AIRMeController.m */; };
+		45AE23F81E3B77BC005F81B2 /* AIRTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AE23F71E3B77BC005F81B2 /* AIRTabBar.m */; };
 		45AF48EE1E28C33300AD74ED /* UIImage+AIRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AF48ED1E28C33300AD74ED /* UIImage+AIRImage.m */; };
-		45FCD14D1E3A4F490001AEBF /* AIRTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCD14C1E3A4F490001AEBF /* AIRTabBar.m */; };
 		5320E7F772C92EED5AA73861 /* libPods-BuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9471F571510A044814535404 /* libPods-BuDeJie.a */; };
 /* End PBXBuildFile section */
 
@@ -83,10 +83,10 @@
 		457E59951E39EC0600D98AFA /* AIRFriendTrendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRFriendTrendController.m; sourceTree = "<group>"; };
 		457E59971E39EC1F00D98AFA /* AIRMeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRMeController.h; sourceTree = "<group>"; };
 		457E59981E39EC1F00D98AFA /* AIRMeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRMeController.m; sourceTree = "<group>"; };
+		45AE23F61E3B77BC005F81B2 /* AIRTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBar.h; sourceTree = "<group>"; };
+		45AE23F71E3B77BC005F81B2 /* AIRTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBar.m; sourceTree = "<group>"; };
 		45AF48EC1E28C33300AD74ED /* UIImage+AIRImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AIRImage.h"; sourceTree = "<group>"; };
 		45AF48ED1E28C33300AD74ED /* UIImage+AIRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AIRImage.m"; sourceTree = "<group>"; };
-		45FCD14B1E3A4F490001AEBF /* AIRTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBar.h; sourceTree = "<group>"; };
-		45FCD14C1E3A4F490001AEBF /* AIRTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBar.m; sourceTree = "<group>"; };
 		9471F571510A044814535404 /* libPods-BuDeJie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BuDeJie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B272769B2B329F822B260D7E /* Pods-BuDeJie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuDeJie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BuDeJie/Pods-BuDeJie.debug.xcconfig"; sourceTree = "<group>"; };
 		C376FD23374C5D89FE3866EE /* Pods-BuDeJie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuDeJie.release.xcconfig"; path = "Pods/Target Support Files/Pods-BuDeJie/Pods-BuDeJie.release.xcconfig"; sourceTree = "<group>"; };
@@ -300,8 +300,6 @@
 		4503674A1E286BF600093D49 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				45FCD14B1E3A4F490001AEBF /* AIRTabBar.h */,
-				45FCD14C1E3A4F490001AEBF /* AIRTabBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -461,6 +459,8 @@
 		45AF48E71E28BB0600AD74ED /* View */ = {
 			isa = PBXGroup;
 			children = (
+				45AE23F61E3B77BC005F81B2 /* AIRTabBar.h */,
+				45AE23F71E3B77BC005F81B2 /* AIRTabBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -671,7 +671,7 @@
 				45AF48EE1E28C33300AD74ED /* UIImage+AIRImage.m in Sources */,
 				4503674B1E286BF600093D49 /* AppDelegate.m in Sources */,
 				457E59901E39EBD200D98AFA /* AIRNewController.m in Sources */,
-				45FCD14D1E3A4F490001AEBF /* AIRTabBar.m in Sources */,
+				45AE23F81E3B77BC005F81B2 /* AIRTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

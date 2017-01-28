@@ -17,9 +17,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
+    [self setStackControllerBar];
+    
+    
+    
     // Do any additional setup after loading the view.
 }
 
+#pragma mark - 设置导航条内容
+- (void)setStackControllerBar{
+    //栈顶控制器决定导航条内容
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem Air_itemWithImage:[UIImage imageNamed:@"nav_item_game_icon"] HighlightedImage:[UIImage imageNamed:@"nav_item_game_click_icon"] isSelectedOrHighlighted:NO target:self action:@selector(game) subViewsHandle:^(UIButton *btn) {
+    }];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem Air_itemWithImage:[UIImage imageNamed:@"navigationButtonRandom"] HighlightedImage:[UIImage imageNamed:@"navigationButtonRandomClick"] isSelectedOrHighlighted:NO target:self action:@selector(game) subViewsHandle:^(UIButton *btn) {
+    }];
+    self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage AIR_OriginalImageWithDefaultImageName:@"MainTitle"]];
+    
+  
+    
+}
+
+- (void)game{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
