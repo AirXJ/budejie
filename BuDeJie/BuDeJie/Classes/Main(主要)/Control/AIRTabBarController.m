@@ -77,7 +77,7 @@
     
 }
 
-#pragma mark - 设置UITabbar按钮的内容
+#pragma mark - 设置标签栏的统一样式和不同按钮的内容
 - (void)addTabBarAppearance{
     NSInteger i = 0;
     for (id naviObj in self.naviArray) {
@@ -88,6 +88,7 @@
     }
 }
 
+//看到 [vcObj setTabBarItem:item];这句我觉得也可以按照mvc思想，单独放在initWithNibName方法里实现，但是代码就太分散了没有这样书写流畅。
 - (void)tabBarItemWithController:(UIViewController *)vcObj title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage{
     UITabBarItem *item = [[UITabBarItem alloc]initWithTitle:title image:[UIImage AIR_OriginalImageWithDefaultImageName:image] selectedImage:[UIImage AIR_OriginalImageWithDefaultImageName:selectedImage]];
     [vcObj setTabBarItem:item];

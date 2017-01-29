@@ -32,6 +32,9 @@
     
 }
 
+- (void)game{
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -18,6 +18,7 @@
 		456C77571E2729A500EF48A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456C77561E2729A500EF48A9 /* Assets.xcassets */; };
 		456C775A1E2729A500EF48A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 456C77581E2729A500EF48A9 /* LaunchScreen.storyboard */; };
 		456C77651E2729A600EF48A9 /* BuDeJieUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 456C77641E2729A600EF48A9 /* BuDeJieUITests.m */; };
+		456EF0BB1E3C92E200EF7BFC /* AIRSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 456EF0BA1E3C92E200EF7BFC /* AIRSettingController.m */; };
 		45745B7F1E31F8F900007081 /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45745B7A1E31F8F900007081 /* LaunchImage-568h@2x.png */; };
 		45745B801E31F8F900007081 /* LaunchImage-700@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45745B7B1E31F8F900007081 /* LaunchImage-700@2x.png */; };
 		45745B811E31F8F900007081 /* LaunchImage-800-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45745B7C1E31F8F900007081 /* LaunchImage-800-667h@2x.png */; };
@@ -66,6 +67,8 @@
 		456C77601E2729A600EF48A9 /* BuDeJieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuDeJieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		456C77641E2729A600EF48A9 /* BuDeJieUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuDeJieUITests.m; sourceTree = "<group>"; };
 		456C77661E2729A600EF48A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		456EF0B91E3C92E200EF7BFC /* AIRSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSettingController.h; sourceTree = "<group>"; };
+		456EF0BA1E3C92E200EF7BFC /* AIRSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSettingController.m; sourceTree = "<group>"; };
 		45745B7A1E31F8F900007081 /* LaunchImage-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-568h@2x.png"; sourceTree = "<group>"; };
 		45745B7B1E31F8F900007081 /* LaunchImage-700@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-700@2x.png"; sourceTree = "<group>"; };
 		45745B7C1E31F8F900007081 /* LaunchImage-800-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-800-667h@2x.png"; sourceTree = "<group>"; };
@@ -317,6 +320,8 @@
 		4521214F1E34B56700C4B473 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				456EF0B91E3C92E200EF7BFC /* AIRSettingController.h */,
+				456EF0BA1E3C92E200EF7BFC /* AIRSettingController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -672,6 +677,7 @@
 				4503674B1E286BF600093D49 /* AppDelegate.m in Sources */,
 				457E59901E39EBD200D98AFA /* AIRNewController.m in Sources */,
 				45AE23F81E3B77BC005F81B2 /* AIRTabBar.m in Sources */,
+				456EF0BB1E3C92E200EF7BFC /* AIRSettingController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
