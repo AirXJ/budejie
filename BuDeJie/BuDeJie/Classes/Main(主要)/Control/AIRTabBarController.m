@@ -38,7 +38,7 @@
 @end
 
 @implementation AIRTabBarController
-- (void)viewDidLoad {
+- (void)viewDidLoad{
     [super viewDidLoad];
     [self deauftMyLoad];
     // Do any additional setup after loading the view.

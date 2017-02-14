@@ -21,7 +21,10 @@
    
    
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    subViews(btn);
+    if (subViews) {
+        subViews(btn);
+    }
+    
      [btn sizeToFit];
     //把UIButton包装成UIBarButtonItem，就导致按钮点击区域扩大
     UIView *containView = [[UIView alloc]initWithFrame:btn.frame];

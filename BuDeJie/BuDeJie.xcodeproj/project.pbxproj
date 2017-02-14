@@ -57,6 +57,7 @@
 		4535C1141E2A4007000BBA67 /* BuDeJie.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuDeJie.pch; sourceTree = "<group>"; };
 		4558BBB41E34E60600D62238 /* AIRTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBarController.h; sourceTree = "<group>"; };
 		4558BBB51E34E60600D62238 /* AIRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBarController.m; sourceTree = "<group>"; };
+		455EE9491E44A39F006B7CB9 /* AIRDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIRDefine.h; sourceTree = "<group>"; };
 		45699D6B1E2F735300DEA389 /* UIBarButtonItem+AIRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+AIRItem.h"; sourceTree = "<group>"; };
 		45699D6C1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+AIRItem.m"; sourceTree = "<group>"; };
 		456C77471E2729A500EF48A9 /* BuDeJie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuDeJie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,6 +271,7 @@
 				450367451E286BF600093D49 /* AppDelegate.m */,
 				450367461E286BF600093D49 /* main.m */,
 				4535C1141E2A4007000BBA67 /* BuDeJie.pch */,
+				455EE9491E44A39F006B7CB9 /* AIRDefine.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
