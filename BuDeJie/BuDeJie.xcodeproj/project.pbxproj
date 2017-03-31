@@ -19,6 +19,7 @@
 		456C775A1E2729A500EF48A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 456C77581E2729A500EF48A9 /* LaunchScreen.storyboard */; };
 		456C77651E2729A600EF48A9 /* BuDeJieUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 456C77641E2729A600EF48A9 /* BuDeJieUITests.m */; };
 		456EF0BB1E3C92E200EF7BFC /* AIRSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 456EF0BA1E3C92E200EF7BFC /* AIRSettingController.m */; };
+		457174511E8E1BF1008B114A /* AIRTabBarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 457174501E8E1BF1008B114A /* AIRTabBarModel.m */; };
 		45745B7F1E31F8F900007081 /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45745B7A1E31F8F900007081 /* LaunchImage-568h@2x.png */; };
 		45745B801E31F8F900007081 /* LaunchImage-700@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45745B7B1E31F8F900007081 /* LaunchImage-700@2x.png */; };
 		45745B811E31F8F900007081 /* LaunchImage-800-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45745B7C1E31F8F900007081 /* LaunchImage-800-667h@2x.png */; };
@@ -70,6 +71,8 @@
 		456C77661E2729A600EF48A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		456EF0B91E3C92E200EF7BFC /* AIRSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSettingController.h; sourceTree = "<group>"; };
 		456EF0BA1E3C92E200EF7BFC /* AIRSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSettingController.m; sourceTree = "<group>"; };
+		4571744F1E8E1BF1008B114A /* AIRTabBarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBarModel.h; sourceTree = "<group>"; };
+		457174501E8E1BF1008B114A /* AIRTabBarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBarModel.m; sourceTree = "<group>"; };
 		45745B7A1E31F8F900007081 /* LaunchImage-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-568h@2x.png"; sourceTree = "<group>"; };
 		45745B7B1E31F8F900007081 /* LaunchImage-700@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-700@2x.png"; sourceTree = "<group>"; };
 		45745B7C1E31F8F900007081 /* LaunchImage-800-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-800-667h@2x.png"; sourceTree = "<group>"; };
@@ -459,6 +462,8 @@
 		45AF48E61E28BB0600AD74ED /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4571744F1E8E1BF1008B114A /* AIRTabBarModel.h */,
+				457174501E8E1BF1008B114A /* AIRTabBarModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -665,6 +670,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				457E59931E39EBED00D98AFA /* AIRPublishController.m in Sources */,
+				457174511E8E1BF1008B114A /* AIRTabBarModel.m in Sources */,
 				4535C1131E2A3BF4000BBA67 /* UIView+AIRFrame.m in Sources */,
 				457E59991E39EC1F00D98AFA /* AIRMeController.m in Sources */,
 				457E598A1E39EAF200D98AFA /* AIRNavigationController.m in Sources */,

@@ -14,6 +14,7 @@
 #import "AIRFriendTrendController.h"
 #import "AIRMeController.h"
 #import "AIRTabBar.h"
+#import "AIRTabBarModel.h"
 #import <objc/message.h>
 
 @interface AIRTabBarController ()
@@ -26,14 +27,6 @@
 /** 导航控制器数组 */
 @property (nonatomic,strong)NSArray *naviArray;
 
-
-/********************* tabBar模型数据 ********************/
-/** tabBarItem名称数组 */
-@property (nonatomic,strong)NSArray <NSString *>*stringArray;
-/** tabBarItem图片名数组 */
-@property (nonatomic,strong)NSArray  <NSString *>*picArray;
-/** tabBarItem选中图片名数组 */
-@property (nonatomic,strong)NSArray  <NSString *>*selectedPicArray;
 
 @end
 
@@ -56,6 +49,10 @@
 }
 
 #pragma mark - 自己的方法
+//#pragma message "Warning 1"
+//#warning "Warning 2"
+//#error "laji"
+
 - (void)deauftMyLoad{
     [self addChilds];
     [self addTabBarAppearance];
@@ -82,7 +79,8 @@
     NSInteger i = 0;
     for (id naviObj in self.naviArray) {
      //   if (i != 2) {
-             [self tabBarItemWithController:naviObj title:self.stringArray[i] image:self.picArray[i] selectedImage:self.selectedPicArray[i]];
+        AIRTabBarModel *model = [[AIRTabBarModel alloc]init];
+             [self tabBarItemWithController:naviObj title:model.stringItemArr[i] image:model.picItemArray[i] selectedImage:model.selectedPicItemArr[i]];
      //   }
         i++;
     }
@@ -141,6 +139,7 @@
     if (_controllerArray == nil) {
         NSMutableArray *array = [NSMutableArray array];
         for (id classObj in self.classArray) {
+            NSArray *arr = [[NSArray alloc]init];
             id p = objc_msgSend(classObj  ,sel_registerName("alloc"));
             p = objc_msgSend(p,sel_registerName("init"));
             [array addObject:p];
@@ -169,27 +168,6 @@
     return _naviArray;
 }
 
-#pragma mark - tabBar模型数据
-- (NSArray *)stringArray{
-    if (!_stringArray) {
-        _stringArray = @[@"精华",@"新帖",@"关注",@"我"];
-    }
-    return _stringArray;
-}
-
-- (NSArray *)picArray{
-    if (!_picArray) {
-        _picArray = @[@"tabBar_essence_icon",@"tabBar_new_icon",@"tabBar_friendTrends_icon",@"tabBar_me_icon"];
-    }
-    return _picArray;
-}
-
-- (NSArray *)selectedPicArray{
-    if (!_selectedPicArray) {
-        _selectedPicArray = @[@"tabBar_essence_click_icon",@"tabBar_new_click_icon",@"tabBar_friendTrends_click_icon",@"tabBar_me_click_icon"];
-    }
-    return _selectedPicArray;
-}
 
 /*
 #pragma mark - Navigation

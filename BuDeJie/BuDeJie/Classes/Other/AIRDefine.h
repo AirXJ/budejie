@@ -17,8 +17,6 @@
 #define iphone6 (AIRScreenH == 667)
 #define iphone5 (AIRScreenH == 568)
 #define iphone4 (AIRScreenH == 480)
-
-
 /********屏幕适配********/
 
 /********系统适配********/
@@ -31,6 +29,17 @@
 #define IOS3_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"3.0"] != NSOrderedAscending)
 /********系统适配********/
 
+
+/****************忽略警告:其他警告具体查印象笔记*****************/
+//当你有很多警告的时候可以写个宏函数，不停的for循环。
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+Stuff; \
+_Pragma("clang diagnostic pop") \
+} while (0)
+/*****************忽略警告:其他警告具体查印象笔记*****************/
 
 #pragma mark - 单例模式
 /********单例模式***********/
