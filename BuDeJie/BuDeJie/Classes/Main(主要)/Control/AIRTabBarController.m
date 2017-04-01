@@ -7,30 +7,28 @@
 //
 
 #import "AIRTabBarController.h"
-#import "AIRNavigationController.h"
-#import "AIREssenceController.h"
-#import "AIRNewController.h"
-#import "AIRPublishController.h"
-#import "AIRFriendTrendController.h"
-#import "AIRMeController.h"
 #import "AIRTabBar.h"
 #import "AIRTabBarModel.h"
-#import <objc/message.h>
+
 
 @interface AIRTabBarController ()
-/********************** 控制器对象数组 *********************/
-
-/** 类对象数组 */
-@property (nonatomic,strong)NSArray *classArray;
-/** 控制器数组 */
-@property (nonatomic,strong)NSArray *controllerArray;
-/** 导航控制器数组 */
-@property (nonatomic,strong)NSArray *naviArray;
+/********************** 数据 ********************************/
+@property (nonatomic,strong)AIRTabBarModel *model;
 
 
 @end
 
 @implementation AIRTabBarController
+#pragma mark - lazy加载
+- (AIRTabBarModel *)model{
+    if (!_model) {
+        AIRTabBarModel *model = [[AIRTabBarModel alloc]init];
+        _model = model;
+    }
+    return _model;
+}
+
+#pragma mark - xcode自带方法
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self deauftMyLoad];
@@ -65,22 +63,21 @@
     [self setValue:bar forKey:@"tabBar"];
 }
 
-#pragma mark - 添加子控制器
+#pragma mark - UITabBarController添加子控制器
 - (void)addChilds{
-    //[self setViewControllers:self.naviArray animated:YES];
-    for (id childVc in self.naviArray) {
-        [self addChildViewController:childVc];
-    }
+    [self setViewControllers:self.model.naviArray animated:YES];
+//    for (id childVc in self.model.naviArray) {
+//        [self addChildViewController:childVc];
+//    }
     
 }
 
 #pragma mark - 设置标签栏的统一样式和不同按钮的内容
 - (void)addTabBarAppearance{
     NSInteger i = 0;
-    for (id naviObj in self.naviArray) {
+    for (id naviObj in self.model.naviArray) {
      //   if (i != 2) {
-        AIRTabBarModel *model = [[AIRTabBarModel alloc]init];
-             [self tabBarItemWithController:naviObj title:model.stringItemArr[i] image:model.picItemArray[i] selectedImage:model.selectedPicItemArr[i]];
+        [self tabBarItemWithController:naviObj title:self.model.stringItemArr[i] image:self.model.picItemArray[i] selectedImage:self.model.selectedPicItemArr[i]];
      //   }
         i++;
     }
@@ -99,10 +96,26 @@
 }
 
 + (void)load{
-    AIRTabBar *bar = [AIRTabBar appearanceWhenContainedIn:self, nil];
+    AIRTabBar *bar = nil;
+    UITabBarItem *item = nil;
+    if (IOS9_OR_LATER) {
+       bar = [AIRTabBar appearanceWhenContainedInInstancesOfClasses:@[self]];
+        //父类里有设置字体富文本的方法
+        item = [UITabBarItem appearanceWhenContainedInInstancesOfClasses:@[self]];
+    }else{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        //"-Warc-performSelector-leaks"
+        //#pragma clang diagnostic ignored "-Wunused-variable"
+        // [weakController performSelector:_cmd withObject:nil];
+        bar = [AIRTabBar appearanceWhenContainedIn:self, nil];
+        //父类里有设置字体富文本的方法
+        item = [UITabBarItem appearanceWhenContainedIn:self, nil];
+#pragma clang diagnostic pop
+    }
+    
     [bar setBackgroundImage:[UIImage AIR_OriginalImageWithDefaultImageName:@"tabbar-light"]];
-    //父类里有设置字体富文本的方法
-    UITabBarItem *item = [UITabBarItem appearanceWhenContainedIn:self, nil];
+    
     NSMutableDictionary *dict =[NSMutableDictionary dictionary];
     dict[NSFontAttributeName] = [UIFont systemFontOfSize:12];
     dict[NSForegroundColorAttributeName] = [UIColor blackColor];
@@ -118,55 +131,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - 控制器数据
-//控制器类对象数组
--(NSArray *)classArray{
-    if (_classArray == nil) {
-        NSMutableArray *arr = [NSMutableArray array];
-        [arr addObject:[AIREssenceController class]];
-        [arr addObject:[AIRNewController class]];
-        [arr addObject:[AIRPublishController class]];
-        [arr addObject:[AIRFriendTrendController class]];
-        [arr addObject:[AIRMeController class]];
-        _classArray = [arr copy];
-    }
-    
-    return _classArray;
-}
 
-//控制器数组
-- (NSArray *)controllerArray{
-    if (_controllerArray == nil) {
-        NSMutableArray *array = [NSMutableArray array];
-        for (id classObj in self.classArray) {
-            NSArray *arr = [[NSArray alloc]init];
-            id p = objc_msgSend(classObj  ,sel_registerName("alloc"));
-            p = objc_msgSend(p,sel_registerName("init"));
-            [array addObject:p];
-        }
-        _controllerArray = [array copy];
-    }
-    return _controllerArray;
-}
-
-//导航控制器数组
-- (NSArray *)naviArray{
-    if (!_naviArray) {
-        NSMutableArray *array = [NSMutableArray array];
-        for (id classObj in self.controllerArray) {
-            if (classObj != self.controllerArray[2]) {
-                id p = objc_msgSend(objc_getClass("AIRNavigationController")  ,sel_registerName("alloc"));
-                p = objc_msgSend(p,sel_registerName("initWithRootViewController:"),classObj);
-                [array addObject:p];
-            }
-          
-        }
-       // [array removeObjectAtIndex:2];
-       // [array replaceObjectAtIndex:2 withObject:self.controllerArray[2]];
-        _naviArray = [array copy];
-    }
-    return _naviArray;
-}
 
 
 /*

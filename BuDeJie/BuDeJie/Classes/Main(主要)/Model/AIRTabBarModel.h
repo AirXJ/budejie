@@ -9,7 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface AIRTabBarModel : NSObject
+/********************** 控制器对象数组 *********************/
 
+/** 类对象数组 */
+@property (nonatomic,strong,readonly)NSArray *classArray;
+/** 控制器数组 */
+@property (nonatomic,strong,readonly)NSArray *controllerArray;
+/** 导航控制器数组 */
+@property (nonatomic,strong,readonly)NSArray *naviArray;
 
 /********************* tabBar模型数据 ********************/
 /** tabBarItem名称数组 */

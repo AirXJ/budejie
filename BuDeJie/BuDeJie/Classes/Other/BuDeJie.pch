@@ -22,7 +22,7 @@
 #import "UIView+AIRFrame.h"
 #import "UIImage+AIRImage.h"
 #import "UIBarButtonItem+AIRItem.h"
-
+#import "AIRDefine.h"
 
 #ifdef DEBUG
 #define AIRFUNCLog AIRLog(@"%s",__func__)

@@ -18,7 +18,7 @@
     [super viewDidLoad];
      [self setStackControllerBar];
     AIRLog(@"%@",self.navigationController.interactivePopGestureRecognizer);
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
    //interactivePopGestureRecognizer
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
