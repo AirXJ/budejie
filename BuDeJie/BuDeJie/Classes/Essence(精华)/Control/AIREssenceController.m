@@ -8,16 +8,21 @@
 
 #import "AIREssenceController.h"
 
-@interface AIREssenceController ()
+@interface AIREssenceController ()<UIDynamicItem>
 
 @end
 
 @implementation AIREssenceController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
     [self setStackControllerBar];
+//    if(self.isViewLoaded){
+//        //TODO:待会补上
+//        NSLog(@"******");
+//    }
     
     
     

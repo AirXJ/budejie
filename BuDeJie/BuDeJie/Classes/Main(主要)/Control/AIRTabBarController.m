@@ -106,6 +106,7 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         //"-Warc-performSelector-leaks"
+        //在印象笔记中可以搜索，警告类型。
         //#pragma clang diagnostic ignored "-Wunused-variable"
         // [weakController performSelector:_cmd withObject:nil];
         bar = [AIRTabBar appearanceWhenContainedIn:self, nil];

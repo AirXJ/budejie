@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "AIRTabBarController.h"
+#import "AIRADViewController.h"
 
 
 @interface AppDelegate ()
@@ -15,10 +15,16 @@
 @end
 
 @implementation AppDelegate
-
+/**********
+ 每次程序启动的时候进入广告界面
+ 1.在启动的时候，去加个广告界面(行不通)
+ 2.启动完成的时候，加个广告界面（展示了启动图片）
+  a.窗口的梗控制器设为广告控制器\
+  b.直接窗口上再加上一个广告界面，几秒过去了，再广告界面移除(业务逻辑交给谁管理)
+ **********/
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    AIRTabBarController *tabVc = [[AIRTabBarController alloc]init];
+    AIRADViewController *tabVc = [[AIRADViewController alloc]init];
     self.window.rootViewController = tabVc;
     [self.window makeKeyAndVisible];
     return YES;
