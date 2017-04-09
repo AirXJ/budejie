@@ -8,7 +8,7 @@
 
 #import "AIREssenceController.h"
 
-@interface AIREssenceController ()<UIDynamicItem>
+@interface AIREssenceController ()
 
 @end
 

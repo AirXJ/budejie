@@ -1,4 +1,4 @@
-//
+//  按钮设置成自定义的，不要设置成系统样式
 //  AIRFriendTrendController.m
 //  BuDeJie
 //
@@ -7,8 +7,11 @@
 //
 
 #import "AIRFriendTrendController.h"
+#import "AIRLoginRegisterViewController.h"
+
 
 @interface AIRFriendTrendController ()
+
 
 @end
 
@@ -18,6 +21,17 @@
     [super viewDidLoad];
     [self setStackControllerBar];
     // Do any additional setup after loading the view.
+}
+
+
+//点击了组册就会调用
+- (IBAction)clickLoginRegister:(UIButton *)sender {
+   
+    [self presentViewController: [[AIRLoginRegisterViewController alloc]init] animated:YES completion:^{
+        
+    }];
+    
+    
 }
 
 #pragma mark - 设置导航条内容

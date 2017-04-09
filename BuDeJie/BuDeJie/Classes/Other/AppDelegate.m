@@ -24,8 +24,8 @@
  **********/
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    AIRADViewController *tabVc = [[AIRADViewController alloc]init];
-    self.window.rootViewController = tabVc;
+    AIRADViewController *adVc = [[AIRADViewController alloc]init];
+    self.window.rootViewController = adVc;
     [self.window makeKeyAndVisible];
     return YES;
 }

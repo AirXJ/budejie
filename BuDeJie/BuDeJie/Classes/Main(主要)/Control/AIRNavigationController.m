@@ -21,7 +21,7 @@
     /********************************************************
      <UIScreenEdgePanGestureRecognizer: 0x7f852270e0c0; state = Possible; delaysTouchesBegan = YES; view = <UILayoutContainerView 0x7f8522506dc0>; target= <(action=handleNavigationTransition:, target=<_UINavigationInteractiveTransition 0x7f852270cf10>)>>
      *******************************************************/
-    AIRLog(@"%@",self.interactivePopGestureRecognizer);
+   // AIRLog(@"%@",self.interactivePopGestureRecognizer);
 //    UIScreenEdgePanGestureRecognizer *edgePan = (UIScreenEdgePanGestureRecognizer *)self.interactivePopGestureRecognizer;
 //    edgePan.edges = UIRectEdgeNone;
     

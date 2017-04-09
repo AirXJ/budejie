@@ -12,7 +12,11 @@
 		45285A351E28EBBC0057AE5E /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 45285A321E28EBBC0057AE5E /* Foundation+Log.m */; };
 		45285A361E28EBBC0057AE5E /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 45285A341E28EBBC0057AE5E /* UIColor+Hex.m */; };
 		4535C1131E2A3BF4000BBA67 /* UIView+AIRFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4535C1121E2A3BF4000BBA67 /* UIView+AIRFrame.m */; };
+		454835641E99E53600A65DF7 /* AIRFriendTrendController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454835631E99E53600A65DF7 /* AIRFriendTrendController.xib */; };
+		454835681E99EBC800A65DF7 /* AIRLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454835661E99EBC800A65DF7 /* AIRLoginRegisterViewController.m */; };
+		454835691E99EBC800A65DF7 /* AIRLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454835671E99EBC800A65DF7 /* AIRLoginRegisterViewController.xib */; };
 		4558BBB61E34E60600D62238 /* AIRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4558BBB51E34E60600D62238 /* AIRTabBarController.m */; };
+		455BB91F1E952C3800F1C67B /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 455BB91E1E952C3800F1C67B /* NSObject+Common.m */; };
 		45699D6D1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45699D6C1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m */; };
 		456C77551E2729A500EF48A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 456C77531E2729A500EF48A9 /* Main.storyboard */; };
 		456C77571E2729A500EF48A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456C77561E2729A500EF48A9 /* Assets.xcassets */; };
@@ -32,8 +36,15 @@
 		457E59961E39EC0600D98AFA /* AIRFriendTrendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E59951E39EC0600D98AFA /* AIRFriendTrendController.m */; };
 		457E59991E39EC1F00D98AFA /* AIRMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E59981E39EC1F00D98AFA /* AIRMeController.m */; };
 		458AB6C61E9484100069BEF4 /* AIRADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458AB6C51E9484100069BEF4 /* AIRADViewController.m */; };
+		458AB6C81E948AEA0069BEF4 /* AIRADViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458AB6C71E948AEA0069BEF4 /* AIRADViewController.xib */; };
+		45AA047E1E94BA4900CFED65 /* YYHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA047D1E94BA4900CFED65 /* YYHttpTool.m */; };
 		45AE23F81E3B77BC005F81B2 /* AIRTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AE23F71E3B77BC005F81B2 /* AIRTabBar.m */; };
 		45AF48EE1E28C33300AD74ED /* UIImage+AIRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AF48ED1E28C33300AD74ED /* UIImage+AIRImage.m */; };
+		45B393AA1E98BBDC00E93D52 /* AIRSubTagItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B393A91E98BBDC00E93D52 /* AIRSubTagItem.m */; };
+		45D1A6D81E94DE7C0016CBF2 /* AIRADItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1A6D71E94DE7C0016CBF2 /* AIRADItem.m */; };
+		45D1A6DB1E951CDE0016CBF2 /* AIRSubTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1A6DA1E951CDE0016CBF2 /* AIRSubTagTableViewController.m */; };
+		45EDE77E1E98C0F200465566 /* AIRSubTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EDE77C1E98C0F200465566 /* AIRSubTagCell.m */; };
+		45EDE77F1E98C0F200465566 /* AIRSubTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45EDE77D1E98C0F200465566 /* AIRSubTagCell.xib */; };
 		5320E7F772C92EED5AA73861 /* libPods-BuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9471F571510A044814535404 /* libPods-BuDeJie.a */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +68,14 @@
 		4535C1111E2A3BF4000BBA67 /* UIView+AIRFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AIRFrame.h"; sourceTree = "<group>"; };
 		4535C1121E2A3BF4000BBA67 /* UIView+AIRFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AIRFrame.m"; sourceTree = "<group>"; };
 		4535C1141E2A4007000BBA67 /* BuDeJie.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuDeJie.pch; sourceTree = "<group>"; };
+		454835631E99E53600A65DF7 /* AIRFriendTrendController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRFriendTrendController.xib; sourceTree = "<group>"; };
+		454835651E99EBC800A65DF7 /* AIRLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRLoginRegisterViewController.h; sourceTree = "<group>"; };
+		454835661E99EBC800A65DF7 /* AIRLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRLoginRegisterViewController.m; sourceTree = "<group>"; };
+		454835671E99EBC800A65DF7 /* AIRLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRLoginRegisterViewController.xib; sourceTree = "<group>"; };
 		4558BBB41E34E60600D62238 /* AIRTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBarController.h; sourceTree = "<group>"; };
 		4558BBB51E34E60600D62238 /* AIRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBarController.m; sourceTree = "<group>"; };
+		455BB91D1E952C3800F1C67B /* NSObject+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Common.h"; sourceTree = "<group>"; };
+		455BB91E1E952C3800F1C67B /* NSObject+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Common.m"; sourceTree = "<group>"; };
 		455EE9491E44A39F006B7CB9 /* AIRDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIRDefine.h; sourceTree = "<group>"; };
 		45699D6B1E2F735300DEA389 /* UIBarButtonItem+AIRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+AIRItem.h"; sourceTree = "<group>"; };
 		45699D6C1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+AIRItem.m"; sourceTree = "<group>"; };
@@ -93,10 +110,22 @@
 		457E59981E39EC1F00D98AFA /* AIRMeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRMeController.m; sourceTree = "<group>"; };
 		458AB6C41E9484100069BEF4 /* AIRADViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRADViewController.h; sourceTree = "<group>"; };
 		458AB6C51E9484100069BEF4 /* AIRADViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRADViewController.m; sourceTree = "<group>"; };
+		458AB6C71E948AEA0069BEF4 /* AIRADViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRADViewController.xib; sourceTree = "<group>"; };
+		45AA047C1E94BA4900CFED65 /* YYHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHttpTool.h; sourceTree = "<group>"; };
+		45AA047D1E94BA4900CFED65 /* YYHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHttpTool.m; sourceTree = "<group>"; };
 		45AE23F61E3B77BC005F81B2 /* AIRTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBar.h; sourceTree = "<group>"; };
 		45AE23F71E3B77BC005F81B2 /* AIRTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBar.m; sourceTree = "<group>"; };
 		45AF48EC1E28C33300AD74ED /* UIImage+AIRImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AIRImage.h"; sourceTree = "<group>"; };
 		45AF48ED1E28C33300AD74ED /* UIImage+AIRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AIRImage.m"; sourceTree = "<group>"; };
+		45B393A81E98BBDC00E93D52 /* AIRSubTagItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSubTagItem.h; sourceTree = "<group>"; };
+		45B393A91E98BBDC00E93D52 /* AIRSubTagItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSubTagItem.m; sourceTree = "<group>"; };
+		45D1A6D61E94DE7C0016CBF2 /* AIRADItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRADItem.h; sourceTree = "<group>"; };
+		45D1A6D71E94DE7C0016CBF2 /* AIRADItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRADItem.m; sourceTree = "<group>"; };
+		45D1A6D91E951CDE0016CBF2 /* AIRSubTagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSubTagTableViewController.h; sourceTree = "<group>"; };
+		45D1A6DA1E951CDE0016CBF2 /* AIRSubTagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSubTagTableViewController.m; sourceTree = "<group>"; };
+		45EDE77B1E98C0F200465566 /* AIRSubTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSubTagCell.h; sourceTree = "<group>"; };
+		45EDE77C1E98C0F200465566 /* AIRSubTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSubTagCell.m; sourceTree = "<group>"; };
+		45EDE77D1E98C0F200465566 /* AIRSubTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRSubTagCell.xib; sourceTree = "<group>"; };
 		9471F571510A044814535404 /* libPods-BuDeJie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BuDeJie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B272769B2B329F822B260D7E /* Pods-BuDeJie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuDeJie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BuDeJie/Pods-BuDeJie.debug.xcconfig"; sourceTree = "<group>"; };
 		C376FD23374C5D89FE3866EE /* Pods-BuDeJie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuDeJie.release.xcconfig"; path = "Pods/Target Support Files/Pods-BuDeJie/Pods-BuDeJie.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +214,7 @@
 			children = (
 				457E59941E39EC0600D98AFA /* AIRFriendTrendController.h */,
 				457E59951E39EC0600D98AFA /* AIRFriendTrendController.m */,
+				454835631E99E53600A65DF7 /* AIRFriendTrendController.xib */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -251,6 +281,8 @@
 			children = (
 				457E598E1E39EBD200D98AFA /* AIRNewController.h */,
 				457E598F1E39EBD200D98AFA /* AIRNewController.m */,
+				45D1A6D91E951CDE0016CBF2 /* AIRSubTagTableViewController.h */,
+				45D1A6DA1E951CDE0016CBF2 /* AIRSubTagTableViewController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -258,6 +290,8 @@
 		450367411E286BF600093D49 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				45B393A81E98BBDC00E93D52 /* AIRSubTagItem.h */,
+				45B393A91E98BBDC00E93D52 /* AIRSubTagItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -265,6 +299,9 @@
 		450367421E286BF600093D49 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				45EDE77B1E98C0F200465566 /* AIRSubTagCell.h */,
+				45EDE77C1E98C0F200465566 /* AIRSubTagCell.m */,
+				45EDE77D1E98C0F200465566 /* AIRSubTagCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,6 +367,9 @@
 			children = (
 				456EF0B91E3C92E200EF7BFC /* AIRSettingController.h */,
 				456EF0BA1E3C92E200EF7BFC /* AIRSettingController.m */,
+				454835651E99EBC800A65DF7 /* AIRLoginRegisterViewController.h */,
+				454835661E99EBC800A65DF7 /* AIRLoginRegisterViewController.m */,
+				454835671E99EBC800A65DF7 /* AIRLoginRegisterViewController.xib */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -351,6 +391,8 @@
 		4553D8D51E30EBD7000BEE51 /* AD(广告) */ = {
 			isa = PBXGroup;
 			children = (
+				45AA047C1E94BA4900CFED65 /* YYHttpTool.h */,
+				45AA047D1E94BA4900CFED65 /* YYHttpTool.m */,
 				4553D8D61E30EBD7000BEE51 /* Control */,
 				4553D8D71E30EBD7000BEE51 /* Model */,
 				4553D8D81E30EBD7000BEE51 /* View */,
@@ -363,6 +405,7 @@
 			children = (
 				458AB6C41E9484100069BEF4 /* AIRADViewController.h */,
 				458AB6C51E9484100069BEF4 /* AIRADViewController.m */,
+				458AB6C71E948AEA0069BEF4 /* AIRADViewController.xib */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -370,6 +413,8 @@
 		4553D8D71E30EBD7000BEE51 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				45D1A6D61E94DE7C0016CBF2 /* AIRADItem.h */,
+				45D1A6D71E94DE7C0016CBF2 /* AIRADItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -485,6 +530,8 @@
 		45AF48EB1E28C2FE00AD74ED /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				455BB91D1E952C3800F1C67B /* NSObject+Common.h */,
+				455BB91E1E952C3800F1C67B /* NSObject+Common.m */,
 				45285A321E28EBBC0057AE5E /* Foundation+Log.m */,
 				45285A331E28EBBC0057AE5E /* UIColor+Hex.h */,
 				45285A341E28EBBC0057AE5E /* UIColor+Hex.m */,
@@ -605,9 +652,13 @@
 				45745B831E31F8F900007081 /* LaunchImage.png in Resources */,
 				45745B7F1E31F8F900007081 /* LaunchImage-568h@2x.png in Resources */,
 				45745B801E31F8F900007081 /* LaunchImage-700@2x.png in Resources */,
+				454835691E99EBC800A65DF7 /* AIRLoginRegisterViewController.xib in Resources */,
+				458AB6C81E948AEA0069BEF4 /* AIRADViewController.xib in Resources */,
 				45745B821E31F8F900007081 /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
+				454835641E99E53600A65DF7 /* AIRFriendTrendController.xib in Resources */,
 				456C77571E2729A500EF48A9 /* Assets.xcassets in Resources */,
 				45745B811E31F8F900007081 /* LaunchImage-800-667h@2x.png in Resources */,
+				45EDE77F1E98C0F200465566 /* AIRSubTagCell.xib in Resources */,
 				456C77551E2729A500EF48A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -676,19 +727,26 @@
 			files = (
 				457E59931E39EBED00D98AFA /* AIRPublishController.m in Sources */,
 				457174511E8E1BF1008B114A /* AIRTabBarModel.m in Sources */,
+				45D1A6D81E94DE7C0016CBF2 /* AIRADItem.m in Sources */,
 				458AB6C61E9484100069BEF4 /* AIRADViewController.m in Sources */,
+				45EDE77E1E98C0F200465566 /* AIRSubTagCell.m in Sources */,
+				45AA047E1E94BA4900CFED65 /* YYHttpTool.m in Sources */,
 				4535C1131E2A3BF4000BBA67 /* UIView+AIRFrame.m in Sources */,
 				457E59991E39EC1F00D98AFA /* AIRMeController.m in Sources */,
 				457E598A1E39EAF200D98AFA /* AIRNavigationController.m in Sources */,
 				45699D6D1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m in Sources */,
 				45285A351E28EBBC0057AE5E /* Foundation+Log.m in Sources */,
+				455BB91F1E952C3800F1C67B /* NSObject+Common.m in Sources */,
 				4503674C1E286BF600093D49 /* main.m in Sources */,
 				4558BBB61E34E60600D62238 /* AIRTabBarController.m in Sources */,
 				457E59961E39EC0600D98AFA /* AIRFriendTrendController.m in Sources */,
 				45285A361E28EBBC0057AE5E /* UIColor+Hex.m in Sources */,
+				45D1A6DB1E951CDE0016CBF2 /* AIRSubTagTableViewController.m in Sources */,
 				457E598D1E39EBB800D98AFA /* AIREssenceController.m in Sources */,
 				45AF48EE1E28C33300AD74ED /* UIImage+AIRImage.m in Sources */,
 				4503674B1E286BF600093D49 /* AppDelegate.m in Sources */,
+				454835681E99EBC800A65DF7 /* AIRLoginRegisterViewController.m in Sources */,
+				45B393AA1E98BBDC00E93D52 /* AIRSubTagItem.m in Sources */,
 				457E59901E39EBD200D98AFA /* AIRNewController.m in Sources */,
 				45AE23F81E3B77BC005F81B2 /* AIRTabBar.m in Sources */,
 				456EF0BB1E3C92E200EF7BFC /* AIRSettingController.m in Sources */,
@@ -751,6 +809,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -798,6 +857,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

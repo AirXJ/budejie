@@ -23,6 +23,10 @@
 #import "UIImage+AIRImage.h"
 #import "UIBarButtonItem+AIRItem.h"
 #import "AIRDefine.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <AFNetworking.h>
+#import <MJExtension/MJExtension.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #ifdef DEBUG
 #define AIRFUNCLog AIRLog(@"%s",__func__)
