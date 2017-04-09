@@ -6,11 +6,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIRLoginRegisterViewController">
             <connections>
+                <outlet property="MiddleView" destination="Jwx-vb-AxK" id="bGG-GQ-Ywd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -66,8 +68,8 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jwx-vb-AxK" userLabel="Middle">
-                    <rect key="frame" x="0.0" y="95" width="375" height="300"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="95" width="750" height="300"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="300" id="ZOA-2y-gwh"/>
                     </constraints>
@@ -80,8 +82,8 @@
                 <constraint firstAttribute="trailing" secondItem="hgY-mC-Nfh" secondAttribute="trailing" id="N5b-Ge-TpG"/>
                 <constraint firstAttribute="bottom" secondItem="UuC-of-tRR" secondAttribute="bottom" id="NYO-aS-zkb"/>
                 <constraint firstItem="UuC-of-tRR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NrD-IV-GTf"/>
-                <constraint firstAttribute="trailing" secondItem="Jwx-vb-AxK" secondAttribute="trailing" id="SHQ-78-t0s"/>
                 <constraint firstItem="UuC-of-tRR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ue8-Ct-47g"/>
+                <constraint firstItem="Jwx-vb-AxK" firstAttribute="width" secondItem="hgY-mC-Nfh" secondAttribute="width" multiplier="2" id="e3F-MV-lXw"/>
                 <constraint firstItem="w5r-hV-uvF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hI7-rB-J6G"/>
                 <constraint firstItem="hgY-mC-Nfh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hZG-RQ-0aK"/>
                 <constraint firstItem="w5r-hV-uvF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="hrr-jF-ZIN"/>

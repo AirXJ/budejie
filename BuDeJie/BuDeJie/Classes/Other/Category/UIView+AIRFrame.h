@@ -10,7 +10,7 @@
 
 @interface UIView (AIRFrame)
 /*
- 分类定义属性，因避免重名，加前缀
+ 分类定义属性，因避免重名，加前缀，set方法直接修改frame了
  */
 /** 宽 */
 @property (nonatomic,assign)CGFloat AIR_width;

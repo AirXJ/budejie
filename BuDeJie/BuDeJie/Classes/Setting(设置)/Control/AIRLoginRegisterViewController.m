@@ -7,16 +7,43 @@
 //
 
 #import "AIRLoginRegisterViewController.h"
+#import "AIRLoginRegisterView.h"
+
 
 @interface AIRLoginRegisterViewController ()
+@property (weak, nonatomic) IBOutlet UIView *MiddleView;
 
 @end
 
 @implementation AIRLoginRegisterViewController
 
+
+//越复杂的界面也要复用(封装)，划分结构去布局
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    /*************
+     屏幕适配:
+     1.一个view从xib加载，需不需要再重新固定尺寸 一定要再确定
+     2.
+     3.
+     
+     
+     **************/
+    
+    AIRLoginRegisterView *loginView = [AIRLoginRegisterView loginView];
+    loginView.frame = CGRectMake(0, 0, self.MiddleView.AIR_width, self.MiddleView.AIR_height);
+    [self.MiddleView addSubview:loginView];
+    
+    
+    AIRLoginRegisterView *registView = [AIRLoginRegisterView registerView];
+    registView.frame = CGRectMake(self.MiddleView.AIR_width, 0, self.MiddleView.AIR_width, self.MiddleView.AIR_height);
+    [self.MiddleView addSubview:registView];
+
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,6 +57,8 @@
 }
 - (IBAction)clickRegister:(UIButton *)sender {
     sender.selected = !sender.selected;
+    
+    
 }
 
 

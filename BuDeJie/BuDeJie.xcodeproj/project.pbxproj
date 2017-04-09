@@ -17,6 +17,8 @@
 		454835691E99EBC800A65DF7 /* AIRLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454835671E99EBC800A65DF7 /* AIRLoginRegisterViewController.xib */; };
 		4558BBB61E34E60600D62238 /* AIRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4558BBB51E34E60600D62238 /* AIRTabBarController.m */; };
 		455BB91F1E952C3800F1C67B /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 455BB91E1E952C3800F1C67B /* NSObject+Common.m */; };
+		455ED6C51E9A129000ECA5DE /* AIRLoginRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 455ED6C41E9A129000ECA5DE /* AIRLoginRegisterView.m */; };
+		455ED6C71E9A195B00ECA5DE /* AIRLoginRegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455ED6C61E9A195B00ECA5DE /* AIRLoginRegisterView.xib */; };
 		45699D6D1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45699D6C1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m */; };
 		456C77551E2729A500EF48A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 456C77531E2729A500EF48A9 /* Main.storyboard */; };
 		456C77571E2729A500EF48A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456C77561E2729A500EF48A9 /* Assets.xcassets */; };
@@ -76,6 +78,9 @@
 		4558BBB51E34E60600D62238 /* AIRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBarController.m; sourceTree = "<group>"; };
 		455BB91D1E952C3800F1C67B /* NSObject+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Common.h"; sourceTree = "<group>"; };
 		455BB91E1E952C3800F1C67B /* NSObject+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Common.m"; sourceTree = "<group>"; };
+		455ED6C31E9A129000ECA5DE /* AIRLoginRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRLoginRegisterView.h; sourceTree = "<group>"; };
+		455ED6C41E9A129000ECA5DE /* AIRLoginRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRLoginRegisterView.m; sourceTree = "<group>"; };
+		455ED6C61E9A195B00ECA5DE /* AIRLoginRegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRLoginRegisterView.xib; sourceTree = "<group>"; };
 		455EE9491E44A39F006B7CB9 /* AIRDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIRDefine.h; sourceTree = "<group>"; };
 		45699D6B1E2F735300DEA389 /* UIBarButtonItem+AIRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+AIRItem.h"; sourceTree = "<group>"; };
 		45699D6C1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+AIRItem.m"; sourceTree = "<group>"; };
@@ -384,6 +389,9 @@
 		452121511E34B56700C4B473 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				455ED6C31E9A129000ECA5DE /* AIRLoginRegisterView.h */,
+				455ED6C41E9A129000ECA5DE /* AIRLoginRegisterView.m */,
+				455ED6C61E9A195B00ECA5DE /* AIRLoginRegisterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -655,6 +663,7 @@
 				454835691E99EBC800A65DF7 /* AIRLoginRegisterViewController.xib in Resources */,
 				458AB6C81E948AEA0069BEF4 /* AIRADViewController.xib in Resources */,
 				45745B821E31F8F900007081 /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
+				455ED6C71E9A195B00ECA5DE /* AIRLoginRegisterView.xib in Resources */,
 				454835641E99E53600A65DF7 /* AIRFriendTrendController.xib in Resources */,
 				456C77571E2729A500EF48A9 /* Assets.xcassets in Resources */,
 				45745B811E31F8F900007081 /* LaunchImage-800-667h@2x.png in Resources */,
@@ -741,6 +750,7 @@
 				4558BBB61E34E60600D62238 /* AIRTabBarController.m in Sources */,
 				457E59961E39EC0600D98AFA /* AIRFriendTrendController.m in Sources */,
 				45285A361E28EBBC0057AE5E /* UIColor+Hex.m in Sources */,
+				455ED6C51E9A129000ECA5DE /* AIRLoginRegisterView.m in Sources */,
 				45D1A6DB1E951CDE0016CBF2 /* AIRSubTagTableViewController.m in Sources */,
 				457E598D1E39EBB800D98AFA /* AIREssenceController.m in Sources */,
 				45AF48EE1E28C33300AD74ED /* UIImage+AIRImage.m in Sources */,
