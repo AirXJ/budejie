@@ -20,6 +20,9 @@
 @property (nonatomic,assign)CGFloat AIR_x;
 /** y */
 @property (nonatomic,assign)CGFloat AIR_y;
-
+/** centerX */
+@property (nonatomic,assign)CGFloat AIR_centerX;
+/** centerY */
+@property (nonatomic,assign)CGFloat AIR_centerY;
 
 @end

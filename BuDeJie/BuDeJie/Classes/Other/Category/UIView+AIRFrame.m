@@ -50,4 +50,29 @@
     return self.frame.size.height;
 }
 
+- (void)setAIR_centerX:(CGFloat)AIR_centerX{
+    CGPoint center = self.center;
+    center.x = AIR_centerX;
+    self.center = center;
+}
+
+- (CGFloat)AIR_centerX{
+    return self.center.x;
+    
+}
+
+
+- (void)setAIR_centerY:(CGFloat)AIR_centerY{
+    CGPoint center = self.center;
+    center.y = AIR_centerY;
+    self.center = center;
+    
+    
+}
+
+- (CGFloat)AIR_centerY{
+    return self.center.y;
+    
+}
+
 @end

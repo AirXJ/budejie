@@ -13,12 +13,8 @@
 		45285A361E28EBBC0057AE5E /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 45285A341E28EBBC0057AE5E /* UIColor+Hex.m */; };
 		4535C1131E2A3BF4000BBA67 /* UIView+AIRFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4535C1121E2A3BF4000BBA67 /* UIView+AIRFrame.m */; };
 		454835641E99E53600A65DF7 /* AIRFriendTrendController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454835631E99E53600A65DF7 /* AIRFriendTrendController.xib */; };
-		454835681E99EBC800A65DF7 /* AIRLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454835661E99EBC800A65DF7 /* AIRLoginRegisterViewController.m */; };
-		454835691E99EBC800A65DF7 /* AIRLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454835671E99EBC800A65DF7 /* AIRLoginRegisterViewController.xib */; };
 		4558BBB61E34E60600D62238 /* AIRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4558BBB51E34E60600D62238 /* AIRTabBarController.m */; };
 		455BB91F1E952C3800F1C67B /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 455BB91E1E952C3800F1C67B /* NSObject+Common.m */; };
-		455ED6C51E9A129000ECA5DE /* AIRLoginRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 455ED6C41E9A129000ECA5DE /* AIRLoginRegisterView.m */; };
-		455ED6C71E9A195B00ECA5DE /* AIRLoginRegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455ED6C61E9A195B00ECA5DE /* AIRLoginRegisterView.xib */; };
 		45699D6D1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45699D6C1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m */; };
 		456C77551E2729A500EF48A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 456C77531E2729A500EF48A9 /* Main.storyboard */; };
 		456C77571E2729A500EF48A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456C77561E2729A500EF48A9 /* Assets.xcassets */; };
@@ -39,6 +35,13 @@
 		457E59991E39EC1F00D98AFA /* AIRMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E59981E39EC1F00D98AFA /* AIRMeController.m */; };
 		458AB6C61E9484100069BEF4 /* AIRADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458AB6C51E9484100069BEF4 /* AIRADViewController.m */; };
 		458AB6C81E948AEA0069BEF4 /* AIRADViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458AB6C71E948AEA0069BEF4 /* AIRADViewController.xib */; };
+		459FA9721E9B1F7200C17F87 /* AIRLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459FA9661E9B1F7200C17F87 /* AIRLoginRegisterViewController.m */; };
+		459FA9731E9B1F7200C17F87 /* AIRLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459FA9671E9B1F7200C17F87 /* AIRLoginRegisterViewController.xib */; };
+		459FA9741E9B1F7200C17F87 /* AIRFastLoginBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 459FA96B1E9B1F7200C17F87 /* AIRFastLoginBtn.m */; };
+		459FA9751E9B1F7200C17F87 /* AIRFastLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 459FA96D1E9B1F7200C17F87 /* AIRFastLoginView.m */; };
+		459FA9761E9B1F7200C17F87 /* AIRFastLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459FA96E1E9B1F7200C17F87 /* AIRFastLoginView.xib */; };
+		459FA9771E9B1F7200C17F87 /* AIRLoginRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 459FA9701E9B1F7200C17F87 /* AIRLoginRegisterView.m */; };
+		459FA9781E9B1F7200C17F87 /* AIRLoginRegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459FA9711E9B1F7200C17F87 /* AIRLoginRegisterView.xib */; };
 		45AA047E1E94BA4900CFED65 /* YYHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA047D1E94BA4900CFED65 /* YYHttpTool.m */; };
 		45AE23F81E3B77BC005F81B2 /* AIRTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AE23F71E3B77BC005F81B2 /* AIRTabBar.m */; };
 		45AF48EE1E28C33300AD74ED /* UIImage+AIRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AF48ED1E28C33300AD74ED /* UIImage+AIRImage.m */; };
@@ -71,16 +74,10 @@
 		4535C1121E2A3BF4000BBA67 /* UIView+AIRFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AIRFrame.m"; sourceTree = "<group>"; };
 		4535C1141E2A4007000BBA67 /* BuDeJie.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuDeJie.pch; sourceTree = "<group>"; };
 		454835631E99E53600A65DF7 /* AIRFriendTrendController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRFriendTrendController.xib; sourceTree = "<group>"; };
-		454835651E99EBC800A65DF7 /* AIRLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRLoginRegisterViewController.h; sourceTree = "<group>"; };
-		454835661E99EBC800A65DF7 /* AIRLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRLoginRegisterViewController.m; sourceTree = "<group>"; };
-		454835671E99EBC800A65DF7 /* AIRLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRLoginRegisterViewController.xib; sourceTree = "<group>"; };
 		4558BBB41E34E60600D62238 /* AIRTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBarController.h; sourceTree = "<group>"; };
 		4558BBB51E34E60600D62238 /* AIRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBarController.m; sourceTree = "<group>"; };
 		455BB91D1E952C3800F1C67B /* NSObject+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Common.h"; sourceTree = "<group>"; };
 		455BB91E1E952C3800F1C67B /* NSObject+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Common.m"; sourceTree = "<group>"; };
-		455ED6C31E9A129000ECA5DE /* AIRLoginRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRLoginRegisterView.h; sourceTree = "<group>"; };
-		455ED6C41E9A129000ECA5DE /* AIRLoginRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRLoginRegisterView.m; sourceTree = "<group>"; };
-		455ED6C61E9A195B00ECA5DE /* AIRLoginRegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRLoginRegisterView.xib; sourceTree = "<group>"; };
 		455EE9491E44A39F006B7CB9 /* AIRDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIRDefine.h; sourceTree = "<group>"; };
 		45699D6B1E2F735300DEA389 /* UIBarButtonItem+AIRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+AIRItem.h"; sourceTree = "<group>"; };
 		45699D6C1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+AIRItem.m"; sourceTree = "<group>"; };
@@ -116,6 +113,17 @@
 		458AB6C41E9484100069BEF4 /* AIRADViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRADViewController.h; sourceTree = "<group>"; };
 		458AB6C51E9484100069BEF4 /* AIRADViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRADViewController.m; sourceTree = "<group>"; };
 		458AB6C71E948AEA0069BEF4 /* AIRADViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRADViewController.xib; sourceTree = "<group>"; };
+		459FA9651E9B1F7200C17F87 /* AIRLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRLoginRegisterViewController.h; sourceTree = "<group>"; };
+		459FA9661E9B1F7200C17F87 /* AIRLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRLoginRegisterViewController.m; sourceTree = "<group>"; };
+		459FA9671E9B1F7200C17F87 /* AIRLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRLoginRegisterViewController.xib; sourceTree = "<group>"; };
+		459FA96A1E9B1F7200C17F87 /* AIRFastLoginBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRFastLoginBtn.h; sourceTree = "<group>"; };
+		459FA96B1E9B1F7200C17F87 /* AIRFastLoginBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRFastLoginBtn.m; sourceTree = "<group>"; };
+		459FA96C1E9B1F7200C17F87 /* AIRFastLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRFastLoginView.h; sourceTree = "<group>"; };
+		459FA96D1E9B1F7200C17F87 /* AIRFastLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRFastLoginView.m; sourceTree = "<group>"; };
+		459FA96E1E9B1F7200C17F87 /* AIRFastLoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRFastLoginView.xib; sourceTree = "<group>"; };
+		459FA96F1E9B1F7200C17F87 /* AIRLoginRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRLoginRegisterView.h; sourceTree = "<group>"; };
+		459FA9701E9B1F7200C17F87 /* AIRLoginRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRLoginRegisterView.m; sourceTree = "<group>"; };
+		459FA9711E9B1F7200C17F87 /* AIRLoginRegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRLoginRegisterView.xib; sourceTree = "<group>"; };
 		45AA047C1E94BA4900CFED65 /* YYHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHttpTool.h; sourceTree = "<group>"; };
 		45AA047D1E94BA4900CFED65 /* YYHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHttpTool.m; sourceTree = "<group>"; };
 		45AE23F61E3B77BC005F81B2 /* AIRTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBar.h; sourceTree = "<group>"; };
@@ -166,6 +174,7 @@
 				450367371E286BF600093D49 /* FriendTrend(关注) */,
 				4503673B1E286BF600093D49 /* Me(我) */,
 				4521214E1E34B56700C4B473 /* Setting(设置) */,
+				459FA9631E9B1F7200C17F87 /* Count(个人账号 ) */,
 				4553D8D51E30EBD7000BEE51 /* AD(广告) */,
 			);
 			path = Classes;
@@ -372,9 +381,6 @@
 			children = (
 				456EF0B91E3C92E200EF7BFC /* AIRSettingController.h */,
 				456EF0BA1E3C92E200EF7BFC /* AIRSettingController.m */,
-				454835651E99EBC800A65DF7 /* AIRLoginRegisterViewController.h */,
-				454835661E99EBC800A65DF7 /* AIRLoginRegisterViewController.m */,
-				454835671E99EBC800A65DF7 /* AIRLoginRegisterViewController.xib */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -389,9 +395,6 @@
 		452121511E34B56700C4B473 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				455ED6C31E9A129000ECA5DE /* AIRLoginRegisterView.h */,
-				455ED6C41E9A129000ECA5DE /* AIRLoginRegisterView.m */,
-				455ED6C61E9A195B00ECA5DE /* AIRLoginRegisterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -494,6 +497,48 @@
 				45745B7E1E31F8F900007081 /* LaunchImage.png */,
 			);
 			path = LaunchImage;
+			sourceTree = "<group>";
+		};
+		459FA9631E9B1F7200C17F87 /* Count(个人账号 ) */ = {
+			isa = PBXGroup;
+			children = (
+				459FA9641E9B1F7200C17F87 /* Control */,
+				459FA9681E9B1F7200C17F87 /* Model */,
+				459FA9691E9B1F7200C17F87 /* View */,
+			);
+			path = "Count(个人账号 )";
+			sourceTree = "<group>";
+		};
+		459FA9641E9B1F7200C17F87 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				459FA9651E9B1F7200C17F87 /* AIRLoginRegisterViewController.h */,
+				459FA9661E9B1F7200C17F87 /* AIRLoginRegisterViewController.m */,
+				459FA9671E9B1F7200C17F87 /* AIRLoginRegisterViewController.xib */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		459FA9681E9B1F7200C17F87 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		459FA9691E9B1F7200C17F87 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				459FA96A1E9B1F7200C17F87 /* AIRFastLoginBtn.h */,
+				459FA96B1E9B1F7200C17F87 /* AIRFastLoginBtn.m */,
+				459FA96C1E9B1F7200C17F87 /* AIRFastLoginView.h */,
+				459FA96D1E9B1F7200C17F87 /* AIRFastLoginView.m */,
+				459FA96E1E9B1F7200C17F87 /* AIRFastLoginView.xib */,
+				459FA96F1E9B1F7200C17F87 /* AIRLoginRegisterView.h */,
+				459FA9701E9B1F7200C17F87 /* AIRLoginRegisterView.m */,
+				459FA9711E9B1F7200C17F87 /* AIRLoginRegisterView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		45AF48E41E28BB0600AD74ED /* Main(主要) */ = {
@@ -660,10 +705,11 @@
 				45745B831E31F8F900007081 /* LaunchImage.png in Resources */,
 				45745B7F1E31F8F900007081 /* LaunchImage-568h@2x.png in Resources */,
 				45745B801E31F8F900007081 /* LaunchImage-700@2x.png in Resources */,
-				454835691E99EBC800A65DF7 /* AIRLoginRegisterViewController.xib in Resources */,
+				459FA9731E9B1F7200C17F87 /* AIRLoginRegisterViewController.xib in Resources */,
+				459FA9761E9B1F7200C17F87 /* AIRFastLoginView.xib in Resources */,
+				459FA9781E9B1F7200C17F87 /* AIRLoginRegisterView.xib in Resources */,
 				458AB6C81E948AEA0069BEF4 /* AIRADViewController.xib in Resources */,
 				45745B821E31F8F900007081 /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
-				455ED6C71E9A195B00ECA5DE /* AIRLoginRegisterView.xib in Resources */,
 				454835641E99E53600A65DF7 /* AIRFriendTrendController.xib in Resources */,
 				456C77571E2729A500EF48A9 /* Assets.xcassets in Resources */,
 				45745B811E31F8F900007081 /* LaunchImage-800-667h@2x.png in Resources */,
@@ -740,25 +786,27 @@
 				458AB6C61E9484100069BEF4 /* AIRADViewController.m in Sources */,
 				45EDE77E1E98C0F200465566 /* AIRSubTagCell.m in Sources */,
 				45AA047E1E94BA4900CFED65 /* YYHttpTool.m in Sources */,
+				459FA9751E9B1F7200C17F87 /* AIRFastLoginView.m in Sources */,
 				4535C1131E2A3BF4000BBA67 /* UIView+AIRFrame.m in Sources */,
 				457E59991E39EC1F00D98AFA /* AIRMeController.m in Sources */,
 				457E598A1E39EAF200D98AFA /* AIRNavigationController.m in Sources */,
 				45699D6D1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m in Sources */,
 				45285A351E28EBBC0057AE5E /* Foundation+Log.m in Sources */,
+				459FA9741E9B1F7200C17F87 /* AIRFastLoginBtn.m in Sources */,
 				455BB91F1E952C3800F1C67B /* NSObject+Common.m in Sources */,
 				4503674C1E286BF600093D49 /* main.m in Sources */,
 				4558BBB61E34E60600D62238 /* AIRTabBarController.m in Sources */,
 				457E59961E39EC0600D98AFA /* AIRFriendTrendController.m in Sources */,
 				45285A361E28EBBC0057AE5E /* UIColor+Hex.m in Sources */,
-				455ED6C51E9A129000ECA5DE /* AIRLoginRegisterView.m in Sources */,
 				45D1A6DB1E951CDE0016CBF2 /* AIRSubTagTableViewController.m in Sources */,
 				457E598D1E39EBB800D98AFA /* AIREssenceController.m in Sources */,
 				45AF48EE1E28C33300AD74ED /* UIImage+AIRImage.m in Sources */,
 				4503674B1E286BF600093D49 /* AppDelegate.m in Sources */,
-				454835681E99EBC800A65DF7 /* AIRLoginRegisterViewController.m in Sources */,
+				459FA9721E9B1F7200C17F87 /* AIRLoginRegisterViewController.m in Sources */,
 				45B393AA1E98BBDC00E93D52 /* AIRSubTagItem.m in Sources */,
 				457E59901E39EBD200D98AFA /* AIRNewController.m in Sources */,
 				45AE23F81E3B77BC005F81B2 /* AIRTabBar.m in Sources */,
+				459FA9771E9B1F7200C17F87 /* AIRLoginRegisterView.m in Sources */,
 				456EF0BB1E3C92E200EF7BFC /* AIRSettingController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

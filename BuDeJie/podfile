@@ -1,6 +1,7 @@
 platform :ios, '8.0'
 #use_frameworks!个别需要用到它，比如reactiveCocoa
-
+#Rename CocoaPods project files missing?文件丢失都可以用下面的方法但是一定要打开Pods在内部闪不要关闭了删
+#Delete the PODS directory created in Project directory and do a fresh pod install, then do a clean build. This will fix the issue.
 def pods
   pod 'AFNetworking', '~> 3.1.0'
   pod 'MJExtension', '~> 3.0.13'

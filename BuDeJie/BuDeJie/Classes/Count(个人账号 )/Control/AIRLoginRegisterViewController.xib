@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIRLoginRegisterViewController">
+            <connections>
+                <outlet property="bottomView" destination="hgY-mC-Nfh" id="8rK-tV-P2p"/>
+                <outlet property="midLdCons" destination="zPa-QC-hc4" id="Gm2-6z-B8c"/>
+                <outlet property="middleView" destination="Jwx-vb-AxK" id="eBb-kU-gvo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_register_background" translatesAutoresizingMaskIntoConstraints="NO" id="UuC-of-tRR">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5r-hV-uvF" userLabel="TOP">
+                    <rect key="frame" x="0.0" y="20" width="375" height="35"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="II2-we-vvp">
+                            <rect key="frame" x="10" y="0.0" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="sPU-EW-eLq"/>
+                            </constraints>
+                            <state key="normal" image="login_close_icon"/>
+                            <connections>
+                                <action selector="close:" destination="-1" eventType="touchUpInside" id="Pop-Fn-BHo"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="do3-3j-4Qo">
+                            <rect key="frame" x="288" y="0.0" width="77" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="77" id="xkW-4H-9Hb"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="注册帐号？"/>
+                            <state key="selected" title="已有帐号？"/>
+                            <connections>
+                                <action selector="clickRegister:" destination="-1" eventType="touchUpInside" id="m2z-3v-gWl"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="II2-we-vvp" firstAttribute="leading" secondItem="w5r-hV-uvF" secondAttribute="leading" constant="10" id="4vT-QL-DU1"/>
+                        <constraint firstAttribute="trailing" secondItem="do3-3j-4Qo" secondAttribute="trailing" constant="10" id="5Qg-WR-a9G"/>
+                        <constraint firstAttribute="bottom" secondItem="II2-we-vvp" secondAttribute="bottom" id="7My-AL-Ljq"/>
+                        <constraint firstItem="do3-3j-4Qo" firstAttribute="top" secondItem="w5r-hV-uvF" secondAttribute="top" id="PXJ-q4-HaE"/>
+                        <constraint firstAttribute="bottom" secondItem="do3-3j-4Qo" secondAttribute="bottom" id="Rgb-ln-6sn"/>
+                        <constraint firstAttribute="height" constant="35" id="Uzg-f0-S1f"/>
+                        <constraint firstItem="II2-we-vvp" firstAttribute="top" secondItem="w5r-hV-uvF" secondAttribute="top" id="lxB-eN-CvA"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgY-mC-Nfh" userLabel="Bottom">
+                    <rect key="frame" x="0.0" y="527" width="375" height="120"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="gN8-ln-Yex"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jwx-vb-AxK" userLabel="Middle">
+                    <rect key="frame" x="0.0" y="95" width="750" height="300"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="300" id="ZOA-2y-gwh"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Jwx-vb-AxK" firstAttribute="top" secondItem="w5r-hV-uvF" secondAttribute="bottom" constant="40" id="9Nt-Ui-75q"/>
+                <constraint firstAttribute="bottom" secondItem="hgY-mC-Nfh" secondAttribute="bottom" constant="20" id="A2D-7b-shZ"/>
+                <constraint firstAttribute="trailing" secondItem="UuC-of-tRR" secondAttribute="trailing" id="KtT-yd-8WI"/>
+                <constraint firstAttribute="trailing" secondItem="hgY-mC-Nfh" secondAttribute="trailing" id="N5b-Ge-TpG"/>
+                <constraint firstAttribute="bottom" secondItem="UuC-of-tRR" secondAttribute="bottom" id="NYO-aS-zkb"/>
+                <constraint firstItem="UuC-of-tRR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NrD-IV-GTf"/>
+                <constraint firstItem="UuC-of-tRR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ue8-Ct-47g"/>
+                <constraint firstItem="Jwx-vb-AxK" firstAttribute="width" secondItem="hgY-mC-Nfh" secondAttribute="width" multiplier="2" id="e3F-MV-lXw"/>
+                <constraint firstItem="w5r-hV-uvF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hI7-rB-J6G"/>
+                <constraint firstItem="hgY-mC-Nfh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hZG-RQ-0aK"/>
+                <constraint firstItem="w5r-hV-uvF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="hrr-jF-ZIN"/>
+                <constraint firstAttribute="trailing" secondItem="w5r-hV-uvF" secondAttribute="trailing" id="w6u-Ld-I3j"/>
+                <constraint firstItem="Jwx-vb-AxK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zPa-QC-hc4"/>
+            </constraints>
+            <point key="canvasLocation" x="43.5" y="-6.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="login_close_icon" width="16" height="16"/>
+        <image name="login_register_background" width="320" height="568"/>
+    </resources>
+</document>
