@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIRFriendTrendController">
             <connections>
+                <outlet property="testField" destination="gkA-JT-eTy" id="Y67-Zv-YOA"/>
                 <outlet property="view" destination="iN0-l3-epB" id="gZH-xZ-9NO"/>
             </connections>
         </placeholder>
@@ -20,14 +21,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_cry_icon" translatesAutoresizingMaskIntoConstraints="NO" id="U2x-VT-3Za">
-                    <rect key="frame" x="163.5" y="225" width="48" height="48"/>
+                    <rect key="frame" x="164" y="225" width="48" height="48"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="48" id="TNq-FR-4TU"/>
                         <constraint firstAttribute="height" constant="48" id="Tzo-Gg-k8E"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVQ-FG-Ls8">
-                    <rect key="frame" x="54.5" y="303" width="266" height="61"/>
+                    <rect key="frame" x="55" y="303" width="266" height="61"/>
                     <string key="text">快登录吧，关注百思最in牛人
 好友动态让你过把瘾儿～
 欧耶～～～～！(option+enter换行)</string>
@@ -52,13 +53,24 @@
                         <action selector="clickLoginRegister:" destination="-1" eventType="touchUpInside" id="KBa-1x-ho5"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gkA-JT-eTy">
+                    <rect key="frame" x="153" y="318" width="70" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="PYJ-un-GiB"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="YVQ-FG-Ls8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7bs-TJ-Ukm"/>
                 <constraint firstItem="YVQ-FG-Ls8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="9Ie-gZ-tec"/>
                 <constraint firstItem="U2x-VT-3Za" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jep-k1-Udu"/>
+                <constraint firstItem="gkA-JT-eTy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="niD-sb-fuE"/>
                 <constraint firstItem="OD1-49-OTA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qq8-7x-d8v"/>
+                <constraint firstItem="gkA-JT-eTy" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wZM-3e-onb"/>
                 <constraint firstItem="YVQ-FG-Ls8" firstAttribute="top" secondItem="U2x-VT-3Za" secondAttribute="bottom" constant="30" id="xFC-O3-VY4"/>
                 <constraint firstItem="OD1-49-OTA" firstAttribute="top" secondItem="YVQ-FG-Ls8" secondAttribute="bottom" constant="30" id="zUt-kl-JBH"/>
             </constraints>

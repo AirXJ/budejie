@@ -11,6 +11,7 @@
 @implementation AIRFastLoginBtn
 - (void)layoutSubviews{
     [super layoutSubviews];
+   
     self.imageView.AIR_y = 0;
     
     self.imageView.AIR_centerX = self.AIR_width*0.5;

@@ -20,7 +20,10 @@
 @implementation AIRLoginRegisterViewController
 
 
-//越复杂的界面也要复用(封装)，划分结构去布局
+/************
+ 1.越复杂的界面也要复用(封装)，划分结构去布局
+ 2.有特殊效果界面,也要封装
+ ************/
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -38,6 +41,8 @@
     
     AIRFastLoginView *fastLoginView = [AIRFastLoginView fastLoginView];
     [self.bottomView addSubview:fastLoginView];
+    
+    
 }
 
 

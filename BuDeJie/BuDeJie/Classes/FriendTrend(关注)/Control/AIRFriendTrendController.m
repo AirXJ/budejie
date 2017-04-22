@@ -8,10 +8,11 @@
 
 #import "AIRFriendTrendController.h"
 #import "AIRLoginRegisterViewController.h"
-
+#import "UITextField+AIRPlaceholder.h"
 
 @interface AIRFriendTrendController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *testField;
 
 @end
 
@@ -21,6 +22,14 @@
     [super viewDidLoad];
     [self setStackControllerBar];
     // Do any additional setup after loading the view.
+  
+    //⚠️先设置颜色没有效果. => oc是懒加载机制，没有文字就没必要设置颜色，所以先设置颜色没效果
+    self.testField.Air_PlaceholderColor = [UIColor redColor];
+    self.testField.placeholder = @"有颜色?";
+    
+   
+    
+    
 }
 
 

@@ -12,7 +12,7 @@
 #import "AIRNewController.h"
 #import "AIRPublishController.h"
 #import "AIRFriendTrendController.h"
-#import "AIRMeController.h"
+#import "AIRMeViewController.h"
 #import <objc/message.h>
 
 @implementation AIRTabBarModel
@@ -26,7 +26,12 @@
         [arr addObject:[AIRNewController class]];
         [arr addObject:[AIRPublishController class]];
         [arr addObject:[AIRFriendTrendController class]];
-        [arr addObject:[AIRMeController class]];
+        
+        //加载故事版中箭头指向的控制器
+        UIStoryboard *strBoard = [UIStoryboard storyboardWithName:NSStringFromClass([AIRMeViewController class]) bundle:nil];
+        AIRMeViewController *meVc = [strBoard instantiateInitialViewController];
+        
+        [arr addObject:meVc];
         _classArray = [arr copy];
     }
     
@@ -38,9 +43,16 @@
     if (_controllerArray == nil) {
         NSMutableArray *array = [NSMutableArray array];
         for (id classObj in self.classArray) {
-            id p = objc_msgSend(classObj  ,sel_registerName("alloc"));
-            p = objc_msgSend(p,sel_registerName("init"));
-            [array addObject:p];
+            if ([classObj isMemberOfClass:[AIRMeViewController class]]) {
+               
+                [array addObject:(AIRMeViewController *)classObj];
+            }else{
+                id p = objc_msgSend(classObj  ,sel_registerName("alloc"));
+                p = objc_msgSend(p,sel_registerName("init"));
+                [array addObject:p];
+            }
+            
+            
         }
         _controllerArray = [array copy];
     }
