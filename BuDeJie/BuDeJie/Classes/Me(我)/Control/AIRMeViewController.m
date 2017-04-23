@@ -9,8 +9,12 @@
 #import "AIRMeViewController.h"
 #import "AIRSquareCell.h"
 #import "AIRSquareItem.h"
+#import <SafariServices/SafariServices.h>
+#import "AIRWebViewController.h"
 
-@interface AIRMeViewController ()<UICollectionViewDataSource>
+//⚠️检查代理3步，少一步就不能调用方法
+@interface AIRMeViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+
 /******************** square模型数组 *******************/
 @property (nonatomic, strong) NSMutableArray *modelArr;
 /******************** 控件 *******************/
@@ -69,16 +73,21 @@ static CGFloat const AIRCommonMargin = 10;
         //处理数据,补collectionView空缺额外格子
         [self resloveData];
         
-        //设置collectionView的高度 rows * itemWH ->万能公式 : Rows = (count - 1)/cols + 1
-//        NSInteger count = self.modelArr.count;
+        
+        //设置collectionView的高度＋10,不能省略，会有点小bug测试下来
+        NSInteger rows = (count - 1)/cols + 1;
+        self.collectionView.AIR_height = rows * itemWH + 10.0;
+/******************************************************
+    设置collectionView的高度 rows * itemWH ->万能公式 : Rows = (count - 1)/cols + 1
+        NSInteger count = self.modelArr.count;
         NSInteger rows = (count - 1)/cols + 1;
         self.collectionView.AIR_height = rows * itemWH;
-        
-        //重新设置tableview滚动范围:自己计算 self.tableView.contentSize这个属性是tableview不存在，是自己计算的。下面这句没作用
-        //self.tableView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.collectionView.frame));
+ 
+   重新设置tableview滚动范围:自己计算\
+   self.tableView.contentSize这个属性是tableview不存在，是自己计算的。下面这句没作用
+       self.tableView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.collectionView.frame));
+****************************************************/
         self.tableView.tableFooterView = self.collectionView;
-        
-
         
         //有了数据, 刷新表格
         [self.collectionView reloadData];
@@ -102,11 +111,12 @@ static CGFloat const AIRCommonMargin = 10;
         layout.minimumInteritemSpacing = margin;
         
         //创建UICollectionView
-        UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 10, 0, 900) collectionViewLayout:layout];
+        UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) collectionViewLayout:layout];
         self.collectionView = collectionView;
         //禁止collectionView滚动
         self.collectionView.scrollEnabled = NO;
         collectionView.dataSource = self;
+        collectionView.delegate = self;
         //注册cell
         [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([AIRSquareCell class]) bundle:nil] forCellWithReuseIdentifier:identify];
         collectionView.backgroundColor = self.tableView.backgroundColor;
@@ -114,7 +124,9 @@ static CGFloat const AIRCommonMargin = 10;
         self.tableView.tableFooterView = collectionView;
     
     /*********⚠️重要
-     调整tableView的section间距的方法 控制头和脚视图的高度; 以及调整内边距(-25代表：所有内容往上移动25)
+     用.更不容易出现bug，建议多使用.语法
+     处理cell间距,默认tableView分组样式,有额外头部和尾部间距
+     以及调整内边距(-25代表：所有内容往上移动25)
      *******/
        self.tableView.sectionHeaderHeight = 0;
        self.tableView.sectionFooterHeight = AIRCommonMargin;
@@ -137,15 +149,42 @@ static CGFloat const AIRCommonMargin = 10;
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
+#pragma mark - UICollectionViewDelegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 2) {
-        return 0;
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    AIRLog(@"点击了小格子");
+    //跳转界面 push 展示一个网页 3中方法 1.应用代理的openURL 自带功能(进度条，刷新，前进等)，必须跳出当前应用 2.UIWebView (没有功能)，在当前应用打开网页, 功能要自己实现，而且不提供进度条\
+    3.SFSafariViewController: iOS9之后,新推出一个框架，集齐了1和2所有的优点 \
+     首先要导入#import <SafariServices/SafariServices.h>\
+    4.WKWebView: iOS8之后, UIWebView的升级版(添加功能:监听任务 缓存) 。\
+     首先要导入#import <WebKit/WebKit.h>
+    
+    AIRSquareItem *item = self.modelArr[indexPath.item];
+    if (![item.url containsString:@"http"]) {
+        return;
     }
-    return  44;
+    NSURL *itemUrl = [NSURL URLWithString:item.url];
+/******************************************************
+
+    SFSafariViewController *safariVc = [[SFSafariViewController alloc]initWithURL:itemUrl];
+    //用modal会自动返回，自动显示隐藏self.navigationController.navigationBarHidden,不需要再设置代理再实现代理方法了
+    [self presentViewController:safariVc animated:YES completion:nil];
+ 
+******************************************************/
+   //创建网页控制器
+    AIRWebViewController *webVc = [[AIRWebViewController alloc] init];
+    [self.navigationController pushViewController:webVc animated:YES];
+
+
+
+
 }
 
+//#pragma mark - SFSafariViewControllerDelegate
+//- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller{
+////    [self.navigationController popViewControllerAnimated:YES];
+//}
 #pragma mark - 处理请求完成数据
 - (void)resloveData
 {

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4503674B1E286BF600093D49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 450367451E286BF600093D49 /* AppDelegate.m */; };
 		4503674C1E286BF600093D49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 450367461E286BF600093D49 /* main.m */; };
+		4520B8341EAC5CA700EC1987 /* AIRWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4520B8321EAC5CA700EC1987 /* AIRWebViewController.m */; };
+		4520B8351EAC5CA700EC1987 /* AIRWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4520B8331EAC5CA700EC1987 /* AIRWebViewController.xib */; };
 		45285A351E28EBBC0057AE5E /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 45285A321E28EBBC0057AE5E /* Foundation+Log.m */; };
 		45285A361E28EBBC0057AE5E /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 45285A341E28EBBC0057AE5E /* UIColor+Hex.m */; };
 		452EAF811EA2073C008A576D /* AIRSquareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 452EAF7F1EA2073C008A576D /* AIRSquareCell.m */; };
@@ -73,6 +75,9 @@
 		450367441E286BF600093D49 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		450367451E286BF600093D49 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		450367461E286BF600093D49 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4520B8311EAC5CA700EC1987 /* AIRWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRWebViewController.h; sourceTree = "<group>"; };
+		4520B8321EAC5CA700EC1987 /* AIRWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRWebViewController.m; sourceTree = "<group>"; };
+		4520B8331EAC5CA700EC1987 /* AIRWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRWebViewController.xib; sourceTree = "<group>"; };
 		45285A321E28EBBC0057AE5E /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		45285A331E28EBBC0057AE5E /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		45285A341E28EBBC0057AE5E /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
@@ -279,6 +284,9 @@
 				455EDAFF1EA1C8930042DB27 /* AIRMeViewController.h */,
 				455EDB001EA1C8930042DB27 /* AIRMeViewController.m */,
 				455EDB021EA1C89E0042DB27 /* AIRMeViewController.storyboard */,
+				4520B8311EAC5CA700EC1987 /* AIRWebViewController.h */,
+				4520B8321EAC5CA700EC1987 /* AIRWebViewController.m */,
+				4520B8331EAC5CA700EC1987 /* AIRWebViewController.xib */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -733,6 +741,7 @@
 				45745B7F1E31F8F900007081 /* LaunchImage-568h@2x.png in Resources */,
 				45745B801E31F8F900007081 /* LaunchImage-700@2x.png in Resources */,
 				459FA9731E9B1F7200C17F87 /* AIRLoginRegisterViewController.xib in Resources */,
+				4520B8351EAC5CA700EC1987 /* AIRWebViewController.xib in Resources */,
 				459FA9761E9B1F7200C17F87 /* AIRFastLoginView.xib in Resources */,
 				459FA9781E9B1F7200C17F87 /* AIRLoginRegisterView.xib in Resources */,
 				458AB6C81E948AEA0069BEF4 /* AIRADViewController.xib in Resources */,
@@ -833,6 +842,7 @@
 				457E598D1E39EBB800D98AFA /* AIREssenceController.m in Sources */,
 				45AF48EE1E28C33300AD74ED /* UIImage+AIRImage.m in Sources */,
 				4503674B1E286BF600093D49 /* AppDelegate.m in Sources */,
+				4520B8341EAC5CA700EC1987 /* AIRWebViewController.m in Sources */,
 				455EDB011EA1C8930042DB27 /* AIRMeViewController.m in Sources */,
 				459FA9721E9B1F7200C17F87 /* AIRLoginRegisterViewController.m in Sources */,
 				45B393AA1E98BBDC00E93D52 /* AIRSubTagItem.m in Sources */,

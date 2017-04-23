@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIRWebViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yz-G2-Rg1">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIQ-RN-sIh">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="RIU-J1-e9t"/>
+                    </constraints>
+                    <items>
+                        <barButtonItem title="Item" id="OM9-HJ-Etz"/>
+                        <barButtonItem title="Item" id="Whf-jP-d9x"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="miL-0M-kgn"/>
+                        <barButtonItem systemItem="refresh" id="ptr-Oe-3no"/>
+                    </items>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="WIQ-RN-sIh" secondAttribute="trailing" id="TyU-Fo-xBw"/>
+                <constraint firstItem="7yz-G2-Rg1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UAQ-xR-44B"/>
+                <constraint firstAttribute="bottom" secondItem="WIQ-RN-sIh" secondAttribute="bottom" id="VbK-8E-STx"/>
+                <constraint firstItem="WIQ-RN-sIh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XSA-jI-s7K"/>
+                <constraint firstItem="7yz-G2-Rg1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YYy-M3-6gm"/>
+                <constraint firstAttribute="bottom" secondItem="7yz-G2-Rg1" secondAttribute="bottom" id="phj-55-6dE"/>
+                <constraint firstAttribute="trailing" secondItem="7yz-G2-Rg1" secondAttribute="trailing" id="zpB-Yb-rmP"/>
+            </constraints>
+            <point key="canvasLocation" x="-249" y="42"/>
+        </view>
+    </objects>
+</document>
