@@ -18,13 +18,6 @@
     [super viewDidLoad];
     
     //现在我又需要全屏滑动了，必须加功能，加功能的话就是修改手势，那最好打印一下看下手势
-    /********************************************************
-     <UIScreenEdgePanGestureRecognizer: 0x7f852270e0c0; state = Possible; delaysTouchesBegan = YES; view = <UILayoutContainerView 0x7f8522506dc0>; target= <(action=handleNavigationTransition:, target=<_UINavigationInteractiveTransition 0x7f852270cf10>)>>
-     *******************************************************/
-   // AIRLog(@"%@",self.interactivePopGestureRecognizer);
-//    UIScreenEdgePanGestureRecognizer *edgePan = (UIScreenEdgePanGestureRecognizer *)self.interactivePopGestureRecognizer;
-//    edgePan.edges = UIRectEdgeNone;
-    
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
@@ -36,10 +29,7 @@
     //禁止之前的手势
     self.interactivePopGestureRecognizer.enabled = NO;
     
-    /*********************************************************这行代码在新版本中可以不写了，但是写也没什么*****************************************************/
-    //这个应该是一个懒加载，自定义导航按钮覆盖了原本导航条的返回按钮，导致代理失效;又发生了一个新的问题，这样写的话，导航根控制器也拥有了手势滑动功能，所以要控制根控制器的事件触发，通过手势代理的一个方法；
-    //self.interactivePopGestureRecognizer.delegate = self;
-    /*********************************************************这行代码在新版本中可以不写了，但是写也没什么*****************************************************/
+  
     // Do any additional setup after loading the view.
 }
 

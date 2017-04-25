@@ -18,6 +18,7 @@
 		4535C1131E2A3BF4000BBA67 /* UIView+AIRFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4535C1121E2A3BF4000BBA67 /* UIView+AIRFrame.m */; };
 		454835641E99E53600A65DF7 /* AIRFriendTrendController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454835631E99E53600A65DF7 /* AIRFriendTrendController.xib */; };
 		455304011EA34F52008F6075 /* AIRSquareItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 455304001EA34F52008F6075 /* AIRSquareItem.m */; };
+		45580DA51EAEDDFC0039F92E /* AIRFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45580DA41EAEDDFC0039F92E /* AIRFileTool.m */; };
 		4558BBB61E34E60600D62238 /* AIRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4558BBB51E34E60600D62238 /* AIRTabBarController.m */; };
 		455BB91F1E952C3800F1C67B /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 455BB91E1E952C3800F1C67B /* NSObject+Common.m */; };
 		455EDB011EA1C8930042DB27 /* AIRMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455EDB001EA1C8930042DB27 /* AIRMeViewController.m */; };
@@ -90,6 +91,8 @@
 		454835631E99E53600A65DF7 /* AIRFriendTrendController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRFriendTrendController.xib; sourceTree = "<group>"; };
 		455303FF1EA34F52008F6075 /* AIRSquareItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSquareItem.h; sourceTree = "<group>"; };
 		455304001EA34F52008F6075 /* AIRSquareItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSquareItem.m; sourceTree = "<group>"; };
+		45580DA31EAEDDFC0039F92E /* AIRFileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRFileTool.h; sourceTree = "<group>"; };
+		45580DA41EAEDDFC0039F92E /* AIRFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRFileTool.m; sourceTree = "<group>"; };
 		4558BBB41E34E60600D62238 /* AIRTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBarController.h; sourceTree = "<group>"; };
 		4558BBB51E34E60600D62238 /* AIRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBarController.m; sourceTree = "<group>"; };
 		455BB91D1E952C3800F1C67B /* NSObject+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Common.h"; sourceTree = "<group>"; };
@@ -353,6 +356,7 @@
 		450367431E286BF600093D49 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				45580DA11EAEDDBF0039F92E /* Tool */,
 				45AF48EB1E28C2FE00AD74ED /* Category */,
 				450367441E286BF600093D49 /* AppDelegate.h */,
 				450367451E286BF600093D49 /* AppDelegate.m */,
@@ -465,6 +469,23 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		45580DA11EAEDDBF0039F92E /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				45580DA21EAEDDBF0039F92E /* File */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		45580DA21EAEDDBF0039F92E /* File */ = {
+			isa = PBXGroup;
+			children = (
+				45580DA31EAEDDFC0039F92E /* AIRFileTool.h */,
+				45580DA41EAEDDFC0039F92E /* AIRFileTool.m */,
+			);
+			path = File;
 			sourceTree = "<group>";
 		};
 		456C773E1E2729A500EF48A9 = {
@@ -825,6 +846,7 @@
 				45EDE77E1E98C0F200465566 /* AIRSubTagCell.m in Sources */,
 				455304011EA34F52008F6075 /* AIRSquareItem.m in Sources */,
 				45AA047E1E94BA4900CFED65 /* YYHttpTool.m in Sources */,
+				45580DA51EAEDDFC0039F92E /* AIRFileTool.m in Sources */,
 				459FA9751E9B1F7200C17F87 /* AIRFastLoginView.m in Sources */,
 				4535C1131E2A3BF4000BBA67 /* UIView+AIRFrame.m in Sources */,
 				459FA97B1E9B23D800C17F87 /* AIRWhileTextField.m in Sources */,

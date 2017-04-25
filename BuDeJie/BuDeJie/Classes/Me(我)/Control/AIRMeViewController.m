@@ -1,16 +1,11 @@
 //  静态单元格只能用故事版加载
-//  AIRMeViewController.m
-//  BuDeJie
-//
-//  Created by air on 17/4/15.
-//  Copyright © 2017年 air. All rights reserved.
-//
 
 #import "AIRMeViewController.h"
 #import "AIRSquareCell.h"
 #import "AIRSquareItem.h"
 #import <SafariServices/SafariServices.h>
 #import "AIRWebViewController.h"
+#import "AIRSettingController.h"
 
 //⚠️检查代理3步，少一步就不能调用方法
 @interface AIRMeViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
@@ -165,6 +160,11 @@ static CGFloat const AIRCommonMargin = 10;
         return;
     }
     NSURL *itemUrl = [NSURL URLWithString:item.url];
+    
+     //创建网页控制器
+    AIRWebViewController *webVc = [[AIRWebViewController alloc] init];
+    webVc.url = itemUrl;
+    
 /******************************************************
 
     SFSafariViewController *safariVc = [[SFSafariViewController alloc]initWithURL:itemUrl];
@@ -172,13 +172,9 @@ static CGFloat const AIRCommonMargin = 10;
     [self presentViewController:safariVc animated:YES completion:nil];
  
 ******************************************************/
-   //创建网页控制器
-    AIRWebViewController *webVc = [[AIRWebViewController alloc] init];
+  
+    
     [self.navigationController pushViewController:webVc animated:YES];
-
-
-
-
 }
 
 //#pragma mark - SFSafariViewControllerDelegate
@@ -234,7 +230,7 @@ static CGFloat const AIRCommonMargin = 10;
 - (void)setting
 {
     // 跳转到设置界面
-    AIRMeViewController *settingVc = [[AIRMeViewController alloc] init];
+    AIRSettingController *settingVc = [[AIRSettingController alloc] init];
     // 必须要在跳转之前设置
     settingVc.hidesBottomBarWhenPushed = YES;
     
