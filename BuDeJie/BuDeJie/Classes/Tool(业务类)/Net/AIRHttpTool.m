@@ -1,11 +1,11 @@
 //
-//  YYHttpTool.m
+//  AIRHttpTool.m
 //
 
-#import "YYHttpTool.h"
+#import "AIRHttpTool.h"
 #import "NSObject+Common.h"
 
-@implementation YYHttpTool
+@implementation AIRHttpTool
 //方法：把path和参数拼接起来，把字符串中的中文转换为 百分号 形势，因为有的服务器不接收中文编码
 + (NSString *)percentPathWithPath:(NSString *)path params:(NSDictionary *)params{
     NSMutableString *percentPath =[NSMutableString stringWithString:path];

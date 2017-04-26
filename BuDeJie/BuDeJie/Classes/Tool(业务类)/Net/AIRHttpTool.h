@@ -1,11 +1,11 @@
 //
-//  YYHttpTool.h
+//  AIRHttpTool.h
 //网络请求工具类，负责整个项目中所有的Http网络请求
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-@interface YYHttpTool : NSObject
+@interface AIRHttpTool : NSObject
 /**
  *  发送一个GET请求
  *

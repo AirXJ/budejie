@@ -9,7 +9,7 @@
 #import "NSObject+Common.h"
 #import <MBProgressHUD.h>
 
-#define kToastDuration     1
+#define kToastDuration 10.0
 
 @implementation NSObject (Common)
 
