@@ -9,6 +9,12 @@
 #ifndef AIRDefine_h
 #define AIRDefine_h
 
+#pragma mark - 颜色
+/********颜色********/
+#define AIRColor(r,g,b) [UIColor colorWithRed:(r) / 256.0 green:(g) / 256.0 blue:(b) / 256.0 alpha:1]
+#define AIRRandomColor AIRColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+/********颜色********/
+
 #pragma mark - 屏幕适配
 /********屏幕适配********/
 #define AIRScreenW [UIScreen mainScreen].bounds.size.width
@@ -19,6 +25,7 @@
 #define AIRiphone4S (AIRScreenH == 480)
 /********屏幕适配********/
 
+#pragma mark - 系统适配
 /********系统适配********/
 #define IOS10_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"10.0"] != NSOrderedAscending)
 #define IOS9_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"9.0"] != NSOrderedAscending)
@@ -30,13 +37,19 @@
 #define IOS3_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"3.0"] != NSOrderedAscending)
 /********系统适配********/
 
-//移除iOS7之后，cell默认左侧的分割线边距
+
+#pragma mark - tableView
+/********移除iOS7之后，cell默认左侧的分割线边距********/
 #define kRemoveCellSeparator \
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{\
 cell.separatorInset = UIEdgeInsetsZero;\
 cell.layoutMargins = UIEdgeInsetsZero; \
 cell.preservesSuperviewLayoutMargins = NO; \
 }
+/********移除iOS7之后，cell默认左侧的分割线边距********/
+
+
+#pragma mark - 忽略警告
 /****************忽略警告:其他警告具体查印象笔记*****************/
 //当你有很多警告的时候可以写个宏函数，不停的for循环。
 #define SuppressPerformSelectorLeakWarning(Stuff) \

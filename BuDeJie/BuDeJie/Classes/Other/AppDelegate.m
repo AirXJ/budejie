@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AIRADViewController.h"
+#import "AIRTabBarController.h"
 
 
 @interface AppDelegate ()
@@ -24,8 +25,10 @@
  **********/
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    AIRADViewController *adVc = [[AIRADViewController alloc]init];
-    self.window.rootViewController = adVc;
+//    AIRADViewController *adVc = [[AIRADViewController alloc]init];
+    //完成项目之后, 把广告设为根入口
+    AIRTabBarController *tabVc = [AIRTabBarController new];
+    self.window.rootViewController = tabVc;
     [self.window makeKeyAndVisible];
     return YES;
 }

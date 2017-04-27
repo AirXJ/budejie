@@ -20,6 +20,9 @@
 		454835641E99E53600A65DF7 /* AIRFriendTrendController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454835631E99E53600A65DF7 /* AIRFriendTrendController.xib */; };
 		455304011EA34F52008F6075 /* AIRSquareItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 455304001EA34F52008F6075 /* AIRSquareItem.m */; };
 		4558BBB61E34E60600D62238 /* AIRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4558BBB51E34E60600D62238 /* AIRTabBarController.m */; };
+		45590D401EB225FA005DAC4B /* AIRTabBarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45590D3F1EB225FA005DAC4B /* AIRTabBarModel.m */; };
+		45590D451EB226CE005DAC4B /* AIREssenceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45590D441EB226CE005DAC4B /* AIREssenceModel.m */; };
+		45590D481EB23DF7005DAC4B /* AIRTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 45590D471EB23DF7005DAC4B /* AIRTitleBtn.m */; };
 		455BB91F1E952C3800F1C67B /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 455BB91E1E952C3800F1C67B /* NSObject+Common.m */; };
 		455EDB011EA1C8930042DB27 /* AIRMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455EDB001EA1C8930042DB27 /* AIRMeViewController.m */; };
 		455EDB031EA1C89E0042DB27 /* AIRMeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455EDB021EA1C89E0042DB27 /* AIRMeViewController.storyboard */; };
@@ -29,7 +32,6 @@
 		456C775A1E2729A500EF48A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 456C77581E2729A500EF48A9 /* LaunchScreen.storyboard */; };
 		456C77651E2729A600EF48A9 /* BuDeJieUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 456C77641E2729A600EF48A9 /* BuDeJieUITests.m */; };
 		456EF0BB1E3C92E200EF7BFC /* AIRSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 456EF0BA1E3C92E200EF7BFC /* AIRSettingController.m */; };
-		457174511E8E1BF1008B114A /* AIRTabBarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 457174501E8E1BF1008B114A /* AIRTabBarModel.m */; };
 		45745B7F1E31F8F900007081 /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45745B7A1E31F8F900007081 /* LaunchImage-568h@2x.png */; };
 		45745B801E31F8F900007081 /* LaunchImage-700@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45745B7B1E31F8F900007081 /* LaunchImage-700@2x.png */; };
 		45745B811E31F8F900007081 /* LaunchImage-800-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45745B7C1E31F8F900007081 /* LaunchImage-800-667h@2x.png */; };
@@ -96,6 +98,12 @@
 		455304001EA34F52008F6075 /* AIRSquareItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSquareItem.m; sourceTree = "<group>"; };
 		4558BBB41E34E60600D62238 /* AIRTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBarController.h; sourceTree = "<group>"; };
 		4558BBB51E34E60600D62238 /* AIRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBarController.m; sourceTree = "<group>"; };
+		45590D3E1EB225FA005DAC4B /* AIRTabBarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBarModel.h; sourceTree = "<group>"; };
+		45590D3F1EB225FA005DAC4B /* AIRTabBarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBarModel.m; sourceTree = "<group>"; };
+		45590D431EB226CE005DAC4B /* AIREssenceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIREssenceModel.h; sourceTree = "<group>"; };
+		45590D441EB226CE005DAC4B /* AIREssenceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIREssenceModel.m; sourceTree = "<group>"; };
+		45590D461EB23DF7005DAC4B /* AIRTitleBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTitleBtn.h; sourceTree = "<group>"; };
+		45590D471EB23DF7005DAC4B /* AIRTitleBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTitleBtn.m; sourceTree = "<group>"; };
 		455BB91D1E952C3800F1C67B /* NSObject+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Common.h"; sourceTree = "<group>"; };
 		455BB91E1E952C3800F1C67B /* NSObject+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Common.m"; sourceTree = "<group>"; };
 		455EDAFF1EA1C8930042DB27 /* AIRMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRMeViewController.h; sourceTree = "<group>"; };
@@ -114,8 +122,6 @@
 		456C77661E2729A600EF48A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		456EF0B91E3C92E200EF7BFC /* AIRSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSettingController.h; sourceTree = "<group>"; };
 		456EF0BA1E3C92E200EF7BFC /* AIRSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSettingController.m; sourceTree = "<group>"; };
-		4571744F1E8E1BF1008B114A /* AIRTabBarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBarModel.h; sourceTree = "<group>"; };
-		457174501E8E1BF1008B114A /* AIRTabBarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBarModel.m; sourceTree = "<group>"; };
 		45745B7A1E31F8F900007081 /* LaunchImage-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-568h@2x.png"; sourceTree = "<group>"; };
 		45745B7B1E31F8F900007081 /* LaunchImage-700@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-700@2x.png"; sourceTree = "<group>"; };
 		45745B7C1E31F8F900007081 /* LaunchImage-800-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-800-667h@2x.png"; sourceTree = "<group>"; };
@@ -212,8 +218,9 @@
 			isa = PBXGroup;
 			children = (
 				450367341E286BF600093D49 /* Control */,
-				450367351E286BF600093D49 /* Model */,
+				45590D421EB2263B005DAC4B /* ViewModel */,
 				450367361E286BF600093D49 /* View */,
+				45590D411EB22627005DAC4B /* Model */,
 			);
 			path = "Essence(精华)";
 			sourceTree = "<group>";
@@ -227,16 +234,11 @@
 			path = Control;
 			sourceTree = "<group>";
 		};
-		450367351E286BF600093D49 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		450367361E286BF600093D49 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				45590D461EB23DF7005DAC4B /* AIRTitleBtn.h */,
+				45590D471EB23DF7005DAC4B /* AIRTitleBtn.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -481,6 +483,39 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		45590D3C1EB225F3005DAC4B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		45590D3D1EB225FA005DAC4B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				45590D3E1EB225FA005DAC4B /* AIRTabBarModel.h */,
+				45590D3F1EB225FA005DAC4B /* AIRTabBarModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		45590D411EB22627005DAC4B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		45590D421EB2263B005DAC4B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				45590D431EB226CE005DAC4B /* AIREssenceModel.h */,
+				45590D441EB226CE005DAC4B /* AIREssenceModel.m */,
+			);
+			name = ViewModel;
+			path = Model/ViewModel;
+			sourceTree = "<group>";
+		};
 		456C773E1E2729A500EF48A9 = {
 			isa = PBXGroup;
 			children = (
@@ -608,8 +643,9 @@
 		45AF48E41E28BB0600AD74ED /* Main(主要) */ = {
 			isa = PBXGroup;
 			children = (
+				45590D3D1EB225FA005DAC4B /* ViewModel */,
+				45590D3C1EB225F3005DAC4B /* Model */,
 				45AF48E51E28BB0600AD74ED /* Control */,
-				45AF48E61E28BB0600AD74ED /* Model */,
 				45AF48E71E28BB0600AD74ED /* View */,
 			);
 			path = "Main(主要)";
@@ -624,15 +660,6 @@
 				457E59891E39EAF200D98AFA /* AIRNavigationController.m */,
 			);
 			path = Control;
-			sourceTree = "<group>";
-		};
-		45AF48E61E28BB0600AD74ED /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				4571744F1E8E1BF1008B114A /* AIRTabBarModel.h */,
-				457174501E8E1BF1008B114A /* AIRTabBarModel.m */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		45AF48E71E28BB0600AD74ED /* View */ = {
@@ -851,8 +878,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45590D401EB225FA005DAC4B /* AIRTabBarModel.m in Sources */,
 				457E59931E39EBED00D98AFA /* AIRPublishController.m in Sources */,
-				457174511E8E1BF1008B114A /* AIRTabBarModel.m in Sources */,
 				45D1A6D81E94DE7C0016CBF2 /* AIRADItem.m in Sources */,
 				458AB6C61E9484100069BEF4 /* AIRADViewController.m in Sources */,
 				452EAF811EA2073C008A576D /* AIRSquareCell.m in Sources */,
@@ -867,6 +894,7 @@
 				457E598A1E39EAF200D98AFA /* AIRNavigationController.m in Sources */,
 				45699D6D1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m in Sources */,
 				45285A351E28EBBC0057AE5E /* Foundation+Log.m in Sources */,
+				45590D481EB23DF7005DAC4B /* AIRTitleBtn.m in Sources */,
 				459FA9741E9B1F7200C17F87 /* AIRFastLoginBtn.m in Sources */,
 				455BB91F1E952C3800F1C67B /* NSObject+Common.m in Sources */,
 				4503674C1E286BF600093D49 /* main.m in Sources */,
@@ -878,6 +906,7 @@
 				457E598D1E39EBB800D98AFA /* AIREssenceController.m in Sources */,
 				45AF48EE1E28C33300AD74ED /* UIImage+AIRImage.m in Sources */,
 				4503674B1E286BF600093D49 /* AppDelegate.m in Sources */,
+				45590D451EB226CE005DAC4B /* AIREssenceModel.m in Sources */,
 				4520B8341EAC5CA700EC1987 /* AIRWebViewController.m in Sources */,
 				455EDB011EA1C8930042DB27 /* AIRMeViewController.m in Sources */,
 				459FA9721E9B1F7200C17F87 /* AIRLoginRegisterViewController.m in Sources */,
