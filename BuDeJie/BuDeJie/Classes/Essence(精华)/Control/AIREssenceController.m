@@ -17,6 +17,9 @@
 /******************** 记录上一次点击标题按钮 *******************/
 @property (nonatomic, strong) AIRTitleBtn *previousClickedTitleButton;
 
+/******************** 标题下划线 *******************/
+@property (nonatomic, weak) UIView *titleUnderLine;
+
 /******************** viewModel *******************/
 @property (nonatomic, strong) AIREssenceModel *viewModel;
 @end
@@ -56,9 +59,8 @@
 - (void)setUpTitlesView
 {
     UIScrollView *titlesView = [[UIScrollView alloc] init];
-    /*********
-     [[UIColor whiteColor] colorWithAlphaComponent:0.5]; 设置颜色透明, 直接设置父控件的透明度子控件也受印象
-    *********/
+    
+    //设置背景色透明度的3种方法3⃣️
     titlesView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
     
     /*********
@@ -91,15 +93,11 @@
         //titleBtn.backgroundColor = AIRRandomColor;
         [self.titlesView addSubview:titleBtn];
         
-        /******
-         设置文字 titleBtn.enabled = NO,UIControlStateDisabled按钮无法点击(userInteractionEnabled是UIControlStateNormal, 也是无法点击),UIControlStateHighlighted  推测有highlighted属性, 但是松开之后会恢复到UIControlStateNormal, 重写- (void)setHighlighted:(BOOL)highlighted方法，永远不会进入高亮状态
-         为什么这句不起效果，必须要重写- (void)setHighlighted:(BOOL)highlighted方法呢？
-         因为UIControlStateSelected跟一些状态[UIControlStateHighlighted,UIControlStateDisabled]会有颜色矛盾，最后只能显示UIControlStateNormal下的颜色, 我们只能通过UIControlStateHighlighted实现原理去处理这样一个问题, 重写setHighlighted方法 (不实现它)，让它永远返回YES
-         ******/
-        [titleBtn setTitle:self.viewModel.titles[i] forState:UIControlStateNormal];
-        [titleBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         
-        [titleBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        //注释1⃣️
+        [titleBtn setTitle:self.viewModel.titles[i] forState:UIControlStateNormal];
+        
+       // 挪动过的代码2⃣️
         
         
         //添加事件监听
@@ -109,7 +107,27 @@
 
 - (void)setUpTitlesUnderLine
 {
+    //标题按钮
+    AIRTitleBtn *firstTitleBtn = self.titlesView.subviews.firstObject;
+    UIView *titleUnderLine = [[UIView alloc] init];
+    titleUnderLine.AIR_height = 2;
+    titleUnderLine.AIR_y = self.titlesView.AIR_height - titleUnderLine.AIR_height;
+    //viewdidload按钮中的label里的字体是懒加载还没显示(willdisplay才会显示字), 所以必须计算字体宽度不能用titleBtn.titleLabel.AIR_width;去赋值;或者调用sizeToFit方法主动去调用
+    //titleUnderLine.AIR_width = [firstTitleBtn.currentTitle sizeWithAttributes:@{NSFontAttributeName : firstTitleBtn.titleLabel.font}].width;
+    [firstTitleBtn.titleLabel sizeToFit];
+    titleUnderLine.AIR_width = firstTitleBtn.titleLabel.AIR_width + 10;
+    titleUnderLine.AIR_centerX = firstTitleBtn.AIR_centerX;
+    // 切换按钮状态
+    firstTitleBtn.selected = YES;
+    self.previousClickedTitleButton = firstTitleBtn;
     
+    
+    titleUnderLine.backgroundColor = [firstTitleBtn titleColorForState:UIControlStateSelected];
+    [self.titlesView addSubview:titleUnderLine];
+    self.titleUnderLine = titleUnderLine;
+    
+    
+   
 }
 
 
@@ -129,11 +147,24 @@
 
 #pragma mark - 监听
 - (void)titleBtnClick:(AIRTitleBtn *)titleBtn{
-    //AIRFUNCLog;
+    
+    // 切换按钮状态
     self.previousClickedTitleButton.selected = NO;
     titleBtn.selected = YES;
     self.previousClickedTitleButton = titleBtn;
     
+    //处理下划线, 要与标题文字同宽
+    [UIView animateWithDuration:0.25 animations:^{
+        /****************
+      titleBtn.titleLabel.text, 获取文字这种方法不建议使用可能为空;建议使用后面2种
+        [titleBtn titleForState:UIControlStateNormal];
+        [titleBtn currentTitle];
+        **************/
+        //先设置宽度, 再设置中心点, 按钮可以不用计算文字大小
+        //self.titleUnderLine.AIR_width = [titleBtn.currentTitle sizeWithAttributes:@{NSFontAttributeName : titleBtn.titleLabel.font}].width;
+        self.titleUnderLine.AIR_width =  titleBtn.titleLabel.AIR_width + 10;
+        self.titleUnderLine.AIR_centerX = titleBtn.AIR_centerX;
+    }];
     
 }
 
@@ -158,5 +189,23 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - 注释
+/**************************注释1⃣️*****************************
+ 设置文字 titleBtn.enabled = NO,UIControlStateDisabled按钮无法点击(userInteractionEnabled是UIControlStateNormal, 也是无法点击),UIControlStateHighlighted  推测有highlighted属性, 但是松开之后会恢复到UIControlStateNormal, 重写- (void)setHighlighted:(BOOL)highlighted方法，永远不会进入高亮状态
+ 为什么这句不起效果，必须要重写- (void)setHighlighted:(BOOL)highlighted方法呢？
+ 因为UIControlStateSelected跟一些状态[UIControlStateHighlighted,UIControlStateDisabled]会有颜色矛盾，最后只能显示UIControlStateNormal下的颜色, 我们只能通过UIControlStateHighlighted实现原理去处理这样一个问题, 重写setHighlighted方法 (不实现它)，让它永远返回YES
+ ************************************************************/
 
+/***********************挪动过的代码2⃣️**************************
+              放在AIRTitleBtn自定义按钮内部实现
+        [titleBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+       [titleBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        titleBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+************************************************************/
+
+/*****************设置背景色透明度的3种方法3⃣️*********************
+ [[UIColor whiteColor] colorWithAlphaComponent:0.5]; 设置颜色透明, 直接设置父控件的透明度子控件也受印象
+ titlesView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];这个方法是设置黑白灰透明度的
+ [UIColor colorWithRed:<#(CGFloat)#> green:<#(CGFloat)#> blue:<#(CGFloat)#> alpha:<#(CGFloat)#>]
+ *********/
 @end

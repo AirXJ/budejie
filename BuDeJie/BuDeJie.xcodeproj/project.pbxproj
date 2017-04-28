@@ -21,7 +21,6 @@
 		455304011EA34F52008F6075 /* AIRSquareItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 455304001EA34F52008F6075 /* AIRSquareItem.m */; };
 		4558BBB61E34E60600D62238 /* AIRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4558BBB51E34E60600D62238 /* AIRTabBarController.m */; };
 		45590D401EB225FA005DAC4B /* AIRTabBarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45590D3F1EB225FA005DAC4B /* AIRTabBarModel.m */; };
-		45590D451EB226CE005DAC4B /* AIREssenceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45590D441EB226CE005DAC4B /* AIREssenceModel.m */; };
 		45590D481EB23DF7005DAC4B /* AIRTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 45590D471EB23DF7005DAC4B /* AIRTitleBtn.m */; };
 		455BB91F1E952C3800F1C67B /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 455BB91E1E952C3800F1C67B /* NSObject+Common.m */; };
 		455EDB011EA1C8930042DB27 /* AIRMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455EDB001EA1C8930042DB27 /* AIRMeViewController.m */; };
@@ -59,6 +58,7 @@
 		45B393AA1E98BBDC00E93D52 /* AIRSubTagItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B393A91E98BBDC00E93D52 /* AIRSubTagItem.m */; };
 		45D1A6D81E94DE7C0016CBF2 /* AIRADItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1A6D71E94DE7C0016CBF2 /* AIRADItem.m */; };
 		45D1A6DB1E951CDE0016CBF2 /* AIRSubTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1A6DA1E951CDE0016CBF2 /* AIRSubTagTableViewController.m */; };
+		45DBAD1F1EB3697200661C08 /* AIREssenceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DBAD1E1EB3697200661C08 /* AIREssenceModel.m */; };
 		45EDE77E1E98C0F200465566 /* AIRSubTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EDE77C1E98C0F200465566 /* AIRSubTagCell.m */; };
 		45EDE77F1E98C0F200465566 /* AIRSubTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45EDE77D1E98C0F200465566 /* AIRSubTagCell.xib */; };
 		45FF27A31EAEE8B500D3065D /* NSString+AIRString.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF27A21EAEE8B500D3065D /* NSString+AIRString.m */; };
@@ -100,8 +100,6 @@
 		4558BBB51E34E60600D62238 /* AIRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBarController.m; sourceTree = "<group>"; };
 		45590D3E1EB225FA005DAC4B /* AIRTabBarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBarModel.h; sourceTree = "<group>"; };
 		45590D3F1EB225FA005DAC4B /* AIRTabBarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBarModel.m; sourceTree = "<group>"; };
-		45590D431EB226CE005DAC4B /* AIREssenceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIREssenceModel.h; sourceTree = "<group>"; };
-		45590D441EB226CE005DAC4B /* AIREssenceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIREssenceModel.m; sourceTree = "<group>"; };
 		45590D461EB23DF7005DAC4B /* AIRTitleBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTitleBtn.h; sourceTree = "<group>"; };
 		45590D471EB23DF7005DAC4B /* AIRTitleBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTitleBtn.m; sourceTree = "<group>"; };
 		455BB91D1E952C3800F1C67B /* NSObject+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Common.h"; sourceTree = "<group>"; };
@@ -167,6 +165,8 @@
 		45D1A6D71E94DE7C0016CBF2 /* AIRADItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRADItem.m; sourceTree = "<group>"; };
 		45D1A6D91E951CDE0016CBF2 /* AIRSubTagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSubTagTableViewController.h; sourceTree = "<group>"; };
 		45D1A6DA1E951CDE0016CBF2 /* AIRSubTagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSubTagTableViewController.m; sourceTree = "<group>"; };
+		45DBAD1D1EB3697200661C08 /* AIREssenceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIREssenceModel.h; sourceTree = "<group>"; };
+		45DBAD1E1EB3697200661C08 /* AIREssenceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIREssenceModel.m; sourceTree = "<group>"; };
 		45EDE77B1E98C0F200465566 /* AIRSubTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSubTagCell.h; sourceTree = "<group>"; };
 		45EDE77C1E98C0F200465566 /* AIRSubTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSubTagCell.m; sourceTree = "<group>"; };
 		45EDE77D1E98C0F200465566 /* AIRSubTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRSubTagCell.xib; sourceTree = "<group>"; };
@@ -217,8 +217,8 @@
 		450367331E286BF600093D49 /* Essence(精华) */ = {
 			isa = PBXGroup;
 			children = (
+				45DBAD1C1EB3697200661C08 /* ViewModel */,
 				450367341E286BF600093D49 /* Control */,
-				45590D421EB2263B005DAC4B /* ViewModel */,
 				450367361E286BF600093D49 /* View */,
 				45590D411EB22627005DAC4B /* Model */,
 			);
@@ -506,16 +506,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		45590D421EB2263B005DAC4B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				45590D431EB226CE005DAC4B /* AIREssenceModel.h */,
-				45590D441EB226CE005DAC4B /* AIREssenceModel.m */,
-			);
-			name = ViewModel;
-			path = Model/ViewModel;
-			sourceTree = "<group>";
-		};
 		456C773E1E2729A500EF48A9 = {
 			isa = PBXGroup;
 			children = (
@@ -691,6 +681,15 @@
 				45FF27A21EAEE8B500D3065D /* NSString+AIRString.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		45DBAD1C1EB3697200661C08 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				45DBAD1D1EB3697200661C08 /* AIREssenceModel.h */,
+				45DBAD1E1EB3697200661C08 /* AIREssenceModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D50623D881C99AE12DF0F06C /* Pods */ = {
@@ -906,7 +905,6 @@
 				457E598D1E39EBB800D98AFA /* AIREssenceController.m in Sources */,
 				45AF48EE1E28C33300AD74ED /* UIImage+AIRImage.m in Sources */,
 				4503674B1E286BF600093D49 /* AppDelegate.m in Sources */,
-				45590D451EB226CE005DAC4B /* AIREssenceModel.m in Sources */,
 				4520B8341EAC5CA700EC1987 /* AIRWebViewController.m in Sources */,
 				455EDB011EA1C8930042DB27 /* AIRMeViewController.m in Sources */,
 				459FA9721E9B1F7200C17F87 /* AIRLoginRegisterViewController.m in Sources */,
@@ -915,6 +913,7 @@
 				45AE23F81E3B77BC005F81B2 /* AIRTabBar.m in Sources */,
 				459FA9771E9B1F7200C17F87 /* AIRLoginRegisterView.m in Sources */,
 				456EF0BB1E3C92E200EF7BFC /* AIRSettingController.m in Sources */,
+				45DBAD1F1EB3697200661C08 /* AIREssenceModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
