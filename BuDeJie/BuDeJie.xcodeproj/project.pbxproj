@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		4503674B1E286BF600093D49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 450367451E286BF600093D49 /* AppDelegate.m */; };
 		4503674C1E286BF600093D49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 450367461E286BF600093D49 /* main.m */; };
+		451ACE141EB441E900E66010 /* AIRAllTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451ACE131EB441E900E66010 /* AIRAllTableController.m */; };
+		451ACE171EB441FD00E66010 /* AIRPhotoTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451ACE161EB441FD00E66010 /* AIRPhotoTableController.m */; };
+		451ACE1A1EB4423F00E66010 /* AIRVideoTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451ACE191EB4423F00E66010 /* AIRVideoTableController.m */; };
+		451ACE1D1EB4429800E66010 /* AIRSoundTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451ACE1C1EB4429800E66010 /* AIRSoundTableController.m */; };
+		451ACE201EB442D900E66010 /* AIRJokeTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451ACE1F1EB442D900E66010 /* AIRJokeTableController.m */; };
 		4520B8341EAC5CA700EC1987 /* AIRWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4520B8321EAC5CA700EC1987 /* AIRWebViewController.m */; };
 		4520B8351EAC5CA700EC1987 /* AIRWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4520B8331EAC5CA700EC1987 /* AIRWebViewController.xib */; };
 		4523D1511EAF8A0000ACE293 /* AIRHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4523D1501EAF8A0000ACE293 /* AIRHttpTool.m */; };
@@ -79,11 +84,22 @@
 		450367441E286BF600093D49 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		450367451E286BF600093D49 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		450367461E286BF600093D49 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		451ACE121EB441E900E66010 /* AIRAllTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRAllTableController.h; sourceTree = "<group>"; };
+		451ACE131EB441E900E66010 /* AIRAllTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRAllTableController.m; sourceTree = "<group>"; };
+		451ACE151EB441FD00E66010 /* AIRPhotoTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRPhotoTableController.h; sourceTree = "<group>"; };
+		451ACE161EB441FD00E66010 /* AIRPhotoTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRPhotoTableController.m; sourceTree = "<group>"; };
+		451ACE181EB4423F00E66010 /* AIRVideoTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRVideoTableController.h; sourceTree = "<group>"; };
+		451ACE191EB4423F00E66010 /* AIRVideoTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRVideoTableController.m; sourceTree = "<group>"; };
+		451ACE1B1EB4429800E66010 /* AIRSoundTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSoundTableController.h; sourceTree = "<group>"; };
+		451ACE1C1EB4429800E66010 /* AIRSoundTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSoundTableController.m; sourceTree = "<group>"; };
+		451ACE1E1EB442D900E66010 /* AIRJokeTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRJokeTableController.h; sourceTree = "<group>"; };
+		451ACE1F1EB442D900E66010 /* AIRJokeTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRJokeTableController.m; sourceTree = "<group>"; };
 		4520B8311EAC5CA700EC1987 /* AIRWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRWebViewController.h; sourceTree = "<group>"; };
 		4520B8321EAC5CA700EC1987 /* AIRWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRWebViewController.m; sourceTree = "<group>"; };
 		4520B8331EAC5CA700EC1987 /* AIRWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRWebViewController.xib; sourceTree = "<group>"; };
 		4523D14F1EAF8A0000ACE293 /* AIRHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRHttpTool.h; sourceTree = "<group>"; };
 		4523D1501EAF8A0000ACE293 /* AIRHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRHttpTool.m; sourceTree = "<group>"; };
+		452542131EB8AC180025AC1A /* AIREssence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIREssence.h; sourceTree = "<group>"; };
 		45285A321E28EBBC0057AE5E /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		45285A331E28EBBC0057AE5E /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		45285A341E28EBBC0057AE5E /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
@@ -228,8 +244,19 @@
 		450367341E286BF600093D49 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				452542131EB8AC180025AC1A /* AIREssence.h */,
 				457E598B1E39EBB800D98AFA /* AIREssenceController.h */,
 				457E598C1E39EBB800D98AFA /* AIREssenceController.m */,
+				451ACE121EB441E900E66010 /* AIRAllTableController.h */,
+				451ACE131EB441E900E66010 /* AIRAllTableController.m */,
+				451ACE181EB4423F00E66010 /* AIRVideoTableController.h */,
+				451ACE191EB4423F00E66010 /* AIRVideoTableController.m */,
+				451ACE1B1EB4429800E66010 /* AIRSoundTableController.h */,
+				451ACE1C1EB4429800E66010 /* AIRSoundTableController.m */,
+				451ACE151EB441FD00E66010 /* AIRPhotoTableController.h */,
+				451ACE161EB441FD00E66010 /* AIRPhotoTableController.m */,
+				451ACE1E1EB442D900E66010 /* AIRJokeTableController.h */,
+				451ACE1F1EB442D900E66010 /* AIRJokeTableController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -878,10 +905,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				45590D401EB225FA005DAC4B /* AIRTabBarModel.m in Sources */,
+				451ACE1D1EB4429800E66010 /* AIRSoundTableController.m in Sources */,
 				457E59931E39EBED00D98AFA /* AIRPublishController.m in Sources */,
 				45D1A6D81E94DE7C0016CBF2 /* AIRADItem.m in Sources */,
 				458AB6C61E9484100069BEF4 /* AIRADViewController.m in Sources */,
 				452EAF811EA2073C008A576D /* AIRSquareCell.m in Sources */,
+				451ACE141EB441E900E66010 /* AIRAllTableController.m in Sources */,
 				45EDE77E1E98C0F200465566 /* AIRSubTagCell.m in Sources */,
 				455304011EA34F52008F6075 /* AIRSquareItem.m in Sources */,
 				459B4A2F1EAEE0C3009043EF /* AIRFileTool.m in Sources */,
@@ -895,7 +924,9 @@
 				45285A351E28EBBC0057AE5E /* Foundation+Log.m in Sources */,
 				45590D481EB23DF7005DAC4B /* AIRTitleBtn.m in Sources */,
 				459FA9741E9B1F7200C17F87 /* AIRFastLoginBtn.m in Sources */,
+				451ACE201EB442D900E66010 /* AIRJokeTableController.m in Sources */,
 				455BB91F1E952C3800F1C67B /* NSObject+Common.m in Sources */,
+				451ACE171EB441FD00E66010 /* AIRPhotoTableController.m in Sources */,
 				4503674C1E286BF600093D49 /* main.m in Sources */,
 				4558BBB61E34E60600D62238 /* AIRTabBarController.m in Sources */,
 				457E59961E39EC0600D98AFA /* AIRFriendTrendController.m in Sources */,
@@ -910,6 +941,7 @@
 				459FA9721E9B1F7200C17F87 /* AIRLoginRegisterViewController.m in Sources */,
 				45B393AA1E98BBDC00E93D52 /* AIRSubTagItem.m in Sources */,
 				457E59901E39EBD200D98AFA /* AIRNewController.m in Sources */,
+				451ACE1A1EB4423F00E66010 /* AIRVideoTableController.m in Sources */,
 				45AE23F81E3B77BC005F81B2 /* AIRTabBar.m in Sources */,
 				459FA9771E9B1F7200C17F87 /* AIRLoginRegisterView.m in Sources */,
 				456EF0BB1E3C92E200EF7BFC /* AIRSettingController.m in Sources */,

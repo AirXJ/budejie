@@ -86,7 +86,7 @@ static NSString *const cellID = @"cell";
 
 #pragma mark - Table view data source
 //处理cell分割线
-kRemoveCellSeparator
+AIRRemoveCellSeparator
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.subTags.count;

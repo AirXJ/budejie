@@ -20,11 +20,22 @@
  LaunchScreen底层实现:把LaunchScreen截屏,生成一张图片.作为启动界面，然后这张图的大小决定了以后主窗口的可视范围。
  
  ********/
+//@class AppDelegate;
+//@protocol AIRAppTouchDelegate <NSObject>
+//
+//@optional
+//// 1.设计方法:想要代理做什么事情
+//- (void)appDelegate:(AppDelegate *)appDelegate resetOffset:(CGPoint)defaultPoint;
+//
+//@end
+
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-
+////2.保存委托对象地址
+//@property (nonatomic, weak) id<AIRAppTouchDelegate> delegate;
 
 @end
 

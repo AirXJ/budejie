@@ -38,9 +38,21 @@
 /********系统适配********/
 
 
-#pragma mark - tableView
+#pragma mark - UIView UIViewController
+/********frameConsts********/
+#define AIRNavMaxY 64
+#define AIRTabBarH 49
+#define AIRTitlesViewH 35
+/********frameConsts********/
+
+/**不允许自动修改UIScrollView的内边距contentInset
+**/
+#define AIRIsContentInset self.automaticallyAdjustsScrollViewInsets = NO;
+/**不允许自动修改UIScrollView的内边距contentInset
+ **/
+
 /********移除iOS7之后，cell默认左侧的分割线边距********/
-#define kRemoveCellSeparator \
+#define AIRRemoveCellSeparator \
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{\
 cell.separatorInset = UIEdgeInsetsZero;\
 cell.layoutMargins = UIEdgeInsetsZero; \
@@ -135,6 +147,24 @@ return MAXFLOAT;\
 }
 #endif
 
+
+#pragma mark - 测试代码
+#define AIRTestCodeTableDataSource - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section\
+{\
+    return 30;\
+}\
+\
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath\
+{\
+    static NSString *ID = @"cell";\
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];\
+    if (cell == nil) {\
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];\
+        cell.backgroundColor = [UIColor clearColor];\
+    }\
+    cell.textLabel.text = [NSString stringWithFormat:@"%@-%zd", self.class, indexPath.row];\
+    return cell;\
+}
 
 
 #endif /* AIRdefine_h */
