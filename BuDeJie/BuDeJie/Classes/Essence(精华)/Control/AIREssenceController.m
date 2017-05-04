@@ -1,4 +1,4 @@
-//åß©Ω≈ç√∫
+//  布局设置样式、监听 -> 万变不离其宗
 //  AIREssenceController.m
 //  BuDeJie
 //
@@ -34,8 +34,8 @@
     
     [super viewDidLoad];
     self.viewModel = [[AIREssenceModel alloc] init];
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    appDelegate.delegate = self;
+    //    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //    appDelegate.delegate = self;
     self.view.backgroundColor = [UIColor grayColor];
     
     //3.2初始化子控制器
@@ -46,7 +46,7 @@
     
     //2.添加UIScrollView
     [self setUpScrollView];
-
+    
     //2.设置标题栏
     [self setUpTitlesView];
     
@@ -61,7 +61,7 @@
 //初始化子控制器
 - (void)setUpChildVCs{
     [self addChildViewController:
-        [[AIRAllTableController alloc] init]];
+     [[AIRAllTableController alloc] init]];
     [self addChildViewController:[[AIRVideoTableController alloc] init]];
     [self addChildViewController:[[AIRSoundTableController alloc] init]];
     [self addChildViewController:[[AIRPhotoTableController alloc] init]];
@@ -84,37 +84,37 @@
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
     
-
+    
     CGFloat scrollViewW = self.scrollView.AIR_width;
     //🆗†默认加载子控制器的view到self.scrollView中
     [self addChildViewIntoScrollView:0];
-
+    
     self.scrollView.contentSize = CGSizeMake(childCount * scrollViewW, 0);
-
+    
 }
 
 /**************************🆗†设置子控制器视图, 其他的view需要懒加载所以移除这个方法
-- (void)setUpChildViews
-{
-    NSUInteger count = self.childViewControllers.count;
-    CGFloat scrollViewW = self.scrollView.AIR_width;
-    CGFloat scrollViewH = self.scrollView.AIR_height;
-    for (NSUInteger i = 0; i < count; i++) {
-        //取出i位置子控制器的view
-        UITableView *childView = (UITableView *)self.childViewControllers[i].view;
-        childView.backgroundColor = AIRRandomColor;
-        
-        //ios6历史遗留问题tableview的frame跟普通的UIView不同, 要高20
-        //设置childView的全穿透效果4⃣️
-        childView.frame = CGRectMake(i * scrollViewW, 0, scrollViewW, scrollViewH);
-        childView.contentInset = UIEdgeInsetsMake(AIRNavMaxY + AIRTitlesViewH, 0, AIRTabBarH, 0);
-        
-        
-        [self.scrollView addSubview:childView];
-    }
-    self.scrollView.contentSize = CGSizeMake(count * scrollViewW, 0);
-}
-****************************************/
+ - (void)setUpChildViews
+ {
+ NSUInteger count = self.childViewControllers.count;
+ CGFloat scrollViewW = self.scrollView.AIR_width;
+ CGFloat scrollViewH = self.scrollView.AIR_height;
+ for (NSUInteger i = 0; i < count; i++) {
+ //取出i位置子控制器的view
+ UITableView *childView = (UITableView *)self.childViewControllers[i].view;
+ childView.backgroundColor = AIRRandomColor;
+ 
+ //ios6历史遗留问题tableview的frame跟普通的UIView不同, 要高20
+ //设置childView的全穿透效果4⃣️
+ childView.frame = CGRectMake(i * scrollViewW, 0, scrollViewW, scrollViewH);
+ childView.contentInset = UIEdgeInsetsMake(AIRNavMaxY + AIRTitlesViewH, 0, AIRTabBarH, 0);
+ 
+ 
+ [self.scrollView addSubview:childView];
+ }
+ self.scrollView.contentSize = CGSizeMake(count * scrollViewW, 0);
+ }
+ ****************************************/
 
 - (void)setUpTitlesView
 {
@@ -140,12 +140,12 @@
     
     //标题下划线
     [self setUpTitlesUnderLine];
-
+    
 }
 
 - (void)setUpTitlesBtns
 {
-   
+    
     //按钮尺寸
     CGFloat btnWidth = self.titlesView.AIR_width / 5;
     CGFloat btnHeight = self.titlesView.AIR_height;
@@ -160,7 +160,7 @@
         //注释1⃣️
         [titleBtn setTitle:self.viewModel.titles[i] forState:UIControlStateNormal];
         
-       // 这里的代码被挪动了2⃣️, 在自定义按钮中
+        // 这里的代码被挪动了2⃣️, 在自定义按钮中
         
         
         //添加事件监听
@@ -192,7 +192,7 @@
     self.titleUnderLine = titleUnderLine;
     
     
-   
+    
 }
 
 
@@ -206,11 +206,9 @@
     }];
     self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage AIR_OriginalImageWithDefaultImageName:@"MainTitle"]];
     
-  
-    
 }
 
-#pragma mark - 监听
+#pragma mark - 监听:目标操作
 /****切换按钮状态,处理下划线, 修改self.scrollView偏移量, 加载对应的子控制器的view, 添加功能:点击状态栏修改子控制器view的偏移量****/
 - (void)titleBtnClick:(AIRTitleBtn *)titleBtn{
     // 1.1切换按钮状态
@@ -225,8 +223,8 @@
         self.titleUnderLine.AIR_centerX = titleBtn.AIR_centerX;//先设置宽度再中心点
         
         //🈳️1.3点击按钮, 修改scrollView的偏移量来滚动scrollView, (偏移量只有正数并且都是相对于scrollerView的frame的原点)
-       CGFloat offsetX = self.scrollView.AIR_width * index;
-       self.scrollView.contentOffset = CGPointMake(offsetX, self.scrollView.contentOffset.y);
+        CGFloat offsetX = self.scrollView.AIR_width * index;
+        self.scrollView.contentOffset = CGPointMake(offsetX, self.scrollView.contentOffset.y);
     } completion:^(BOOL finished) {
         //🆗†加载子控制器的view到self.scrollView中
         [self addChildViewIntoScrollView:index];
@@ -243,13 +241,12 @@
     }
 }
 
-
 - (void)game{
     //AIRFUNCLog;
 }
 
 
-#pragma mark - UIScrollViewDelegate
+#pragma mark - 监听:UIScrollViewDelegate
 
 /**********🈳️1.4当用户松开scrollView, 并且完全停止滚动时, 切换按钮状态**********/
 //de 降序 rate 速度 => 减速
@@ -271,12 +268,12 @@
 - (void)addChildViewIntoScrollView:(NSUInteger)index{
     //self.childViewControllers[index].view.superview和self.childViewControllers[index].view的区别, 一个是已经addSubview了, 所以不用担心view懒加载了, addSubview之后会调用viewDidAppear;.view会调用viewDidLoad.
     if (self.childViewControllers[index].view.superview) return;
-    AIRFUNCLog;
+    
     UITableView *childView = (UITableView *)self.childViewControllers[index].view;
     childView.backgroundColor = AIRRandomColor;
     CGFloat scrollViewW = self.scrollView.AIR_width;
     CGFloat scrollViewH = self.scrollView.AIR_height;
-
+    
     //ios6历史遗留问题tableview的frame跟普通的UIView不同, 要高20
     //设置childView的全穿透效果4⃣️
     childView.frame = CGRectMake(index * scrollViewW, 0, scrollViewW, scrollViewH);
@@ -302,14 +299,14 @@
 //}
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 #pragma mark - 注释
 /**************************注释1⃣️*****************************
  设置文字 titleBtn.enabled = NO,UIControlStateDisabled按钮无法点击(userInteractionEnabled是UIControlStateNormal, 也是无法点击),UIControlStateHighlighted  推测有highlighted属性, 但是松开之后会恢复到UIControlStateNormal, 重写- (void)setHighlighted:(BOOL)highlighted方法，永远不会进入高亮状态
@@ -318,11 +315,11 @@
  ************************************************************/
 
 /***********************挪动过的代码2⃣️, 自定义按钮中**************************
-              放在AIRTitleBtn自定义按钮内部实现
-        [titleBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-       [titleBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
-        titleBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-************************************************************/
+ 放在AIRTitleBtn自定义按钮内部实现
+ [titleBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+ [titleBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+ titleBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+ ************************************************************/
 
 /*****************设置背景色透明度的3种方法3⃣️*********************
  [[UIColor whiteColor] colorWithAlphaComponent:0.5]; 设置颜色透明, 直接设置父控件的透明度子控件也受印象
@@ -338,23 +335,23 @@
  *********************************************************************************/
 
 /*********titlUnderLine宽度的计算方法, 按钮更简单， UILabel必须要用字体大小来计算5⃣️********
-
-      titleBtn.titleLabel.text, 获取文字这种方法不建议使用可能为空;建议使用后面2种
-    [titleBtn titleForState:UIControlStateNormal];
-    [titleBtn currentTitle];
-
-    //按钮不用计算文字大小
-    self.titleUnderLine.AIR_width = [titleBtn.currentTitle sizeWithAttributes:@{NSFontAttributeName : titleBtn.titleLabel.font}].width;
-***********************************/
+ 
+ titleBtn.titleLabel.text, 获取文字这种方法不建议使用可能为空;建议使用后面2种
+ [titleBtn titleForState:UIControlStateNormal];
+ [titleBtn currentTitle];
+ 
+ //按钮不用计算文字大小
+ self.titleUnderLine.AIR_width = [titleBtn.currentTitle sizeWithAttributes:@{NSFontAttributeName : titleBtn.titleLabel.font}].width;
+ ***********************************/
 
 
 /***************************当用户松开scrollView时候调用6⃣️****************************
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-
-    AIRFUNCLog;
-
-}
-***************************当用户松开scrollView时候调用****************************/
+ - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+ 
+ AIRFUNCLog;
+ 
+ }
+ ***************************当用户松开scrollView时候调用****************************/
 
 
 /*********永远不要用tag去遍历控件7⃣️, tag容易出错(所有控件默认都是0)而且效率低, 递归遍历子控件的子控件的子控件(遍历完最后一层的最后一个再返回上面一支); 所以说用一层tag还好，用多了就麻烦了。*********/

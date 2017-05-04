@@ -16,7 +16,7 @@
 @end
 
 @implementation AppDelegate
-#pragma mark - 监听点击
+#pragma mark - 监听点击 AIREssenceController
 /**监听除了主窗口之外的点击事件, 比如状态栏，需要判断
  AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
  appDelegate.delegate = self;
@@ -30,7 +30,7 @@
 //        if ([self.delegate respondsToSelector:@selector(appDelegate:resetOffset:)]) {
 //系统的覆盖了，320还是0，0点，已经帮你实现了
 //            [self.delegate appDelegate:self resetOffset:CGPointMake(0, 320)];
-//            
+//
 //        }
 //    }
 //}
@@ -40,14 +40,15 @@
  每次程序启动的时候进入广告界面
  1.在启动的时候，去加个广告界面(行不通)
  2.启动完成的时候，加个广告界面（展示了启动图片）
-  a.窗口的梗控制器设为广告控制器\
-  b.直接窗口上再加上一个广告界面，几秒过去了，再广告界面移除(业务逻辑交给谁管理)
+ a.窗口的梗控制器设为广告控制器\
+ b.直接窗口上再加上一个广告界面，几秒过去了，再广告界面移除(业务逻辑交给谁管理)
  **********/
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-//    AIRADViewController *adVc = [[AIRADViewController alloc]init];
+    //    AIRADViewController *adVc = [[AIRADViewController alloc]init];
     //完成项目之后, 把广告设为根入口
     AIRTabBarController *tabVc = [AIRTabBarController new];
+    
     self.window.rootViewController = tabVc;
     [self.window makeKeyAndVisible];
     return YES;

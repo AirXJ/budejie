@@ -11,10 +11,14 @@
 @interface AIRTabBar ()
 /** 按钮 */
 @property (nonatomic,strong)UIButton *plusButton;
+
+/************* 上一次点击的UIControl *****************/
+@property (nonatomic,weak)UIControl *previousClickBtn;
 @end
 
 @implementation AIRTabBar
 
+//1⃣️
 - (UIButton *)plusButton
 {
     if (_plusButton == nil) {
@@ -28,10 +32,7 @@
     return _plusButton;
 }
 
-+(void)load{
-    
-}
-
+//1⃣️在自定义的view中重新布局, 顺路在里面设置一个按钮
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -41,6 +42,10 @@
     NSInteger i = 0;
     for (UIView *tabBarBtn in self.subviews) {
         if ([tabBarBtn isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            // 2⃣️设置previousClickBtn的默认值为最前面的按钮;     ->布局方法会进入多次，防止previousClickBtn出错
+            if (i == 0 && self.previousClickBtn == nil) {
+                self.previousClickBtn = (UIControl *)tabBarBtn;
+            }
             
             if (i == 2) {
                 i++;
@@ -49,18 +54,30 @@
             x = i*btnW;
             tabBarBtn.frame = CGRectMake(x, 0, btnW, btnH);
             i++;
+            
+            //2⃣️监听点击, UIControlEventTouchDownRepeat短时间内连续点击
+            [(UIControl *)tabBarBtn addTarget:self action:@selector(tabBarBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+            
         }
     }
 }
 
-
+#pragma mark - 监听目标操作
+//2⃣️
+- (void)tabBarBtnClick:(UIControl *)tabBarBtn{
+    
+    if (self.previousClickBtn == tabBarBtn) {
+        
+    }
+    self.previousClickBtn = tabBarBtn;
+}
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end

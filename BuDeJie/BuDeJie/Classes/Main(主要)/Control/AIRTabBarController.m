@@ -31,9 +31,21 @@
 #pragma mark - xcode自带方法
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [self deauftMyLoad];
+    
+    [self addChildsControllers];
+    
+    [self addTabBarAppearance];
+    
+    //外观样式设置
+    //load方法
+    
+    //自定义UITabBar控件,添加tabBar按钮
+    [self addTabBarBtn];
+    
+    
+    
     // Do any additional setup after loading the view.
-
+    
 }
 
 
@@ -46,29 +58,24 @@
     
 }
 
-#pragma mark - 自己的方法
+
 //#pragma message "Warning 1"
 //#warning "Warning 2"
 //#error "laji"
 
-- (void)deauftMyLoad{
-    [self addChilds];
-    [self addTabBarAppearance];
-    [self addTabBarBtn];
-}
+
 
 #pragma mark - 自定义UITabBar控件,添加tabBar按钮
 - (void)addTabBarBtn{
     AIRTabBar *bar = [[AIRTabBar alloc]init];
     [self setValue:bar forKey:@"tabBar"];
+    
+    
 }
 
 #pragma mark - UITabBarController添加子控制器
-- (void)addChilds{
+- (void)addChildsControllers{
     [self setViewControllers:self.model.naviArray animated:YES];
-//    for (id childVc in self.model.naviArray) {
-//        [self addChildViewController:childVc];
-//    }
     
 }
 
@@ -76,30 +83,27 @@
 - (void)addTabBarAppearance{
     NSInteger i = 0;
     for (id naviObj in self.model.naviArray) {
-     //   if (i != 2) {
         [self tabBarItemWithController:naviObj title:self.model.stringItemArr[i] image:self.model.picItemArray[i] selectedImage:self.model.selectedPicItemArr[i]];
-     //   }
         i++;
     }
 }
 
-//看到 [vcObj setTabBarItem:item];这句我觉得也可以按照mvc思想，单独放在initWithNibName方法里实现，但是代码就太分散了没有这样书写流畅。
+#pragma mark - 自己的方法
+
 - (void)tabBarItemWithController:(UIViewController *)vcObj title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage{
     UITabBarItem *item = [[UITabBarItem alloc]initWithTitle:title image:[UIImage AIR_OriginalImageWithDefaultImageName:image] selectedImage:[UIImage AIR_OriginalImageWithDefaultImageName:selectedImage]];
     [vcObj setTabBarItem:item];
-    /***这种在willappear方法里才会懒加载数据,viewdidload方法里打印self.tabBar.subviews是空
-      vcObj.tabBarItem.title = title;
-      vcObj.tabBarItem.image = [UIImage AIR_OriginalImageWithDefaultImageName:image];
-      vcObj.tabBarItem.selectedImage = [UIImage AIR_OriginalImageWithDefaultImageName:selectedImage];
-    ***/
-   
 }
+
+#pragma mark - 监听UITabBarControllerDelegate://注释1⃣️
+
+#pragma mark - 外观样式设置
 
 + (void)load{
     AIRTabBar *bar = nil;
     UITabBarItem *item = nil;
     if (IOS9_OR_LATER) {
-       bar = [AIRTabBar appearanceWhenContainedInInstancesOfClasses:@[self]];
+        bar = [AIRTabBar appearanceWhenContainedInInstancesOfClasses:@[self]];
         //父类里有设置字体富文本的方法
         item = [UITabBarItem appearanceWhenContainedInInstancesOfClasses:@[self]];
     }else{
@@ -133,16 +137,21 @@
 }
 
 
+#pragma mark - 注释
+
+/***********注释1⃣️
+ UITabBarDelegate这个代理被UITabBarController给绑定了，self.tabBar.delegate = UITabBarController修改成self.tabBar.delegate = self就被导致无法切换UITabBarController上的控制器了
+ ********/
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
