@@ -124,6 +124,8 @@
 		455EDB001EA1C8930042DB27 /* AIRMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRMeViewController.m; sourceTree = "<group>"; };
 		455EDB021EA1C89E0042DB27 /* AIRMeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIRMeViewController.storyboard; sourceTree = "<group>"; };
 		455EE9491E44A39F006B7CB9 /* AIRDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIRDefine.h; sourceTree = "<group>"; };
+		456431651EBB16FD00132F21 /* NSTimer+AIRDealloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+AIRDealloc.h"; sourceTree = "<group>"; };
+		456431661EBB16FD00132F21 /* NSTimer+AIRDealloc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+AIRDealloc.m"; sourceTree = "<group>"; };
 		45699D6B1E2F735300DEA389 /* UIBarButtonItem+AIRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+AIRItem.h"; sourceTree = "<group>"; };
 		45699D6C1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+AIRItem.m"; sourceTree = "<group>"; };
 		456C77471E2729A500EF48A9 /* BuDeJie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuDeJie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -704,6 +706,8 @@
 				45699D6C1E2F735300DEA389 /* UIBarButtonItem+AIRItem.m */,
 				459FA97C1E9B6AC200C17F87 /* UITextField+AIRPlaceholder.h */,
 				459FA97D1E9B6AC200C17F87 /* UITextField+AIRPlaceholder.m */,
+				456431651EBB16FD00132F21 /* NSTimer+AIRDealloc.h */,
+				456431661EBB16FD00132F21 /* NSTimer+AIRDealloc.m */,
 				45FF27A11EAEE8B500D3065D /* NSString+AIRString.h */,
 				45FF27A21EAEE8B500D3065D /* NSString+AIRString.m */,
 			);

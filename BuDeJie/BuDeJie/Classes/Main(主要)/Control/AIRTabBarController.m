@@ -42,8 +42,6 @@
     //自定义UITabBar控件,添加tabBar按钮
     [self addTabBarBtn];
     
-    
-    
     // Do any additional setup after loading the view.
     
 }

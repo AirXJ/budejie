@@ -9,6 +9,7 @@
 #ifndef AIRDefine_h
 #define AIRDefine_h
 
+
 #pragma mark - 颜色
 /********颜色********/
 #define AIRColor(r,g,b) [UIColor colorWithRed:(r) / 256.0 green:(g) / 256.0 blue:(b) / 256.0 alpha:1]
@@ -59,6 +60,15 @@ cell.layoutMargins = UIEdgeInsetsZero; \
 cell.preservesSuperviewLayoutMargins = NO; \
 }
 /********移除iOS7之后，cell默认左侧的分割线边距********/
+
+
+#pragma mark - 通知字符串
+/*************通知*****************/
+/**************被重复点击的通知*****/
+#define AIRTabBarBtnDidRepeatClickNotification @"AIRTabBarBtnDidRepeatClickNotification"
+#define AIRTitleBtnDidRepeatClickNotification @"AIRTitleBtnDidRepeatClickNotification"
+/**************被重复点击的通知*****/
+/*************通知*****************/
 
 
 #pragma mark - 忽略警告

@@ -1,4 +1,4 @@
-//  布局设置样式、监听 -> 万变不离其宗
+//  布局设置样式、监听(监听方式-> 代理, 通知, 目标操作, KVO) -> 万变不离其宗
 //  AIREssenceController.m
 //  BuDeJie
 //
@@ -10,6 +10,8 @@
 #import "AIRTitleBtn.h"
 #import "AIREssence.h"
 #import "AppDelegate.h"
+#import "AIRTabBar.h"
+
 
 #define childCount self.childViewControllers.count
 @interface AIREssenceController ()<UIScrollViewDelegate>//,AIRAppTouchDelegate>
@@ -26,6 +28,9 @@
 
 /***************** viewModel ********************************************/
 @property (nonatomic, strong) AIREssenceModel *viewModel;
+
+/******************** 刚添加的子控制器的view *******************/
+@property (nonatomic, strong) UITableView *currentChildView;
 @end
 
 @implementation AIREssenceController
@@ -44,11 +49,13 @@
     //1.设置导航条
     [self setUpStackControllerBar];
     
+    //2.设置标题栏
+    [self setUpTitlesView];
+    
     //2.添加UIScrollView
     [self setUpScrollView];
     
-    //2.设置标题栏
-    [self setUpTitlesView];
+    
     
     //3.1设置子控制器视图
     //[self setUpChildViews];
@@ -81,7 +88,8 @@
     scrollView.pagingEnabled = YES;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.showsHorizontalScrollIndicator = NO;
-    [self.view addSubview:scrollView];
+    //⚠️[self.view addSubview:scrollView];
+    [self.view insertSubview:scrollView belowSubview:self.titlesView];
     self.scrollView = scrollView;
     
     
@@ -187,7 +195,6 @@
     firstTitleBtn.selected = YES;
     self.previousClickedTitleButton = firstTitleBtn;
     
-    
     [self.titlesView addSubview:titleUnderLine];
     self.titleUnderLine = titleUnderLine;
     
@@ -211,21 +218,30 @@
 #pragma mark - 监听:目标操作
 /****切换按钮状态,处理下划线, 修改self.scrollView偏移量, 加载对应的子控制器的view, 添加功能:点击状态栏修改子控制器view的偏移量****/
 - (void)titleBtnClick:(AIRTitleBtn *)titleBtn{
+    //重复点击了标题按钮
+    if (self.previousClickedTitleButton == titleBtn) {
+        AIRFUNCLog;
+        
+        //一被点击tabBarBtn就发出通知, 告知外界马上刷新处理
+        [[NSNotificationCenter defaultCenter] postNotificationName:AIRTitleBtnDidRepeatClickNotification object:nil userInfo:@{}];
+    }
     // 1.1切换按钮状态
     self.previousClickedTitleButton.selected = NO;
     titleBtn.selected = YES;
     self.previousClickedTitleButton = titleBtn;
     
     NSUInteger index = [self.viewModel.titles indexOfObject:[titleBtn titleForState:UIControlStateNormal]];
+
     [UIView animateWithDuration:0.25 animations:^{
         //1.2处理下划线, 要与标题文字同宽:采用按钮, titlUnderLine宽度的计算方法5⃣️
         self.titleUnderLine.AIR_width =  titleBtn.titleLabel.AIR_width + 10;
         self.titleUnderLine.AIR_centerX = titleBtn.AIR_centerX;//先设置宽度再中心点
-        
         //🈳️1.3点击按钮, 修改scrollView的偏移量来滚动scrollView, (偏移量只有正数并且都是相对于scrollerView的frame的原点)
         CGFloat offsetX = self.scrollView.AIR_width * index;
         self.scrollView.contentOffset = CGPointMake(offsetX, self.scrollView.contentOffset.y);
     } completion:^(BOOL finished) {
+        //不显示的view必须移除
+        [self.currentChildView removeFromSuperview];
         //🆗†加载子控制器的view到self.scrollView中
         [self addChildViewIntoScrollView:index];
     }];
@@ -279,7 +295,10 @@
     childView.frame = CGRectMake(index * scrollViewW, 0, scrollViewW, scrollViewH);
     
     childView.contentInset = UIEdgeInsetsMake(AIRNavMaxY + AIRTitlesViewH, 0, AIRTabBarH, 0);
-    [self.scrollView addSubview:childView];
+   //⚠️ [self.scrollView addSubview:childView];
+    
+    [self.scrollView insertSubview:childView belowSubview:self.titlesView];
+    self.currentChildView = childView;
 }
 
 

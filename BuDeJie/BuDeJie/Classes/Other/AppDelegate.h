@@ -1,4 +1,4 @@
-//
+//  布局设置样式、监听(监听方式-> 代理, 通知(object最好写nil), 目标操作, KVO) -> 万变不离其宗
 //  AppDelegate.h
 //  BuDeJie
 //

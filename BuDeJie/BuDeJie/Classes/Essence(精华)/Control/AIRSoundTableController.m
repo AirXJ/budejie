@@ -8,6 +8,7 @@
 
 #import "AIRSoundTableController.h"
 
+
 @interface AIRSoundTableController ()
 
 @end
@@ -18,9 +19,27 @@
     [super viewDidLoad];
     //AIRFUNCLog;
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarBtnDidRepeatClick:) name:AIRTitleBtnDidRepeatClickNotification object:nil];
+    // AIRFUNCLog;添加通知监听,不添加监听就不会收到通知, 收到通知马上刷新, 控制器的view被dealloc一定要移除通知监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarBtnDidRepeatClick:) name:AIRTabBarBtnDidRepeatClickNotification object:nil];
 }
 
 
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AIRTabBarBtnDidRepeatClickNotification object:nil];
+}
+
+#pragma mark - 监听 通知模式
+
+- (void)tabBarBtnDidRepeatClick:(NSNotification *)notification{
+    
+    //没有点击精华按钮退出方法
+    if (self.view.window == nil) return;
+    //显示在正中间的不是AIRAllTableController, 不显示的view必须移除
+    if (self.tableView.superview == nil) return;
+    AIRFUNCLog;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

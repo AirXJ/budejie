@@ -68,6 +68,8 @@
     
     if (self.previousClickBtn == tabBarBtn) {
         
+        //一被点击tabBarBtn就发出通知, 告知外界马上刷新处理
+        [[NSNotificationCenter defaultCenter] postNotificationName:AIRTabBarBtnDidRepeatClickNotification object:nil userInfo:@{}];
     }
     self.previousClickBtn = tabBarBtn;
 }

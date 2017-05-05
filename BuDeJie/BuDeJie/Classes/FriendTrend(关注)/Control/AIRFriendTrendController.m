@@ -27,11 +27,29 @@
     self.testField.Air_PlaceholderColor = [UIColor redColor];
     self.testField.placeholder = @"有颜色?";
     
-   
+    // AIRFUNCLog;添加通知监听,不添加监听就不会收到通知, 收到通知马上刷新, 控制器的view被dealloc一定要移除通知监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarBtnDidRepeatClick:) name:AIRTabBarBtnDidRepeatClickNotification object:nil];
+    
+}
+
+
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AIRTabBarBtnDidRepeatClickNotification object:nil];
     
     
 }
 
+#pragma mark - 监听 通知模式
+
+- (void)tabBarBtnDidRepeatClick:(NSNotification *)notification{
+    
+    //没有点击精华按钮退出方法
+    if (self.view.window == nil) return;
+    //显示在正中间的不是AIRAllTableController, 不显示的view必须移除
+    if (self.view.superview == nil) return;
+    AIRFUNCLog;
+}
 
 //点击了组册就会调用
 - (IBAction)clickLoginRegister:(UIButton *)sender {
