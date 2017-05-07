@@ -11,4 +11,6 @@
 @interface AIREssenceModel : NSObject
 /******************** 标题栏文字数组 *******************/
 @property (nonatomic, strong, readonly)NSArray *titles;
+
+
 @end

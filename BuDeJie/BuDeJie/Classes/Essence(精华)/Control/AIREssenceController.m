@@ -11,7 +11,8 @@
 #import "AIREssence.h"
 #import "AppDelegate.h"
 #import "AIRTabBar.h"
-
+#import "AIRFooterView.h"
+#import "AIRDownRefreshView.h"
 
 #define childCount self.childViewControllers.count
 @interface AIREssenceController ()<UIScrollViewDelegate>//,AIRAppTouchDelegate>
@@ -31,6 +32,8 @@
 
 /******************** 刚添加的子控制器的view *******************/
 @property (nonatomic, strong) UITableView *currentChildView;
+
+
 @end
 
 @implementation AIREssenceController
@@ -64,7 +67,7 @@
     // Do any additional setup after loading the view.
 }
 
-#pragma mark - 初始化设置
+#pragma mark - 多控制器设置
 //初始化子控制器
 - (void)setUpChildVCs{
     [self addChildViewController:
@@ -75,6 +78,80 @@
     [self addChildViewController:[[AIRJokeTableController alloc] init]];
 }
 
+#pragma mark - 设置导航条内容
+- (void)setUpStackControllerBar{
+    //栈顶控制器决定导航条内容
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem Air_itemWithImage:[UIImage imageNamed:@"nav_item_game_icon"] HighlightedImage:[UIImage imageNamed:@"nav_item_game_click_icon"] isSelectedOrHighlighted:NO target:self action:@selector(game) subViewsHandle:^(UIButton *btn) {
+        
+    }];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem Air_itemWithImage:[UIImage imageNamed:@"navigationButtonRandom"] HighlightedImage:[UIImage imageNamed:@"navigationButtonRandomClick"] isSelectedOrHighlighted:NO target:self action:@selector(game) subViewsHandle:^(UIButton *btn) {
+    }];
+    self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage AIR_OriginalImageWithDefaultImageName:@"MainTitle"]];
+    
+}
+
+#pragma mark - 监听:目标操作
+/****切换按钮状态,处理下划线, 修改self.scrollView偏移量, 加载对应的子控制器的view, 添加功能:点击状态栏修改子控制器view的偏移量****/
+- (void)titleBtnClick:(AIRTitleBtn *)titleBtn{
+    //重复点击了标题按钮
+    if (self.previousClickedTitleButton == titleBtn) {
+        AIRFUNCLog;
+        //一被点击tabBarBtn就发出通知, 告知外界马上刷新处理
+        [[NSNotificationCenter defaultCenter] postNotificationName:AIRTitleBtnDidRepeatClickNotification object:nil userInfo:@{}];
+    }
+    // 1.1切换按钮状态
+    self.previousClickedTitleButton.selected = NO;
+    titleBtn.selected = YES;
+    self.previousClickedTitleButton = titleBtn;
+    
+    NSUInteger index = [self.viewModel.titles indexOfObject:[titleBtn titleForState:UIControlStateNormal]];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        //1.2处理下划线, 要与标题文字同宽:采用按钮, titlUnderLine宽度的计算方法5⃣️
+        self.titleUnderLine.AIR_width =  titleBtn.titleLabel.AIR_width + 10;
+        self.titleUnderLine.AIR_centerX = titleBtn.AIR_centerX;//先设置宽度再中心点
+        //🈳️1.3点击按钮, 修改scrollView的偏移量来滚动scrollView, (偏移量只有正数并且都是相对于scrollerView的frame的原点)
+        CGFloat offsetX = self.scrollView.AIR_width * index;
+        self.scrollView.contentOffset = CGPointMake(offsetX, self.scrollView.contentOffset.y);
+    } completion:^(BOOL finished) {
+        //不显示的view必须移除
+        [self.currentChildView removeFromSuperview];
+        //🆗†加载子控制器的view到self.scrollView中
+        [self addChildViewIntoScrollView:index];
+    }];
+    //8⃣️如果i位置对应的tableView.scrollsToTop = YES,所有scrollView及其子类对象都都设置为NO。 新的iOS在多控制器管理view中不需要再一个个设置 self.scrollView.scrollsToTop了,但是只要是viewdidappear的UIScrollView都需要单独设置。
+    NSUInteger count = childCount;
+    for (NSUInteger i = 0; i < count; i++) {
+        if (!self.childViewControllers[i].isViewLoaded) continue;
+        if (![self.childViewControllers[i] isKindOfClass:[UITableViewController class]]) { continue;
+        } else {
+            UITableView *scrollView = (UITableView *)self.childViewControllers[i].view;
+            scrollView.scrollsToTop = (i == index);
+        }
+    }
+}
+
+- (void)game{
+    //AIRFUNCLog;
+}
+
+
+#pragma mark - 监听:UIScrollViewDelegate
+
+/**********🈳️1.4手松开并且scrollView完全停止滚动时, 切换按钮状态**********/
+//de 降序 rate 速度 => 减速
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    //偏移量除以宽度计算第几个按钮
+    NSUInteger index = scrollView.contentOffset.x / scrollView.AIR_width;
+    //不要用tag7⃣️去遍历控件
+    AIRTitleBtn *titleBtn = self.titlesView.subviews[index];
+    // 点击对应的按钮, 切换按钮状态, 加载对应view
+    [self titleBtnClick:titleBtn];
+}
+
+//当用户松开scrollView时候调用6⃣️
+
+#pragma mark - UI布局
 - (void)setUpScrollView
 {
     //不允许自动修改UIScrollView的内边距
@@ -88,7 +165,6 @@
     scrollView.pagingEnabled = YES;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.showsHorizontalScrollIndicator = NO;
-    //⚠️[self.view addSubview:scrollView];
     [self.view insertSubview:scrollView belowSubview:self.titlesView];
     self.scrollView = scrollView;
     
@@ -100,29 +176,6 @@
     self.scrollView.contentSize = CGSizeMake(childCount * scrollViewW, 0);
     
 }
-
-/**************************🆗†设置子控制器视图, 其他的view需要懒加载所以移除这个方法
- - (void)setUpChildViews
- {
- NSUInteger count = self.childViewControllers.count;
- CGFloat scrollViewW = self.scrollView.AIR_width;
- CGFloat scrollViewH = self.scrollView.AIR_height;
- for (NSUInteger i = 0; i < count; i++) {
- //取出i位置子控制器的view
- UITableView *childView = (UITableView *)self.childViewControllers[i].view;
- childView.backgroundColor = AIRRandomColor;
- 
- //ios6历史遗留问题tableview的frame跟普通的UIView不同, 要高20
- //设置childView的全穿透效果4⃣️
- childView.frame = CGRectMake(i * scrollViewW, 0, scrollViewW, scrollViewH);
- childView.contentInset = UIEdgeInsetsMake(AIRNavMaxY + AIRTitlesViewH, 0, AIRTabBarH, 0);
- 
- 
- [self.scrollView addSubview:childView];
- }
- self.scrollView.contentSize = CGSizeMake(count * scrollViewW, 0);
- }
- ****************************************/
 
 - (void)setUpTitlesView
 {
@@ -198,86 +251,9 @@
     [self.titlesView addSubview:titleUnderLine];
     self.titleUnderLine = titleUnderLine;
     
-    
-    
 }
 
 
-#pragma mark - 设置导航条内容
-- (void)setUpStackControllerBar{
-    //栈顶控制器决定导航条内容
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem Air_itemWithImage:[UIImage imageNamed:@"nav_item_game_icon"] HighlightedImage:[UIImage imageNamed:@"nav_item_game_click_icon"] isSelectedOrHighlighted:NO target:self action:@selector(game) subViewsHandle:^(UIButton *btn) {
-        
-    }];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem Air_itemWithImage:[UIImage imageNamed:@"navigationButtonRandom"] HighlightedImage:[UIImage imageNamed:@"navigationButtonRandomClick"] isSelectedOrHighlighted:NO target:self action:@selector(game) subViewsHandle:^(UIButton *btn) {
-    }];
-    self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage AIR_OriginalImageWithDefaultImageName:@"MainTitle"]];
-    
-}
-
-#pragma mark - 监听:目标操作
-/****切换按钮状态,处理下划线, 修改self.scrollView偏移量, 加载对应的子控制器的view, 添加功能:点击状态栏修改子控制器view的偏移量****/
-- (void)titleBtnClick:(AIRTitleBtn *)titleBtn{
-    //重复点击了标题按钮
-    if (self.previousClickedTitleButton == titleBtn) {
-        AIRFUNCLog;
-        
-        //一被点击tabBarBtn就发出通知, 告知外界马上刷新处理
-        [[NSNotificationCenter defaultCenter] postNotificationName:AIRTitleBtnDidRepeatClickNotification object:nil userInfo:@{}];
-    }
-    // 1.1切换按钮状态
-    self.previousClickedTitleButton.selected = NO;
-    titleBtn.selected = YES;
-    self.previousClickedTitleButton = titleBtn;
-    
-    NSUInteger index = [self.viewModel.titles indexOfObject:[titleBtn titleForState:UIControlStateNormal]];
-
-    [UIView animateWithDuration:0.25 animations:^{
-        //1.2处理下划线, 要与标题文字同宽:采用按钮, titlUnderLine宽度的计算方法5⃣️
-        self.titleUnderLine.AIR_width =  titleBtn.titleLabel.AIR_width + 10;
-        self.titleUnderLine.AIR_centerX = titleBtn.AIR_centerX;//先设置宽度再中心点
-        //🈳️1.3点击按钮, 修改scrollView的偏移量来滚动scrollView, (偏移量只有正数并且都是相对于scrollerView的frame的原点)
-        CGFloat offsetX = self.scrollView.AIR_width * index;
-        self.scrollView.contentOffset = CGPointMake(offsetX, self.scrollView.contentOffset.y);
-    } completion:^(BOOL finished) {
-        //不显示的view必须移除
-        [self.currentChildView removeFromSuperview];
-        //🆗†加载子控制器的view到self.scrollView中
-        [self addChildViewIntoScrollView:index];
-    }];
-    //8⃣️如果i位置对应的tableView.scrollsToTop = YES,所有scrollView及其子类对象都都设置为NO。 新的iOS在多控制器管理view中不需要再一个个设置 self.scrollView.scrollsToTop了,但是只要是viewdidappear的UIScrollView都需要单独设置。
-    NSUInteger count = childCount;
-    for (NSUInteger i = 0; i < count; i++) {
-        if (!self.childViewControllers[i].isViewLoaded) continue;
-        if (![self.childViewControllers[i] isKindOfClass:[UITableViewController class]]) { continue;
-        } else {
-            UITableView *scrollView = (UITableView *)self.childViewControllers[i].view;
-            scrollView.scrollsToTop = (i == index);
-        }
-    }
-}
-
-- (void)game{
-    //AIRFUNCLog;
-}
-
-
-#pragma mark - 监听:UIScrollViewDelegate
-
-/**********🈳️1.4当用户松开scrollView, 并且完全停止滚动时, 切换按钮状态**********/
-//de 降序 rate 速度 => 减速
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    //偏移量除以宽度计算第几个按钮
-    NSUInteger index = scrollView.contentOffset.x / scrollView.AIR_width;
-    //不要用tag7⃣️去遍历控件
-    AIRTitleBtn *titleBtn = self.titlesView.subviews[index];
-    // 点击对应的按钮, 切换按钮状态, 加载对应view
-    [self titleBtnClick:titleBtn];
-}
-
-//当用户松开scrollView时候调用6⃣️
-
-#pragma mark - 其他
 /*****添加第index个子控制器的view到scrollView中
  @:(NSUInteger)index 可以省略，但不推荐
  *******/
@@ -290,25 +266,65 @@
     CGFloat scrollViewW = self.scrollView.AIR_width;
     CGFloat scrollViewH = self.scrollView.AIR_height;
     
-    //ios6历史遗留问题tableview的frame跟普通的UIView不同, 要高20
     //设置childView的全穿透效果4⃣️
     childView.frame = CGRectMake(index * scrollViewW, 0, scrollViewW, scrollViewH);
-    
     childView.contentInset = UIEdgeInsetsMake(AIRNavMaxY + AIRTitlesViewH, 0, AIRTabBarH, 0);
-   //⚠️ [self.scrollView addSubview:childView];
+    //滚动条内边距
+    childView.scrollIndicatorInsets = childView.contentInset;
+    //上拉刷新UI
+    childView.tableFooterView = (AIRFooterView *)self.footersArr[index];
+    //下拉刷新UI
+    [childView addSubview:(AIRDownRefreshView *)self.downRefreshersArr[index]];
+    //设置广告
+    UILabel *adLabel = [UILabel new];
+    adLabel.frame = CGRectMake(0, 0, self.view.AIR_width, 30);
+    adLabel.text = @"广告";
+    adLabel.backgroundColor = [UIColor whiteColor];
+    adLabel.textAlignment = NSTextAlignmentCenter;
+    adLabel.textColor = [UIColor blueColor];
+    childView.tableHeaderView = adLabel;
     
     [self.scrollView insertSubview:childView belowSubview:self.titlesView];
     self.currentChildView = childView;
+    
 }
 
+
+#pragma mark - lazy
+/****设置下拉控件数组*****/
+- (NSArray<AIRDownRefreshView *> *)downRefreshersArr{
+    if (_downRefreshersArr == nil) {
+        NSMutableArray *arr = [NSMutableArray array];
+        for (NSUInteger i = 0; i < self.childViewControllers.count; i++) {
+            AIRDownRefreshView *downRefresher = [AIRDownRefreshView downRefreshViewWithState:AIRDownRefreshTypeDown];
+            //待会会加到childView的内容上, 以内容的contentsize00点作为frame的原点
+            downRefresher.frame = CGRectMake(0, -50, self.view.bounds.size.width, 50);
+            [arr addObject:downRefresher];
+        }
+        _downRefreshersArr = [arr copy];
+    }
+    return _downRefreshersArr;
+}
+
+/****设置上拉控件数组*****/
+- (NSArray<UIView *> *)footersArr{
+    if (_footersArr == nil) {
+        NSMutableArray *arr = [NSMutableArray array];
+        for (NSUInteger i = 0; i < self.childViewControllers.count; i++) {
+            AIRFooterView *footer = [AIRFooterView footerView];
+            footer.frame = CGRectMake(0, 0, self.view.bounds.size.width, AIRTitlesViewH);
+            [arr addObject:footer];
+        }
+        _footersArr = [arr copy];
+    }
+    return _footersArr;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark - lazy
 
 #pragma mark - AppDelegate
 //- (void)appDelegate:(AppDelegate *)appDelegate resetOffset:(CGPoint)defaultPoint{
@@ -326,6 +342,30 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+/**************************🆗†设置子控制器视图, 其他的view需要懒加载所以移除这个方法
+ - (void)setUpChildViews
+ {
+ NSUInteger count = self.childViewControllers.count;
+ CGFloat scrollViewW = self.scrollView.AIR_width;
+ CGFloat scrollViewH = self.scrollView.AIR_height;
+ for (NSUInteger i = 0; i < count; i++) {
+ //取出i位置子控制器的view
+ UITableView *childView = (UITableView *)self.childViewControllers[i].view;
+ childView.backgroundColor = AIRRandomColor;
+ 
+ //ios6历史遗留问题tableview的frame跟普通的UIView不同, 要高20
+ //设置childView的全穿透效果4⃣️
+ childView.frame = CGRectMake(i * scrollViewW, 0, scrollViewW, scrollViewH);
+ childView.contentInset = UIEdgeInsetsMake(AIRNavMaxY + AIRTitlesViewH, 0, AIRTabBarH, 0);
+ 
+ 
+ [self.scrollView addSubview:childView];
+ }
+ self.scrollView.contentSize = CGSizeMake(count * scrollViewW, 0);
+ }
+ ****************************************/
+
 #pragma mark - 注释
 /**************************注释1⃣️*****************************
  设置文字 titleBtn.enabled = NO,UIControlStateDisabled按钮无法点击(userInteractionEnabled是UIControlStateNormal, 也是无法点击),UIControlStateHighlighted  推测有highlighted属性, 但是松开之后会恢复到UIControlStateNormal, 重写- (void)setHighlighted:(BOOL)highlighted方法，永远不会进入高亮状态
@@ -348,6 +388,7 @@
 
 
 /**********************设置childView的全穿透效果4⃣️***********************************
+ ios6历史遗留问题tableview的frame跟普通的UIView不同, 要高20
  0.不允许根控制器自动修改UIScrollView的内边距 \
  1.frame必须占据整个屏幕\
  2.通过设置contentInset内边距防治被导航栏和TabBar挡住

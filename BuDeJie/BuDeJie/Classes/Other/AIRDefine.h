@@ -40,13 +40,17 @@
 
 
 #pragma mark - UIView UIViewController
+/***********load xib************/
+#define AIRLoadViewFromXib [[NSBundle mainBundle]loadNibNamed:NSStringFromClass(self) owner:nil options:nil]
+/***********load xib************/
+
 /********frameConsts********/
 #define AIRNavMaxY 64
 #define AIRTabBarH 49
 #define AIRTitlesViewH 35
 /********frameConsts********/
 
-/**不允许自动修改UIScrollView的内边距contentInset
+/**不允许自动修改UIScrollView的内边距contentInset,不然内容会自动往下移动64
 **/
 #define AIRIsContentInset self.automaticallyAdjustsScrollViewInsets = NO;
 /**不允许自动修改UIScrollView的内边距contentInset
@@ -159,9 +163,10 @@ return MAXFLOAT;\
 
 
 #pragma mark - 测试代码
-#define AIRTestCodeTableDataSource - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section\
+#define AIRTestCodeTableDataSource(dataCount) - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section\
 {\
-    return 30;\
+    self.tableViewFooter.hidden = (dataCount == 0);\
+    return dataCount;\
 }\
 \
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath\

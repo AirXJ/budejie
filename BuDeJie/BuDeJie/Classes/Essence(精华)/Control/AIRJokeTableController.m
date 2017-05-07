@@ -7,10 +7,13 @@
 //
 
 #import "AIRJokeTableController.h"
-
+#import "AIRFooterView.h"
+#import "AIREssenceModel.h"
+#import "AIREssenceController.h"
 
 @interface AIRJokeTableController ()
-
+/******************** 上拉控件 *******************/
+@property (nonatomic, weak) AIRFooterView *tableViewFooter;
 @end
 
 @implementation AIRJokeTableController
@@ -18,20 +21,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // AIRFUNCLog;
-   
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarBtnDidRepeatClick:) name:AIRTitleBtnDidRepeatClickNotification object:nil];
-    // AIRFUNCLog;添加通知监听,不添加监听就不会收到通知, 收到通知马上刷新, 控制器的view被dealloc一定要移除通知监听
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarBtnDidRepeatClick:) name:AIRTabBarBtnDidRepeatClickNotification object:nil];
+    AIREssenceModel *model = [[AIREssenceModel alloc] init];
+    NSUInteger index = [model.titles indexOfObject:@"全部"];
+    AIREssenceController *parentVc = (AIREssenceController *)self.parentViewController;
+    AIRFooterView *footer = (AIRFooterView *)parentVc.footersArr[index];
+    self.tableViewFooter = footer;
 }
 
 
 - (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:AIRTabBarBtnDidRepeatClickNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - 监听 通知模式
 
+/**监听tabBarBtn重复点击**/
 - (void)tabBarBtnDidRepeatClick:(NSNotification *)notification{
     
     //没有点击精华按钮退出方法
@@ -40,18 +47,37 @@
     if (self.tableView.superview == nil) return;
     AIRFUNCLog;
 }
+
+/**监听titleBtn重复点击**/
+- (void)titleBtnDidRepeatClick:(NSNotification *)notification{
+    [self tabBarBtnDidRepeatClick:notification];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - 监听UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGFloat offsetY = self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.AIR_height;
+    if (self.tableView.contentOffset.y >= offsetY) {
+        //TODO:待会补上
+        NSLog(@"~~~");
+    }
+}
+
+#pragma mark - UI布局
+
+
 #pragma mark - Table view data source
 
-AIRTestCodeTableDataSource
+AIRTestCodeTableDataSource(30)
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: forIndexPath:indexPath];
     
     // Configure the cell...
     
