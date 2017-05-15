@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class AIRFooterView, AIRDownRefreshView;
+@class AIRFooterView, AIRHeaderRefreshView;
 @interface AIREssenceController : UIViewController
 
 /******** footersArr这几个控件必须懒加载,设置上拉控件数组************/
 @property (nonatomic, strong) NSArray <AIRFooterView *> *footersArr;
 
 /*************** downRefreshUI数组 *****************/
-@property (nonatomic, strong) NSArray <AIRDownRefreshView *> *downRefreshersArr;
+@property (nonatomic, strong) NSArray <AIRHeaderRefreshView *> *downRefreshersArr;
 
 @end

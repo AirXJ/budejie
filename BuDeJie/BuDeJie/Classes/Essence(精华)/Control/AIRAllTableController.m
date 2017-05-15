@@ -1,4 +1,4 @@
-//
+// ⚠️有个bug，偏移量导致＝》正在刷新出不来
 //  AIRAllTableController.m
 //  BuDeJie
 //
@@ -10,23 +10,28 @@
 #import "AIREssenceController.h"
 #import "AIREssenceModel.h"
 #import "AIRFooterView.h"
-#import "AIRDownRefreshView.h"
+#import "AIRHeaderRefreshView.h"
+#import "AIRTopicsItem.h"
+#import "NSObject+Common.h"
+#import "AIRTopicCell.h"
 
 @interface AIRAllTableController ()
-/******************** 数据量 *******************/
-@property (nonatomic, assign) NSUInteger dataCount;
+
 
 /******************** 上拉控件 *******************/
 @property (nonatomic, weak) AIRFooterView *tableViewFooter;
 
-/******************** 下拉控件下拉可以刷新 *******************/
-@property (nonatomic, weak) AIRDownRefreshView *downRefreshView;
+/*************** 下拉控件下拉可以刷新 *******************/
+@property (nonatomic, weak) AIRHeaderRefreshView *headerRefreshView;
 
-/******************** 下拉控件2松开立即刷新 *******************/
-@property (nonatomic,weak) AIRDownRefreshView *upRefreshView;
+/******************** 所有帖子数据 *******************/
+@property (nonatomic, strong) NSMutableArray <AIRTopicsItem *>*topics;
 
-/******************** 下拉控件3正在刷新 *******************/
-@property (nonatomic,weak) AIRDownRefreshView *ingRefreshView;
+/******************** 用来加载下一页数据, 最后一个数据的描述信息 *******************/
+@property (nonatomic, strong) NSString *maxtime;
+
+/******************** 网络管理者 *******************/
+@property (nonatomic, strong) AFHTTPSessionManager *manger;
 
 @end
 
@@ -39,27 +44,27 @@ AIREssenceController *parentVc = (AIREssenceController *)self.parentViewControll
 //    [super viewWillDisappear:animated];
 //    AIRLog(@"~~~~");
 //}
-
+/* cell的重用标识 */
+static NSString * const AIRTopicCellId = @"AIRTopicCellId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 注册cell
+    UINib *nib = [UINib nibWithNibName:NSStringFromClass([AIRTopicCell class]) bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:AIRTopicCellId];
     
-    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    //        self.dataCount = 7;
-    //        [self.tableView reloadData];
-    //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    //            self.dataCount = 0;
-    //            [self.tableView reloadData];
-    //        });
-    //    });
+    self.tableView.rowHeight = 200;
+    self.view.backgroundColor = AIRGrayColor(206);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.dataCount = 3;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleBtnDidRepeatClick:) name:AIRTitleBtnDidRepeatClickNotification object:nil];
     
     // AIRFUNCLog;添加通知监听,不添加监听就不会收到通知, 收到通知马上刷新, 控制器的view被dealloc一定要移除通知监听
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarBtnDidRepeatClick:) name:AIRTabBarBtnDidRepeatClickNotification object:nil];
     
+    // 让header自动进入刷新
+    [self headerBeginRefreshing];
 }
 
 
@@ -77,11 +82,15 @@ AIREssenceController *parentVc = (AIREssenceController *)self.parentViewControll
     if (self.view.window == nil) return;
     //显示在正中间的不是AIRAllTableController, 不显示的view必须移除
     if (self.tableView.superview == nil) return;
-    AIRFUNCLog;
+    
+    //进入下拉刷新
+    [self headerBeginRefreshing];
+    
 }
 
 /**监听titleBtn重复点击**/
 - (void)titleBtnDidRepeatClick:(NSNotification *)notification{
+    
     [self tabBarBtnDidRepeatClick:notification];
 }
 
@@ -90,110 +99,136 @@ AIREssenceController *parentVc = (AIREssenceController *)self.parentViewControll
 /*********一加载就会调用一次，然后除非滚动的时候会再次调用*********/
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     //处理上拉刷新
-    [self dealUpFooterRefreshing];
-    //判断下拉状态
-    [self judgeHeaderRefreshStateBetween:self.downRefreshView andCurrentView:self.upRefreshView useByOffsetY:- (self.tableView.contentInset.top + self.upRefreshView.AIR_height)];//处理下拉刷新
-    
+    [self dealFooterRefreshing];
+    //处理下拉刷新
+    [self dealHeaderRefreshing];
 }
 
 /*********手一松开*********/
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    CGFloat offsetY = - (self.tableView.contentInset.top + self.upRefreshView.AIR_height);
+    
+    CGFloat offsetY = - (self.tableView.contentInset.top + self.headerRefreshView.AIR_height);
+    
+    // header已经完全出现
     if (self.tableView.contentOffset.y <= offsetY) {
-        //开始处理下拉刷新
-        [self dealHeaderRefreshing:offsetY];
-        //结束下拉刷新
-        [self finishedHeaderRefreshing];
+        //自动刷新
+        [self headerBeginRefreshing];
     }
-  
 }
 
-#pragma mark - header逻辑和UI变化
-/*********判断下拉状态*********/
-- (void)judgeHeaderRefreshStateBetween:(AIRDownRefreshView *)previousView andCurrentView:(AIRDownRefreshView *)currentView useByOffsetY:(CGFloat)offsetY{
-    if (previousView.headerRefreshing == YES) return;
-    //当偏移量小于－149，说明下拉控件完全出现 - [偏移量 0-坐标值(0上负数, 0下正数)]
-    if (self.tableView.contentOffset.y <= offsetY) {
-        [previousView removeFromSuperview];
-        [self.tableView addSubview:currentView];
-        previousView.headerRefreshing = YES;
+#pragma mark - header
+- (AIRHeaderRefreshView *)headerRefreshView{
+    if (_headerRefreshView == nil) {
+        kAllIndex
+        AIRHeaderRefreshView *headerRefreshView = (AIRHeaderRefreshView *)parentVc.downRefreshersArr[index];
+        _headerRefreshView = headerRefreshView;
+    }
+    
+    return _headerRefreshView;
+}
+
+/**
+ *  处理header
+ */
+- (void)dealHeaderRefreshing{
+    // 如果正在下拉刷新，直接返回
+    if (self.headerRefreshView.isHeaderRefreshing) return;
+    
+    // 当scrollView的偏移量y值 <= offsetY时，代表header已经完全出现
+    CGFloat offsetY = - (self.tableView.contentInset.top + self.headerRefreshView.AIR_height);
+    if (self.tableView.contentOffset.y <= offsetY) { // header已经完全出现
+        self.headerRefreshView.refreshLabel.text = @"松开立即刷新";
+        self.headerRefreshView.backgroudView.backgroundColor = [UIColor grayColor];
+       
+        
     } else {
-        [currentView removeFromSuperview];
-        [self.tableView addSubview:previousView];
-        previousView.headerRefreshing = NO;
+        self.headerRefreshView.refreshLabel.text = @"下拉可以刷新";
+        self.headerRefreshView.backgroudView.backgroundColor = [UIColor redColor];
+        
     }
-}
-
-/*****************处理下拉刷新**********/
-- (void)dealHeaderRefreshing:(CGFloat)offsetY{
-    [self judgeHeaderRefreshStateBetween:self.upRefreshView andCurrentView:self.ingRefreshView useByOffsetY:offsetY];
-    self.tableView.contentInset = UIEdgeInsetsMake(AIRNavMaxY + AIRTitlesViewH + self.downRefreshView.AIR_height, 0, AIRTabBarH, 0);
     
 }
 
-/*****************结束下拉刷新**********/
--(void)finishedHeaderRefreshing{
-    //处理服务器请求
-    AIRLog(@"发送请求给服务器");
-    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)( 2 * NSEC_PER_SEC));
-    dispatch_after(delay, dispatch_get_main_queue(), ^{
-        //数据返回
-        self.dataCount += 20;
-        //结束刷新，减小内边距
-        self.downRefreshView.headerRefreshing = NO;
-        self.upRefreshView.headerRefreshing = NO;
-        [self.ingRefreshView removeFromSuperview];
-        [self.tableView addSubview:self.downRefreshView];
-        [self.tableView reloadData];
-        [UIView animateWithDuration:0.3 animations:^{
-            self.tableView.contentInset = UIEdgeInsetsMake(AIRNavMaxY + AIRTitlesViewH, 0, AIRTabBarH, 0);
-            
-        }];
-    });
+/**
+ *  自动刷新
+ */
+- (void)headerBeginRefreshing{
+    //if (self.tableViewFooter.isFooterRefreshing) return;
+    
+    // 如果正在下拉刷新，直接返回
+    if (self.headerRefreshView.isHeaderRefreshing) return;
+    // 进入下拉刷新状态
+    self.headerRefreshView.refreshLabel.text = @"正在刷新数据...";
+    self.headerRefreshView.backgroudView.backgroundColor = [UIColor blueColor];
+    self.headerRefreshView.headerRefreshing = YES;
+    // 增加内边距,在内容周围额外增加的间距（内边距），始终粘着内容
+    [UIView animateWithDuration:0.5 animations:^{
+        self.tableView.contentInset = UIEdgeInsetsMake(AIRNavMaxY + AIRTitlesViewH + self.headerRefreshView.AIR_height, 0, AIRTabBarH, 0);
+        // 修改偏移量,内容距离frame矩形框，偏移了多少，frame原点减去内容的原点
+        self.tableView.contentOffset = CGPointMake(0, -(AIRNavMaxY + AIRTitlesViewH + self.headerRefreshView.AIR_height));
+    } completion:^(BOOL finished) {
+       self.tableView.contentInset = UIEdgeInsetsMake(AIRNavMaxY + AIRTitlesViewH, 0, AIRTabBarH, 0);
+    }];
+   
+    
+    // 发送请求给服务器，下拉刷新数据
+    [self loadNewTopics];
 }
 
-#pragma mark - footer逻辑和UI变化
-/*****************处理上拉刷新**********/
-- (void)dealUpFooterRefreshing{
+
+
+- (void)headerEndRefreshing{
+    
+    self.headerRefreshView.headerRefreshing = NO;
+    [self dealHeaderRefreshing];
+    
+}
+
+
+
+
+#pragma mark - footer
+/**
+ *  处理footer
+ */
+- (void)dealFooterRefreshing{
     //还没有内容的时候, 不需要判断
     if (self.tableView.contentSize.height == 0) return;
-    //如果正在刷新, 直接返回
-    if (self.tableViewFooter.isFooterRefreshing == YES) return;
-    //contentSize内容尺寸 contentInset内边距
-    CGFloat offsetY = self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.AIR_height;// - self.tableView.tableFooterView.AIR_height * 0.5
+    
+    
+    //contentSize内容尺寸 contentInset内边距不算内容
+    CGFloat offsetY = self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.AIR_height;
+    
     //frame以内容的原点为原点(内容不包括内边距contentinset)偏移量 0 － 坐标值(0上负数, 0下正数), footer完全出现，并且是往上拖拽
     if (self.tableView.contentOffset.y >= offsetY && self.tableView.contentOffset.y > - (self.tableView.contentInset.top)) {
-        //进入刷新状体啊
-        //self.tableView.tableFooterView
         
-        self.tableViewFooter.footerRefreshing = YES;
-        self.tableViewFooter.refreshLabel.text = @"正在加载更多数据";
-        self.tableViewFooter.backgroudView.backgroundColor = [UIColor orangeColor];
-        [self.tableViewFooter.netActivityIndicator startAnimating];
-        [self finishedFooterRefreshing];
+        [self footerBeginRefreshing];
     }
 }
 
-/*****************结束上拉刷新**********/
-- (void)finishedFooterRefreshing{
-    //发送请求给服务器
-    AIRLog(@"发送请求给服务器");
-    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)( 2.0 * NSEC_PER_SEC));
-    dispatch_after(delay, dispatch_get_main_queue(), ^{
-        //服务器请求回来了
-        self.dataCount += 10;
-        [self.tableView reloadData];
-        
-        //结束刷新
-        self.tableViewFooter.footerRefreshing = NO;
-        self.tableViewFooter.refreshLabel.text = @"上拉可以加载更多";
-        self.tableViewFooter.backgroudView.backgroundColor = [UIColor lightGrayColor];
-        self.tableViewFooter.netActivityIndicator.hidesWhenStopped = YES;
-        [self.tableViewFooter.netActivityIndicator stopAnimating];
-    });
+- (void)footerBeginRefreshing{
+    //防治同时下拉上拉刷新
+   // if (self.headerRefreshView.isHeaderRefreshing) return;
+    // 如果正在上拉刷新，直接返回
+    if (self.tableViewFooter.isFooterRefreshing) return;
+    
+    self.tableViewFooter.footerRefreshing = YES;
+    self.tableViewFooter.refreshLabel.text = @"正在加载更多数据";
+    self.tableViewFooter.backgroudView.backgroundColor = [UIColor orangeColor];
+    [self.tableViewFooter.netActivityIndicator startAnimating];
+    
+    // 发送请求给服务器，上拉加载更多数据
+    [self loadMoreTopics];
 }
 
-#pragma mark - Header、FooterUI
+- (void)footerEndRefreshing{
+    self.tableViewFooter.footerRefreshing = NO;
+    self.tableViewFooter.refreshLabel.text = @"上拉可以加载更多";
+    self.tableViewFooter.backgroudView.backgroundColor = [UIColor lightGrayColor];
+    self.tableViewFooter.netActivityIndicator.hidesWhenStopped = YES;
+    [self.tableViewFooter.netActivityIndicator stopAnimating];
+    
+}
 
 - (AIRFooterView *)tableViewFooter{
     if (!_tableViewFooter) {
@@ -204,45 +239,103 @@ AIREssenceController *parentVc = (AIREssenceController *)self.parentViewControll
     return _tableViewFooter;
 }
 
-- (AIRDownRefreshView *)downRefreshView{
-    if (_downRefreshView == nil) {
-        kAllIndex
-        AIRDownRefreshView *downRefreshView = (AIRDownRefreshView *)parentVc.downRefreshersArr[index];
-        _downRefreshView = downRefreshView;
+#pragma mark - 数据处理
+- (AFHTTPSessionManager *)manger{
+    if (!_manger) {
+        AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+        
+        _manger = mgr;
     }
-    return _downRefreshView;
+    return _manger;
 }
 
--(AIRDownRefreshView *)upRefreshView{
-    if (!_upRefreshView) {
-        AIRDownRefreshView *upRefreshView = [AIRDownRefreshView downRefreshViewWithState:AIRDownRefreshTypeUp];
-        upRefreshView.frame = CGRectMake(0, -50, self.view.bounds.size.width, 50);
-        _upRefreshView = upRefreshView;
-    }
-    return _upRefreshView;
+/**
+ *  发送请求给服务器，下拉刷新数据
+ */
+- (void)loadNewTopics{
+    //取消之前的请求
+    [self.manger.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"a"] = @"list";
+    parameters[@"c"] = @"data";
+    parameters[@"type"] = @31;
+    
+    [self.manger GET:AIRCommonUrl parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
+        
+        self.topics = [AIRTopicsItem mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        self.maxtime = responseObject[@"info"][@"maxtime"];
+        //刷新表格
+        [self.tableView reloadData];
+        [self headerEndRefreshing];
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //⚠️取消任务也会导致error所以提示信息必须分情况处理
+        
+        [error showErrorMsg:error.localizedDescription];
+        [self headerEndRefreshing];
+    }];
 }
 
-- (AIRDownRefreshView *)ingRefreshView{
-    if (!_ingRefreshView) {
-        AIRDownRefreshView *ingRefreshView = [AIRDownRefreshView downRefreshViewWithState:AIRDownRefreshTypeRefreshIng];
-        ingRefreshView.frame = CGRectMake(0, -50, self.view.bounds.size.width, 50);
-        _ingRefreshView = ingRefreshView;
-    }
-    return _ingRefreshView;
+/**
+ *  发送请求给服务器，上拉加载更多数据
+ */
+- (void)loadMoreTopics{
+    //取消之前的请求
+    [self.manger.tasks makeObjectsPerformSelector:@selector(cancel)];
+  
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"a"] = @"list";
+    parameters[@"c"] = @"data";
+    parameters[@"type"] = @31;
+    parameters[@"maxtime"] = self.maxtime;
+    
+    [self.manger GET:AIRCommonUrl parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
+        
+        self.maxtime = responseObject[@"info"][@"maxtime"];
+        NSMutableArray *moreTopics = [AIRTopicsItem mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [self.topics addObjectsFromArray:moreTopics];
+        AIRAFNResponseObjectWriteToPlistFile(moreTopics);
+       
+        [self.tableView reloadData];
+        [self footerEndRefreshing];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //⚠️取消任务也会导致error所以提示信息必须分情况处理
+        [error showErrorMsg:error.localizedDescription];
+        [self footerEndRefreshing];
+        
+    }];
 }
 
-#pragma mark - UI布局
+#pragma mark - Table view data source
 
-//这里不需要
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    self.tableViewFooter.hidden = (self.topics.count == 0);
+    return self.topics.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // control + command + 空格 -> 弹出emoji表情键盘
+    //    cell.textLabel.text = @"⚠️哈哈";
+     //register注册的cell会自动添加indentify不需要在xib里再写一次
+    AIRTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:AIRTopicCellId];
+    
+    cell.topic = self.topics[indexPath.row];
+    
+    return cell;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
-AIRTestCodeTableDataSource(self.dataCount)
 
 /*
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

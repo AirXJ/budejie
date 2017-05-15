@@ -4,16 +4,27 @@
 //
 //  Created by air on 佛历2560-2-3.
 //  Copyright © 佛历2560年 air. All rights reserved.
-//
+//  布局设置样式、监听(监听方式-> 代理, 通知(object最好写nil), 目标操作, KVO) -> 万变不离其宗
+//  把想做的事情用文字写成需求再细分功能，再去用代码实现，用到的数据和参数越少越少。
 
 #ifndef AIRDefine_h
 #define AIRDefine_h
 
+#pragma mark - 经常用到的
+/********经常用到的方法 #相当于""号 #filename -> "filename"
+ @#filename -> @"filename"********/
+#define AIRAFNResponseObjectWriteToPlistFile(fileName) [responseObject writeToFile:[NSString stringWithFormat:@"/Users/air/Desktop/%@.plist",@#fileName] atomically:YES];
+
+
+/********数据处理********/
 
 #pragma mark - 颜色
 /********颜色********/
 #define AIRColor(r,g,b) [UIColor colorWithRed:(r) / 256.0 green:(g) / 256.0 blue:(b) / 256.0 alpha:1]
 #define AIRRandomColor AIRColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+
+#define AIRGrayColor(v) AIRColor(v,v,v)
+
 /********颜色********/
 
 #pragma mark - 屏幕适配
@@ -45,9 +56,11 @@
 /***********load xib************/
 
 /********frameConsts********/
+#define AIRCommonUrl @"http://api.budejie.com/api/api_open.php"
 #define AIRNavMaxY 64
 #define AIRTabBarH 49
 #define AIRTitlesViewH 35
+#define AIRMargin 10
 /********frameConsts********/
 
 /**不允许自动修改UIScrollView的内边距contentInset,不然内容会自动往下移动64

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class AIRHeaderRefreshView;
 @interface AIRAllTableController : UITableViewController
 
 @end

@@ -14,8 +14,8 @@
 		451B7A271EBDAADC005E8FB5 /* AIRSoundTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451ACE1C1EB4429800E66010 /* AIRSoundTableController.m */; };
 		451B7A281EBDAADF005E8FB5 /* AIRPhotoTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451ACE161EB441FD00E66010 /* AIRPhotoTableController.m */; };
 		451B7A291EBDAAE1005E8FB5 /* AIRJokeTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451ACE1F1EB442D900E66010 /* AIRJokeTableController.m */; };
-		451B7A2B1EBDC1F2005E8FB5 /* AIRDownRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451B7A2A1EBDC1F2005E8FB5 /* AIRDownRefreshView.xib */; };
-		451B7A2E1EBDC1FE005E8FB5 /* AIRDownRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 451B7A2D1EBDC1FE005E8FB5 /* AIRDownRefreshView.m */; };
+		451B7A2B1EBDC1F2005E8FB5 /* AIRHeaderRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451B7A2A1EBDC1F2005E8FB5 /* AIRHeaderRefreshView.xib */; };
+		451B7A2E1EBDC1FE005E8FB5 /* AIRHeaderRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 451B7A2D1EBDC1FE005E8FB5 /* AIRHeaderRefreshView.m */; };
 		4520B8341EAC5CA700EC1987 /* AIRWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4520B8321EAC5CA700EC1987 /* AIRWebViewController.m */; };
 		4520B8351EAC5CA700EC1987 /* AIRWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4520B8331EAC5CA700EC1987 /* AIRWebViewController.xib */; };
 		4523D1511EAF8A0000ACE293 /* AIRHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4523D1501EAF8A0000ACE293 /* AIRHttpTool.m */; };
@@ -26,6 +26,8 @@
 		4535C1131E2A3BF4000BBA67 /* UIView+AIRFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4535C1121E2A3BF4000BBA67 /* UIView+AIRFrame.m */; };
 		454835641E99E53600A65DF7 /* AIRFriendTrendController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454835631E99E53600A65DF7 /* AIRFriendTrendController.xib */; };
 		455304011EA34F52008F6075 /* AIRSquareItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 455304001EA34F52008F6075 /* AIRSquareItem.m */; };
+		4554BCB01EC0AE3700D82193 /* AIRTopicsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4554BCAF1EC0AE3700D82193 /* AIRTopicsItem.m */; };
+		4554BCB31EC0B05B00D82193 /* AIRAllModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4554BCB21EC0B05B00D82193 /* AIRAllModel.m */; };
 		4558BBB61E34E60600D62238 /* AIRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4558BBB51E34E60600D62238 /* AIRTabBarController.m */; };
 		45590D401EB225FA005DAC4B /* AIRTabBarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45590D3F1EB225FA005DAC4B /* AIRTabBarModel.m */; };
 		45590D481EB23DF7005DAC4B /* AIRTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 45590D471EB23DF7005DAC4B /* AIRTitleBtn.m */; };
@@ -65,9 +67,11 @@
 		45AE23F81E3B77BC005F81B2 /* AIRTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AE23F71E3B77BC005F81B2 /* AIRTabBar.m */; };
 		45AF48EE1E28C33300AD74ED /* UIImage+AIRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AF48ED1E28C33300AD74ED /* UIImage+AIRImage.m */; };
 		45B393AA1E98BBDC00E93D52 /* AIRSubTagItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B393A91E98BBDC00E93D52 /* AIRSubTagItem.m */; };
+		45B944A11EC3524B00875E35 /* AIRTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B9449F1EC3524B00875E35 /* AIRTopicCell.m */; };
 		45D1A6D81E94DE7C0016CBF2 /* AIRADItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1A6D71E94DE7C0016CBF2 /* AIRADItem.m */; };
 		45D1A6DB1E951CDE0016CBF2 /* AIRSubTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1A6DA1E951CDE0016CBF2 /* AIRSubTagTableViewController.m */; };
 		45DBAD1F1EB3697200661C08 /* AIREssenceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DBAD1E1EB3697200661C08 /* AIREssenceModel.m */; };
+		45E21A031EC8592400156410 /* AIRTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E21A021EC8592400156410 /* AIRTopicCell.xib */; };
 		45EDE77E1E98C0F200465566 /* AIRSubTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EDE77C1E98C0F200465566 /* AIRSubTagCell.m */; };
 		45EDE77F1E98C0F200465566 /* AIRSubTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45EDE77D1E98C0F200465566 /* AIRSubTagCell.xib */; };
 		45FF27A31EAEE8B500D3065D /* NSString+AIRString.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF27A21EAEE8B500D3065D /* NSString+AIRString.m */; };
@@ -98,9 +102,9 @@
 		451ACE1C1EB4429800E66010 /* AIRSoundTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSoundTableController.m; sourceTree = "<group>"; };
 		451ACE1E1EB442D900E66010 /* AIRJokeTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRJokeTableController.h; sourceTree = "<group>"; };
 		451ACE1F1EB442D900E66010 /* AIRJokeTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRJokeTableController.m; sourceTree = "<group>"; };
-		451B7A2A1EBDC1F2005E8FB5 /* AIRDownRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRDownRefreshView.xib; sourceTree = "<group>"; };
-		451B7A2C1EBDC1FE005E8FB5 /* AIRDownRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRDownRefreshView.h; sourceTree = "<group>"; };
-		451B7A2D1EBDC1FE005E8FB5 /* AIRDownRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRDownRefreshView.m; sourceTree = "<group>"; };
+		451B7A2A1EBDC1F2005E8FB5 /* AIRHeaderRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRHeaderRefreshView.xib; sourceTree = "<group>"; };
+		451B7A2C1EBDC1FE005E8FB5 /* AIRHeaderRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRHeaderRefreshView.h; sourceTree = "<group>"; };
+		451B7A2D1EBDC1FE005E8FB5 /* AIRHeaderRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRHeaderRefreshView.m; sourceTree = "<group>"; };
 		4520B8311EAC5CA700EC1987 /* AIRWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRWebViewController.h; sourceTree = "<group>"; };
 		4520B8321EAC5CA700EC1987 /* AIRWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRWebViewController.m; sourceTree = "<group>"; };
 		4520B8331EAC5CA700EC1987 /* AIRWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRWebViewController.xib; sourceTree = "<group>"; };
@@ -119,6 +123,10 @@
 		454835631E99E53600A65DF7 /* AIRFriendTrendController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRFriendTrendController.xib; sourceTree = "<group>"; };
 		455303FF1EA34F52008F6075 /* AIRSquareItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSquareItem.h; sourceTree = "<group>"; };
 		455304001EA34F52008F6075 /* AIRSquareItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSquareItem.m; sourceTree = "<group>"; };
+		4554BCAE1EC0AE3700D82193 /* AIRTopicsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTopicsItem.h; sourceTree = "<group>"; };
+		4554BCAF1EC0AE3700D82193 /* AIRTopicsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTopicsItem.m; sourceTree = "<group>"; };
+		4554BCB11EC0B05B00D82193 /* AIRAllModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRAllModel.h; sourceTree = "<group>"; };
+		4554BCB21EC0B05B00D82193 /* AIRAllModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRAllModel.m; sourceTree = "<group>"; };
 		4558BBB41E34E60600D62238 /* AIRTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBarController.h; sourceTree = "<group>"; };
 		4558BBB51E34E60600D62238 /* AIRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTabBarController.m; sourceTree = "<group>"; };
 		45590D3E1EB225FA005DAC4B /* AIRTabBarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTabBarModel.h; sourceTree = "<group>"; };
@@ -189,12 +197,15 @@
 		45AF48ED1E28C33300AD74ED /* UIImage+AIRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AIRImage.m"; sourceTree = "<group>"; };
 		45B393A81E98BBDC00E93D52 /* AIRSubTagItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSubTagItem.h; sourceTree = "<group>"; };
 		45B393A91E98BBDC00E93D52 /* AIRSubTagItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSubTagItem.m; sourceTree = "<group>"; };
+		45B9449E1EC3524B00875E35 /* AIRTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRTopicCell.h; sourceTree = "<group>"; };
+		45B9449F1EC3524B00875E35 /* AIRTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRTopicCell.m; sourceTree = "<group>"; };
 		45D1A6D61E94DE7C0016CBF2 /* AIRADItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRADItem.h; sourceTree = "<group>"; };
 		45D1A6D71E94DE7C0016CBF2 /* AIRADItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRADItem.m; sourceTree = "<group>"; };
 		45D1A6D91E951CDE0016CBF2 /* AIRSubTagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSubTagTableViewController.h; sourceTree = "<group>"; };
 		45D1A6DA1E951CDE0016CBF2 /* AIRSubTagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSubTagTableViewController.m; sourceTree = "<group>"; };
 		45DBAD1D1EB3697200661C08 /* AIREssenceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIREssenceModel.h; sourceTree = "<group>"; };
 		45DBAD1E1EB3697200661C08 /* AIREssenceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIREssenceModel.m; sourceTree = "<group>"; };
+		45E21A021EC8592400156410 /* AIRTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRTopicCell.xib; sourceTree = "<group>"; };
 		45EDE77B1E98C0F200465566 /* AIRSubTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSubTagCell.h; sourceTree = "<group>"; };
 		45EDE77C1E98C0F200465566 /* AIRSubTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSubTagCell.m; sourceTree = "<group>"; };
 		45EDE77D1E98C0F200465566 /* AIRSubTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRSubTagCell.xib; sourceTree = "<group>"; };
@@ -276,14 +287,15 @@
 		450367361E286BF600093D49 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				45B9449B1EC34D0600875E35 /* CustomCell */,
 				45590D461EB23DF7005DAC4B /* AIRTitleBtn.h */,
 				45590D471EB23DF7005DAC4B /* AIRTitleBtn.m */,
 				455D60EF1EBCB567007166D9 /* AIRFooterView.h */,
 				455D60F01EBCB567007166D9 /* AIRFooterView.m */,
 				455D60F21EBCB5EF007166D9 /* AIRFooterView.xib */,
-				451B7A2C1EBDC1FE005E8FB5 /* AIRDownRefreshView.h */,
-				451B7A2D1EBDC1FE005E8FB5 /* AIRDownRefreshView.m */,
-				451B7A2A1EBDC1F2005E8FB5 /* AIRDownRefreshView.xib */,
+				451B7A2C1EBDC1FE005E8FB5 /* AIRHeaderRefreshView.h */,
+				451B7A2D1EBDC1FE005E8FB5 /* AIRHeaderRefreshView.m */,
+				451B7A2A1EBDC1F2005E8FB5 /* AIRHeaderRefreshView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -547,6 +559,8 @@
 		45590D411EB22627005DAC4B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4554BCAE1EC0AE3700D82193 /* AIRTopicsItem.h */,
+				4554BCAF1EC0AE3700D82193 /* AIRTopicsItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -730,11 +744,23 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		45B9449B1EC34D0600875E35 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				45B9449E1EC3524B00875E35 /* AIRTopicCell.h */,
+				45B9449F1EC3524B00875E35 /* AIRTopicCell.m */,
+				45E21A021EC8592400156410 /* AIRTopicCell.xib */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		45DBAD1C1EB3697200661C08 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				45DBAD1D1EB3697200661C08 /* AIREssenceModel.h */,
 				45DBAD1E1EB3697200661C08 /* AIREssenceModel.m */,
+				4554BCB11EC0B05B00D82193 /* AIRAllModel.h */,
+				4554BCB21EC0B05B00D82193 /* AIRAllModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -845,7 +871,7 @@
 				455D60F31EBCB5EF007166D9 /* AIRFooterView.xib in Resources */,
 				456C775A1E2729A500EF48A9 /* LaunchScreen.storyboard in Resources */,
 				45745B831E31F8F900007081 /* LaunchImage.png in Resources */,
-				451B7A2B1EBDC1F2005E8FB5 /* AIRDownRefreshView.xib in Resources */,
+				451B7A2B1EBDC1F2005E8FB5 /* AIRHeaderRefreshView.xib in Resources */,
 				455EDB031EA1C89E0042DB27 /* AIRMeViewController.storyboard in Resources */,
 				45745B7F1E31F8F900007081 /* LaunchImage-568h@2x.png in Resources */,
 				45745B801E31F8F900007081 /* LaunchImage-700@2x.png in Resources */,
@@ -858,6 +884,7 @@
 				454835641E99E53600A65DF7 /* AIRFriendTrendController.xib in Resources */,
 				456C77571E2729A500EF48A9 /* Assets.xcassets in Resources */,
 				45745B811E31F8F900007081 /* LaunchImage-800-667h@2x.png in Resources */,
+				45E21A031EC8592400156410 /* AIRTopicCell.xib in Resources */,
 				45EDE77F1E98C0F200465566 /* AIRSubTagCell.xib in Resources */,
 				456C77551E2729A500EF48A9 /* Main.storyboard in Resources */,
 				452EAF821EA2073C008A576D /* AIRSquareCell.xib in Resources */,
@@ -926,6 +953,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4554BCB31EC0B05B00D82193 /* AIRAllModel.m in Sources */,
 				45590D401EB225FA005DAC4B /* AIRTabBarModel.m in Sources */,
 				451B7A271EBDAADC005E8FB5 /* AIRSoundTableController.m in Sources */,
 				457E59931E39EBED00D98AFA /* AIRPublishController.m in Sources */,
@@ -934,6 +962,7 @@
 				452EAF811EA2073C008A576D /* AIRSquareCell.m in Sources */,
 				451ACE141EB441E900E66010 /* AIRAllTableController.m in Sources */,
 				45EDE77E1E98C0F200465566 /* AIRSubTagCell.m in Sources */,
+				45B944A11EC3524B00875E35 /* AIRTopicCell.m in Sources */,
 				455304011EA34F52008F6075 /* AIRSquareItem.m in Sources */,
 				459B4A2F1EAEE0C3009043EF /* AIRFileTool.m in Sources */,
 				459FA9751E9B1F7200C17F87 /* AIRFastLoginView.m in Sources */,
@@ -953,6 +982,7 @@
 				457E59961E39EC0600D98AFA /* AIRFriendTrendController.m in Sources */,
 				455D60F11EBCB567007166D9 /* AIRFooterView.m in Sources */,
 				45285A361E28EBBC0057AE5E /* UIColor+Hex.m in Sources */,
+				4554BCB01EC0AE3700D82193 /* AIRTopicsItem.m in Sources */,
 				4523D1511EAF8A0000ACE293 /* AIRHttpTool.m in Sources */,
 				45D1A6DB1E951CDE0016CBF2 /* AIRSubTagTableViewController.m in Sources */,
 				457E598D1E39EBB800D98AFA /* AIREssenceController.m in Sources */,
@@ -963,7 +993,7 @@
 				459FA9721E9B1F7200C17F87 /* AIRLoginRegisterViewController.m in Sources */,
 				45B393AA1E98BBDC00E93D52 /* AIRSubTagItem.m in Sources */,
 				457E59901E39EBD200D98AFA /* AIRNewController.m in Sources */,
-				451B7A2E1EBDC1FE005E8FB5 /* AIRDownRefreshView.m in Sources */,
+				451B7A2E1EBDC1FE005E8FB5 /* AIRHeaderRefreshView.m in Sources */,
 				451B7A291EBDAAE1005E8FB5 /* AIRJokeTableController.m in Sources */,
 				451B7A261EBDAAD9005E8FB5 /* AIRVideoTableController.m in Sources */,
 				45AE23F81E3B77BC005F81B2 /* AIRTabBar.m in Sources */,

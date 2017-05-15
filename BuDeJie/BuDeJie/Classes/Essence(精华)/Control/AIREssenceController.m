@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 #import "AIRTabBar.h"
 #import "AIRFooterView.h"
-#import "AIRDownRefreshView.h"
+#import "AIRHeaderRefreshView.h"
 
 #define childCount self.childViewControllers.count
 @interface AIREssenceController ()<UIScrollViewDelegate>//,AIRAppTouchDelegate>
@@ -92,13 +92,22 @@
 
 #pragma mark - 监听:目标操作
 /****切换按钮状态,处理下划线, 修改self.scrollView偏移量, 加载对应的子控制器的view, 添加功能:点击状态栏修改子控制器view的偏移量****/
-- (void)titleBtnClick:(AIRTitleBtn *)titleBtn{
+- (IBAction)titleBtnClick:(AIRTitleBtn *)titleBtn{
     //重复点击了标题按钮
     if (self.previousClickedTitleButton == titleBtn) {
-        AIRFUNCLog;
+        
         //一被点击tabBarBtn就发出通知, 告知外界马上刷新处理
         [[NSNotificationCenter defaultCenter] postNotificationName:AIRTitleBtnDidRepeatClickNotification object:nil userInfo:@{}];
+        return;
     }
+    //处理标题按钮点击，
+    [self dealTitleBtnClick:titleBtn];
+}
+
+/**
+ *  处理标题按钮点击, scrollViewDidEndDecelerating:这个方法会有bug，滚动一点点也会调用通知导致莫名其妙刷新，所以scrollViewDidEndDecelerating:这个方法就直接掉用dealTitleBtnClick, 不再去调用按钮的目标操作监听方法
+ */
+- (void)dealTitleBtnClick:(AIRTitleBtn *)titleBtn{
     // 1.1切换按钮状态
     self.previousClickedTitleButton.selected = NO;
     titleBtn.selected = YES;
@@ -108,7 +117,7 @@
     
     [UIView animateWithDuration:0.25 animations:^{
         //1.2处理下划线, 要与标题文字同宽:采用按钮, titlUnderLine宽度的计算方法5⃣️
-        self.titleUnderLine.AIR_width =  titleBtn.titleLabel.AIR_width + 10;
+        self.titleUnderLine.AIR_width =  titleBtn.titleLabel.AIR_width + AIRMargin;
         self.titleUnderLine.AIR_centerX = titleBtn.AIR_centerX;//先设置宽度再中心点
         //🈳️1.3点击按钮, 修改scrollView的偏移量来滚动scrollView, (偏移量只有正数并且都是相对于scrollerView的frame的原点)
         CGFloat offsetX = self.scrollView.AIR_width * index;
@@ -130,7 +139,6 @@
         }
     }
 }
-
 - (void)game{
     //AIRFUNCLog;
 }
@@ -146,7 +154,7 @@
     //不要用tag7⃣️去遍历控件
     AIRTitleBtn *titleBtn = self.titlesView.subviews[index];
     // 点击对应的按钮, 切换按钮状态, 加载对应view
-    [self titleBtnClick:titleBtn];
+    [self dealTitleBtnClick:titleBtn];
 }
 
 //当用户松开scrollView时候调用6⃣️
@@ -240,7 +248,7 @@
     titleUnderLine.AIR_height = 2;
     titleUnderLine.AIR_y = self.titlesView.AIR_height - titleUnderLine.AIR_height;
     [firstTitleBtn.titleLabel sizeToFit];
-    titleUnderLine.AIR_width = firstTitleBtn.titleLabel.AIR_width + 10;
+    titleUnderLine.AIR_width = firstTitleBtn.titleLabel.AIR_width + AIRMargin;
     titleUnderLine.AIR_centerX = firstTitleBtn.AIR_centerX;
     titleUnderLine.backgroundColor = [firstTitleBtn titleColorForState:UIControlStateSelected];
     
@@ -263,18 +271,24 @@
     
     UITableView *childView = (UITableView *)self.childViewControllers[index].view;
     childView.backgroundColor = AIRRandomColor;
+    childView.separatorStyle = UITableViewCellSeparatorStyleNone;
     CGFloat scrollViewW = self.scrollView.AIR_width;
     CGFloat scrollViewH = self.scrollView.AIR_height;
     
     //设置childView的全穿透效果4⃣️
     childView.frame = CGRectMake(index * scrollViewW, 0, scrollViewW, scrollViewH);
     childView.contentInset = UIEdgeInsetsMake(AIRNavMaxY + AIRTitlesViewH, 0, AIRTabBarH, 0);
+    
     //滚动条内边距
     childView.scrollIndicatorInsets = childView.contentInset;
+    self.downRefreshersArr[index].frame = CGRectMake(0, -50, scrollViewW, 50);
+    //下拉刷新UI
+    [childView addSubview:(AIRHeaderRefreshView *)self.downRefreshersArr[index]];
+    
     //上拉刷新UI
     childView.tableFooterView = (AIRFooterView *)self.footersArr[index];
-    //下拉刷新UI
-    [childView addSubview:(AIRDownRefreshView *)self.downRefreshersArr[index]];
+    
+    
     //设置广告
     UILabel *adLabel = [UILabel new];
     adLabel.frame = CGRectMake(0, 0, self.view.AIR_width, 30);
@@ -284,21 +298,25 @@
     adLabel.textColor = [UIColor blueColor];
     childView.tableHeaderView = adLabel;
     
+    
+    
+    
+    
     [self.scrollView insertSubview:childView belowSubview:self.titlesView];
     self.currentChildView = childView;
+    
     
 }
 
 
 #pragma mark - lazy
 /****设置下拉控件数组*****/
-- (NSArray<AIRDownRefreshView *> *)downRefreshersArr{
+- (NSArray<AIRHeaderRefreshView *> *)downRefreshersArr{
     if (_downRefreshersArr == nil) {
         NSMutableArray *arr = [NSMutableArray array];
         for (NSUInteger i = 0; i < self.childViewControllers.count; i++) {
-            AIRDownRefreshView *downRefresher = [AIRDownRefreshView downRefreshViewWithState:AIRDownRefreshTypeDown];
+            AIRHeaderRefreshView *downRefresher = [AIRHeaderRefreshView downRefreshView];
             //待会会加到childView的内容上, 以内容的contentsize00点作为frame的原点
-            downRefresher.frame = CGRectMake(0, -50, self.view.bounds.size.width, 50);
             [arr addObject:downRefresher];
         }
         _downRefreshersArr = [arr copy];

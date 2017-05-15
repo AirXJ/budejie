@@ -29,6 +29,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 
 #ifdef DEBUG
+/*****打印当前方法名称******/
 #define AIRFUNCLog AIRLog(@"%s",__func__)
 #define AIRLog(...) NSLog(__VA_ARGS__)
 #else // 发布

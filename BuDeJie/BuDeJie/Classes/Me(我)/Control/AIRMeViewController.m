@@ -68,7 +68,7 @@ static CGFloat const AIRCommonMargin = 10;
 }
 
 #pragma mark - 请求数据
-#define baseUrl @"http://api.budejie.com/api/api_open.php"
+
 - (void)loadData{
     //1.创建请求会话管理者
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
@@ -79,7 +79,7 @@ static CGFloat const AIRCommonMargin = 10;
          @"c":@"topic"
         }];
     //3.发送请求  icon  name url
-    [mgr GET:baseUrl parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+    [mgr GET:AIRCommonUrl parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //[responseObject writeToFile:@"/Users/air/Desktop/budejie/sub.plist" atomically:YES];
