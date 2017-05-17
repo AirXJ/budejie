@@ -56,7 +56,7 @@ static NSString * const AIRTopicCellId = @"AIRTopicCellId";
     
     self.view.backgroundColor = AIRGrayColor(206);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.estimatedRowHeight = 20;
+    self.tableView.estimatedRowHeight = 100;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleBtnDidRepeatClick:) name:AIRTitleBtnDidRepeatClickNotification object:nil];
     

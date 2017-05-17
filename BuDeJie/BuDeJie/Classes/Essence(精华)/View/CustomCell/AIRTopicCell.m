@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 
 @property (weak, nonatomic) IBOutlet UIView *hotCmtView;
+
 @property (weak, nonatomic) IBOutlet UILabel *hotCmtLabel;
 
 @end
@@ -59,11 +60,13 @@
         self.hotCmtView.hidden = NO;
         NSString *name = topic.top_cmt[0][@"user"][@"username"];
         NSString *content = topic.top_cmt[0][@"content"];
+        
         if (content.length == 0) {
             content = @"[语音评论]";
         }
         //对象方法也用用,init前面必须要alloc，不能用［对象 init];否则会报错cannot be sent to an abstract object of class
-        self.hotCmtLabel.text = [[NSString alloc] initWithFormat:@"%@-%@", name, content];
+        //self.hotCmtLabel.text = [[NSString alloc] initWithFormat:@"%@-%@", name, content];
+        self.hotCmtLabel.text = [NSString stringWithFormat:@"%@-%@", name, content];
     } else {
         self.hotCmtView.hidden = YES;
     }

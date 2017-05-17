@@ -219,13 +219,15 @@
                 <outlet property="caiButton" destination="RPk-Ht-h4h" id="C8P-sr-dNK"/>
                 <outlet property="commentButton" destination="lTg-6c-jYg" id="5Uk-nv-EYl"/>
                 <outlet property="dingButton" destination="vRR-GG-xB9" id="1MR-HD-krx"/>
+                <outlet property="hotCmtLabel" destination="U4L-Mp-w7n" id="1CM-57-qSv"/>
+                <outlet property="hotCmtView" destination="bgE-NH-WEX" id="rOH-Uw-fS7"/>
                 <outlet property="nameLabel" destination="z7y-QZ-H2M" id="eFk-dt-6aC"/>
                 <outlet property="passtimeLabel" destination="OoV-LX-Htr" id="199-SO-qyW"/>
                 <outlet property="profileImageView" destination="gBR-pT-xbi" id="jEl-IJ-wUa"/>
                 <outlet property="repostButton" destination="wRl-vh-XoD" id="RzB-EU-IWR"/>
                 <outlet property="text_label" destination="eQy-XY-Vyd" id="k9H-YM-7yy"/>
             </connections>
-            <point key="canvasLocation" x="51" y="-23"/>
+            <point key="canvasLocation" x="-107" y="-233"/>
         </tableViewCell>
     </objects>
     <resources>

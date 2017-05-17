@@ -18,7 +18,7 @@
         
         //文字的高度
         CGSize textMaxSize = CGSizeMake(AIRScreenW - 2 * AIRMargin, MAXFLOAT);
-        _cellHeight += [self.text sizeWithFont:[UIFont systemFontOfSize:15] maxSize:textMaxSize onlyOneLine:NO].height + 2 * AIRMargin;
+        _cellHeight += ([self.text sizeWithFont:[UIFont systemFontOfSize:15] maxSize:textMaxSize onlyOneLine:NO].height + 2 * AIRMargin);
         //最热评论
         if (self.top_cmt.count) {//有最热评论
             NSString *name = self.top_cmt[0][@"user"][@"username"];
@@ -30,7 +30,7 @@
            NSString *newContent = [[NSString alloc] initWithFormat:@"%@-%@", name, content];
             // 标题
             _cellHeight += 18;
-            _cellHeight += [newContent sizeWithFont:[UIFont systemFontOfSize:15] maxSize:textMaxSize onlyOneLine:NO].height + 2 * AIRMargin;
+            _cellHeight += ([newContent sizeWithFont:[UIFont systemFontOfSize:12] maxSize:textMaxSize onlyOneLine:NO].height + 2 * AIRMargin);
             
             // 内容
             
