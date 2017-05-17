@@ -43,6 +43,11 @@ typedef NS_ENUM(NSUInteger,AIRTopicType) {
 /******************** 帖子类型 10图片 29段子 31音频 41视频 *******************/
 @property (nonatomic, assign) AIRTopicType type;
 
+/******************** 最热评论 *******************/
+@property (nonatomic, strong) NSArray *top_cmt;
+
+
+
 /******************** cell高度(额外增加的属性不是服务器返回的属性，为了提高程序运行效率) *******************/
 @property (nonatomic, assign) CGFloat cellHeight;
 @end

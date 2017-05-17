@@ -15,4 +15,5 @@
 /** 模型数据 */
 @property (nonatomic, strong) AIRTopicsItem *topic;
 
+
 @end

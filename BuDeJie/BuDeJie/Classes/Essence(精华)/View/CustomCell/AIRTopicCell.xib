@@ -165,6 +165,34 @@
                             <constraint firstAttribute="bottom" secondItem="lTg-6c-jYg" secondAttribute="bottom" id="yFu-Hb-vgA"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgE-NH-WEX" userLabel="最热评论整体">
+                        <rect key="frame" x="10" y="319.5" width="300" height="32.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2q-Md-3rU" userLabel="最热评论－标题">
+                                <rect key="frame" x="0.0" y="0.0" width="62" height="18"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论最热评论最最热评论" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4L-Mp-w7n" userLabel="最热评论－内容">
+                                <rect key="frame" x="0.0" y="18" width="300" height="14.5"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="U4L-Mp-w7n" secondAttribute="trailing" id="2CK-dX-Pc9"/>
+                            <constraint firstItem="y2q-Md-3rU" firstAttribute="top" secondItem="bgE-NH-WEX" secondAttribute="top" id="EQo-Ea-imZ"/>
+                            <constraint firstItem="U4L-Mp-w7n" firstAttribute="leading" secondItem="bgE-NH-WEX" secondAttribute="leading" id="UjJ-br-Dsu"/>
+                            <constraint firstAttribute="bottom" secondItem="U4L-Mp-w7n" secondAttribute="bottom" id="XXS-hh-UNP"/>
+                            <constraint firstItem="U4L-Mp-w7n" firstAttribute="top" secondItem="y2q-Md-3rU" secondAttribute="bottom" id="glt-oA-iCb"/>
+                            <constraint firstItem="y2q-Md-3rU" firstAttribute="leading" secondItem="bgE-NH-WEX" secondAttribute="leading" id="t7G-Bk-gv9"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="IGz-fU-45K" secondAttribute="bottom" id="2Lc-WA-j8z"/>
@@ -175,12 +203,15 @@
                     <constraint firstItem="IGz-fU-45K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="KyS-2g-0Jr"/>
                     <constraint firstItem="eQy-XY-Vyd" firstAttribute="trailing" secondItem="OYQ-TL-TCj" secondAttribute="trailing" id="S73-es-Gm4"/>
                     <constraint firstItem="OYQ-TL-TCj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="UJ4-DM-o29"/>
+                    <constraint firstItem="bgE-NH-WEX" firstAttribute="trailing" secondItem="eQy-XY-Vyd" secondAttribute="trailing" id="Ykd-1F-tMp"/>
                     <constraint firstItem="z7y-QZ-H2M" firstAttribute="leading" secondItem="gBR-pT-xbi" secondAttribute="trailing" constant="10" id="bd6-Pt-5Vi"/>
                     <constraint firstAttribute="trailing" secondItem="OYQ-TL-TCj" secondAttribute="trailing" constant="10" id="duD-NN-YPc"/>
+                    <constraint firstItem="bgE-NH-WEX" firstAttribute="leading" secondItem="eQy-XY-Vyd" secondAttribute="leading" id="kQC-jZ-4Df"/>
                     <constraint firstItem="eQy-XY-Vyd" firstAttribute="leading" secondItem="gBR-pT-xbi" secondAttribute="leading" id="kyV-Vl-t4I"/>
                     <constraint firstItem="gBR-pT-xbi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="l48-dS-ytO"/>
                     <constraint firstItem="gBR-pT-xbi" firstAttribute="bottom" secondItem="OoV-LX-Htr" secondAttribute="bottom" id="oKO-a8-NsT"/>
                     <constraint firstItem="z7y-QZ-H2M" firstAttribute="top" secondItem="gBR-pT-xbi" secondAttribute="top" id="pHs-Pr-yjg"/>
+                    <constraint firstItem="IGz-fU-45K" firstAttribute="top" secondItem="bgE-NH-WEX" secondAttribute="bottom" constant="10" id="s1m-zW-Yu5"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
