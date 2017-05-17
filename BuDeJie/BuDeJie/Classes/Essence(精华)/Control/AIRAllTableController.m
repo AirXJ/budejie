@@ -14,9 +14,9 @@
 #import "AIRTopicsItem.h"
 #import "NSObject+Common.h"
 #import "AIRTopicCell.h"
+#import "NSString+AIRString.h"
 
 @interface AIRAllTableController ()
-
 
 /******************** 上拉控件 *******************/
 @property (nonatomic, weak) AIRFooterView *tableViewFooter;
@@ -25,7 +25,7 @@
 @property (nonatomic, weak) AIRHeaderRefreshView *headerRefreshView;
 
 /******************** 所有帖子数据 *******************/
-@property (nonatomic, strong) NSMutableArray <AIRTopicsItem *>*topics;
+@property (nonatomic, strong) NSMutableArray<AIRTopicsItem *> *topics;
 
 /******************** 用来加载下一页数据, 最后一个数据的描述信息 *******************/
 @property (nonatomic, strong) NSString *maxtime;
@@ -53,10 +53,10 @@ static NSString * const AIRTopicCellId = @"AIRTopicCellId";
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([AIRTopicCell class]) bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:AIRTopicCellId];
     
-    self.tableView.rowHeight = 200;
+    
     self.view.backgroundColor = AIRGrayColor(206);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+    self.tableView.estimatedRowHeight = 20;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleBtnDidRepeatClick:) name:AIRTitleBtnDidRepeatClickNotification object:nil];
     
@@ -330,6 +330,20 @@ static NSString * const AIRTopicCellId = @"AIRTopicCellId";
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+
+/**
+ *  这个方法的特点: 1.默认情况下，每次刷新表格reloadData，有多少数据就调用多少次行的数据。
+ * 2.每当有cell静如屏幕范围，就会调用这个方法。
+ *  作用:主要是精确算出contentsize的高度,(表现现象)获取滚动条高度,一般不推荐全部算出高度，建议估算出总高度estimated。
+ **/
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return  self.topics[indexPath.row].cellHeight;
+}
+
+#pragma mark - lazy
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -339,7 +353,7 @@ static NSString * const AIRTopicCellId = @"AIRTopicCellId";
 
 /*
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: forIndexPath:indexPath];
  
  // Configure the cell...
  
