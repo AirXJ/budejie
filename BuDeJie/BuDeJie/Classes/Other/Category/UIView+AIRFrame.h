@@ -25,4 +25,5 @@
 /** centerY */
 @property (nonatomic,assign)CGFloat AIR_centerY;
 
++ (instancetype)AIR_LoadViewFromXib;
 @end

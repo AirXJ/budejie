@@ -12,11 +12,11 @@ typedef NS_ENUM(NSUInteger,AIRTopicType) {
     /** 全部 */
     AIRTopicTypeAll = 1,
     /** 图片 */
-    AIRTopicTypePicture = 10,
+    AIRTopicTypePhoto = 10,
     /** 段子 */
-    AIRTopicTypeWord = 29,
+    AIRTopicTypeJoke = 29,
     /** 声音 */
-    AIRTopicTypeVoice = 31,
+    AIRTopicTypeSound = 31,
     /** 视频 */
     AIRTopicTypeVideo = 41
 };

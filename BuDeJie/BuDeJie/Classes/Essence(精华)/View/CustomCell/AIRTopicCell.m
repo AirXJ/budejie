@@ -9,6 +9,10 @@
 #import "AIRTopicCell.h"
 #import "AIRTopicsItem.h"
 #import "UIImage+AIRImage.h"
+#import "AIRJokeView.h"
+#import "AIRPhotoView.h"
+#import "AIRSoundView.h"
+#import "AIRVideoView.h"
 
 @interface AIRTopicCell()
 // 控件的命名 -> 功能 + 控件类型
@@ -42,7 +46,16 @@
         self.profileImageView.image = [image AIR_circleImage];
     }];
     
-    
+    //中间内容
+    if (topic.type == AIRTopicTypeJoke) {
+        [self.contentView addSubview:[AIRJokeView AIR_LoadViewFromXib]];
+    } else if (topic.type == AIRTopicTypePhoto){
+        [self.contentView addSubview:[AIRPhotoView AIR_LoadViewFromXib]];
+    } else if (topic.type == AIRTopicTypeVideo){
+        [self.contentView addSubview:[AIRVideoView AIR_LoadViewFromXib]];
+    } else if (topic.type == AIRTopicTypeSound){
+        [self.contentView addSubview:[AIRSoundView AIR_LoadViewFromXib]];
+    }
     // 顶部控件的数据
     [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     self.nameLabel.text = topic.name;

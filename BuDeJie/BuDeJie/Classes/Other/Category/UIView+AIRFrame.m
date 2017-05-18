@@ -75,4 +75,7 @@
     
 }
 
++ (instancetype)AIR_LoadViewFromXib{
+    return AIRLoadViewFromXib.firstObject;
+}
 @end
