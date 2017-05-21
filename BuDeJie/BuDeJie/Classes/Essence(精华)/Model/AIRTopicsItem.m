@@ -18,11 +18,16 @@
         
         //文字的高度
         CGSize textMaxSize = CGSizeMake(AIRScreenW - 2 * AIRMargin, MAXFLOAT);
-        _cellHeight += ([self.text sizeWithFont:[UIFont systemFontOfSize:15] maxSize:textMaxSize onlyOneLine:NO].height + 2 * AIRMargin);
+        _cellHeight += ([self.text AIR_sizeWithFont:[UIFont systemFontOfSize:15] maxSize:textMaxSize onlyOneLine:NO].height + 2 * AIRMargin);
         
         //中间内容
         if (self.type != AIRTopicTypeJoke) {//中间有内容图片声音视频
-            _cellHeight += 100;
+            CGFloat middleW = textMaxSize.width;
+            CGFloat middleH = middleW * self.height / self.width;
+            CGFloat middleY = _cellHeight - AIRMargin;
+            CGFloat middleX = AIRMargin;
+            _middleFrame = CGRectMake(middleX, middleY, middleW, middleH);
+            _cellHeight += (middleH + AIRMargin);
         }
         
         //最热评论
@@ -36,7 +41,7 @@
            NSString *newContent = [[NSString alloc] initWithFormat:@"%@-%@", name, content];
             // 标题
             _cellHeight += 18;
-            _cellHeight += ([newContent sizeWithFont:[UIFont systemFontOfSize:12] maxSize:textMaxSize onlyOneLine:NO].height + 2 * AIRMargin);
+            _cellHeight += ([newContent AIR_sizeWithFont:[UIFont systemFontOfSize:12] maxSize:textMaxSize onlyOneLine:NO].height + 2 * AIRMargin);
             
             // 内容
             

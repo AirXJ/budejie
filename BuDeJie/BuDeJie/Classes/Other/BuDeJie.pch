@@ -21,6 +21,7 @@
 #ifdef __OBJC__
 #import "UIView+AIRFrame.h"
 #import "UIImage+AIRImage.h"
+#import "UIImageView+AIRDownload.h"
 #import "UIBarButtonItem+AIRItem.h"
 #import "AIRDefine.h"
 #import <SDWebImage/UIImageView+WebCache.h>

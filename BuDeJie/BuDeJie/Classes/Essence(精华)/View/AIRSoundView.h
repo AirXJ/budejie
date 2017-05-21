@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AIRSoundView : UIView
 
+@class AIRTopicsItem;
+@interface AIRSoundView : UIView
+/** 模型数据 */
+@property (nonatomic, strong) AIRTopicsItem *topic;
 @end

@@ -58,7 +58,7 @@ static NSString * const identify = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify forIndexPath:indexPath];
     [tableView showProgress];
     // 获取缓存尺寸字符串
-    cell.textLabel.text = [NSString getPathStringsize:CachePath completion:^(NSString *sizeStr) {
+    cell.textLabel.text = [NSString AIR_getPathStringsize:CachePath completion:^(NSString *sizeStr) {
         cell.textLabel.text =  sizeStr;
         [cell hideProgress];
     }];

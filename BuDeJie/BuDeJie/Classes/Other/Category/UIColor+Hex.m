@@ -9,7 +9,7 @@
 #import "UIColor+Hex.h"
 
 @implementation UIColor (Hex)
-+ (UIColor *) colorWith255Red:(NSUInteger)red green:(NSUInteger)green blue:(NSUInteger)blue alpha:(CGFloat)alpha
++ (UIColor *)AIR_colorWith255Red:(NSUInteger)red green:(NSUInteger)green blue:(NSUInteger)blue alpha:(CGFloat)alpha
 {
     
     return [UIColor colorWithRed:red / 255.0
@@ -19,7 +19,7 @@
     
 }
 
-+ (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha
++ (UIColor *)AIR_colorWithHexString:(NSString *)color alpha:(CGFloat)alpha
 {
     //删除字符串中的空格
     NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
@@ -66,9 +66,9 @@
 }
 
 //默认alpha值为1
-+ (UIColor *)colorWithHexString:(NSString *)color
++ (UIColor *)AIR_colorWithHexString:(NSString *)color
 {
-    return [self colorWithHexString:color alpha:1.0f];
+    return [self AIR_colorWithHexString:color alpha:1.0f];
 }
 
 @end

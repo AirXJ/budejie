@@ -10,12 +10,12 @@
 
 @interface UIColor (Hex)
 /*RGB大于1获取颜色 */
-+ (UIColor *) colorWith255Red:(NSUInteger)red green:(NSUInteger)green blue:(NSUInteger)blue alpha:(CGFloat)alpha;
++ (UIColor *)AIR_colorWith255Red:(NSUInteger)red green:(NSUInteger)green blue:(NSUInteger)blue alpha:(CGFloat)alpha;
 /*从十六进制字符串获取颜色,默认alpha位1*/
-+ (UIColor *)colorWithHexString:(NSString *)color;
++ (UIColor *)AIR_colorWithHexString:(NSString *)color;
 
 /*从十六进制字符串获取颜色*/
 //color:支持@“#123456”、 @“0X123456”、 @“123456”三种格式
-+ (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
++ (UIColor *)AIR_colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
 
 @end

@@ -72,6 +72,7 @@
 		45D1A6DB1E951CDE0016CBF2 /* AIRSubTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1A6DA1E951CDE0016CBF2 /* AIRSubTagTableViewController.m */; };
 		45DBAD1F1EB3697200661C08 /* AIREssenceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DBAD1E1EB3697200661C08 /* AIREssenceModel.m */; };
 		45E21A031EC8592400156410 /* AIRTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E21A021EC8592400156410 /* AIRTopicCell.xib */; };
+		45E9E7E51ED0439B000F9F31 /* UIImageView+AIRDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E9E7E41ED0439B000F9F31 /* UIImageView+AIRDownload.m */; };
 		45EDE77E1E98C0F200465566 /* AIRSubTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EDE77C1E98C0F200465566 /* AIRSubTagCell.m */; };
 		45EDE77F1E98C0F200465566 /* AIRSubTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45EDE77D1E98C0F200465566 /* AIRSubTagCell.xib */; };
 		45F318FA1ECC403700E4EEB1 /* AIRVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F318F91ECC403700E4EEB1 /* AIRVideoView.m */; };
@@ -79,8 +80,6 @@
 		45F319041ECC489400E4EEB1 /* AIRSoundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F319031ECC489400E4EEB1 /* AIRSoundView.m */; };
 		45F319071ECC48C200E4EEB1 /* AIRPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F319061ECC48C200E4EEB1 /* AIRPhotoView.m */; };
 		45F319091ECC48D400E4EEB1 /* AIRPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F319081ECC48D400E4EEB1 /* AIRPhotoView.xib */; };
-		45F3190C1ECC48E800E4EEB1 /* AIRJokeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F3190B1ECC48E800E4EEB1 /* AIRJokeView.m */; };
-		45F3190E1ECC48F400E4EEB1 /* AIRJokeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F3190D1ECC48F400E4EEB1 /* AIRJokeView.xib */; };
 		45F319101ECC496000E4EEB1 /* AIRSoundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F3190F1ECC496000E4EEB1 /* AIRSoundView.xib */; };
 		45FF27A31EAEE8B500D3065D /* NSString+AIRString.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF27A21EAEE8B500D3065D /* NSString+AIRString.m */; };
 		5320E7F772C92EED5AA73861 /* libPods-BuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9471F571510A044814535404 /* libPods-BuDeJie.a */; };
@@ -214,6 +213,8 @@
 		45DBAD1D1EB3697200661C08 /* AIREssenceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIREssenceModel.h; sourceTree = "<group>"; };
 		45DBAD1E1EB3697200661C08 /* AIREssenceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIREssenceModel.m; sourceTree = "<group>"; };
 		45E21A021EC8592400156410 /* AIRTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRTopicCell.xib; sourceTree = "<group>"; };
+		45E9E7E31ED0439B000F9F31 /* UIImageView+AIRDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AIRDownload.h"; sourceTree = "<group>"; };
+		45E9E7E41ED0439B000F9F31 /* UIImageView+AIRDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AIRDownload.m"; sourceTree = "<group>"; };
 		45EDE77B1E98C0F200465566 /* AIRSubTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRSubTagCell.h; sourceTree = "<group>"; };
 		45EDE77C1E98C0F200465566 /* AIRSubTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRSubTagCell.m; sourceTree = "<group>"; };
 		45EDE77D1E98C0F200465566 /* AIRSubTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRSubTagCell.xib; sourceTree = "<group>"; };
@@ -225,9 +226,6 @@
 		45F319051ECC48C200E4EEB1 /* AIRPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRPhotoView.h; sourceTree = "<group>"; };
 		45F319061ECC48C200E4EEB1 /* AIRPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRPhotoView.m; sourceTree = "<group>"; };
 		45F319081ECC48D400E4EEB1 /* AIRPhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRPhotoView.xib; sourceTree = "<group>"; };
-		45F3190A1ECC48E800E4EEB1 /* AIRJokeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRJokeView.h; sourceTree = "<group>"; };
-		45F3190B1ECC48E800E4EEB1 /* AIRJokeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRJokeView.m; sourceTree = "<group>"; };
-		45F3190D1ECC48F400E4EEB1 /* AIRJokeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRJokeView.xib; sourceTree = "<group>"; };
 		45F3190F1ECC496000E4EEB1 /* AIRSoundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRSoundView.xib; sourceTree = "<group>"; };
 		45FF27A11EAEE8B500D3065D /* NSString+AIRString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AIRString.h"; sourceTree = "<group>"; };
 		45FF27A21EAEE8B500D3065D /* NSString+AIRString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AIRString.m"; sourceTree = "<group>"; };
@@ -756,6 +754,8 @@
 				456431661EBB16FD00132F21 /* NSTimer+AIRDealloc.m */,
 				45FF27A11EAEE8B500D3065D /* NSString+AIRString.h */,
 				45FF27A21EAEE8B500D3065D /* NSString+AIRString.m */,
+				45E9E7E31ED0439B000F9F31 /* UIImageView+AIRDownload.h */,
+				45E9E7E41ED0439B000F9F31 /* UIImageView+AIRDownload.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -806,9 +806,6 @@
 				45F319051ECC48C200E4EEB1 /* AIRPhotoView.h */,
 				45F319061ECC48C200E4EEB1 /* AIRPhotoView.m */,
 				45F319081ECC48D400E4EEB1 /* AIRPhotoView.xib */,
-				45F3190A1ECC48E800E4EEB1 /* AIRJokeView.h */,
-				45F3190B1ECC48E800E4EEB1 /* AIRJokeView.m */,
-				45F3190D1ECC48F400E4EEB1 /* AIRJokeView.xib */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -924,7 +921,6 @@
 				455EDB031EA1C89E0042DB27 /* AIRMeViewController.storyboard in Resources */,
 				45745B7F1E31F8F900007081 /* LaunchImage-568h@2x.png in Resources */,
 				45745B801E31F8F900007081 /* LaunchImage-700@2x.png in Resources */,
-				45F3190E1ECC48F400E4EEB1 /* AIRJokeView.xib in Resources */,
 				459FA9731E9B1F7200C17F87 /* AIRLoginRegisterViewController.xib in Resources */,
 				4520B8351EAC5CA700EC1987 /* AIRWebViewController.xib in Resources */,
 				459FA9761E9B1F7200C17F87 /* AIRFastLoginView.xib in Resources */,
@@ -1016,7 +1012,6 @@
 				45EDE77E1E98C0F200465566 /* AIRSubTagCell.m in Sources */,
 				45B944A11EC3524B00875E35 /* AIRTopicCell.m in Sources */,
 				455304011EA34F52008F6075 /* AIRSquareItem.m in Sources */,
-				45F3190C1ECC48E800E4EEB1 /* AIRJokeView.m in Sources */,
 				459B4A2F1EAEE0C3009043EF /* AIRFileTool.m in Sources */,
 				459FA9751E9B1F7200C17F87 /* AIRFastLoginView.m in Sources */,
 				4535C1131E2A3BF4000BBA67 /* UIView+AIRFrame.m in Sources */,
@@ -1043,6 +1038,7 @@
 				45F319071ECC48C200E4EEB1 /* AIRPhotoView.m in Sources */,
 				45AF48EE1E28C33300AD74ED /* UIImage+AIRImage.m in Sources */,
 				4503674B1E286BF600093D49 /* AppDelegate.m in Sources */,
+				45E9E7E51ED0439B000F9F31 /* UIImageView+AIRDownload.m in Sources */,
 				4520B8341EAC5CA700EC1987 /* AIRWebViewController.m in Sources */,
 				455EDB011EA1C8930042DB27 /* AIRMeViewController.m in Sources */,
 				459FA9721E9B1F7200C17F87 /* AIRLoginRegisterViewController.m in Sources */,

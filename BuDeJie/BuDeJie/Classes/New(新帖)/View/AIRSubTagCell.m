@@ -27,7 +27,8 @@
     //设置内容
     [self resolveNum];
     self.nameView.text = item.title;
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:item.albumCoverUrl290] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    //[self.iconView sd_setImageWithURL:[NSURL URLWithString:item.albumCoverUrl290] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    [self.iconView AIR_circleImageView:item.albumCoverUrl290 placeholderImage:@"defaultUserIcon"];
     
     
 }
@@ -46,8 +47,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // 设置头像圆角
-    self.iconView.layer.cornerRadius = 30;
-    self.iconView.layer.masksToBounds = YES;
+//    self.iconView.layer.cornerRadius = 30;
+//    self.iconView.layer.masksToBounds = YES;
     
 }
 

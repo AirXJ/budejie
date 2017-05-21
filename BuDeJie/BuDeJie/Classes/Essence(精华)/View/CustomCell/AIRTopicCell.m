@@ -9,7 +9,6 @@
 #import "AIRTopicCell.h"
 #import "AIRTopicsItem.h"
 #import "UIImage+AIRImage.h"
-#import "AIRJokeView.h"
 #import "AIRPhotoView.h"
 #import "AIRSoundView.h"
 #import "AIRVideoView.h"
@@ -29,35 +28,81 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *hotCmtLabel;
 
+/* 中间控件 */
+/** 图片控件 */
+@property (nonatomic, weak) AIRPhotoView *photoView;
+/** 声音控件 */
+@property (nonatomic, weak) AIRSoundView *soundView;
+/** 视频控件 */
+@property (nonatomic, weak) AIRVideoView *videoView;
+
 @end
 
 
 
 @implementation AIRTopicCell
+#pragma mark - 懒加载
+- (AIRPhotoView *)photoView
+{
+    if (!_photoView) {
+        AIRPhotoView *photoView = [AIRPhotoView AIR_LoadViewFromXib];
+        [self.contentView addSubview:photoView];
+        _photoView = photoView;
+    }
+    return _photoView;
+}
 
+- (AIRSoundView *)soundView
+{
+    if (!_soundView) {
+        AIRSoundView *soundView = [AIRSoundView AIR_LoadViewFromXib];
+        [self.contentView addSubview:soundView];
+        _soundView = soundView;
+    }
+    return _soundView;
+}
+
+- (AIRVideoView *)videoView
+{
+    if (!_videoView) {
+        AIRVideoView *videoView = [AIRVideoView AIR_LoadViewFromXib];
+        [self.contentView addSubview:videoView];
+        _videoView = videoView;
+    }
+    return _videoView;
+}
+
+
+#pragma mark - 初始化
 - (void)setTopic:(AIRTopicsItem *)topic
 {
     _topic = topic;
-    UIImage *placeholder = [UIImage AIR_circleImageNamed:@"defaultUserIcon"];
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:placeholder options:0 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        // 图片下载失败，直接返回，按照它的默认做法
-        if (!image) return;
-        
-        self.profileImageView.image = [image AIR_circleImage];
-    }];
+    
+    // 顶部控件的数据
+    [self.profileImageView AIR_circleImageView:topic.profile_image placeholderImage:@"defaultUserIcon"];
     
     //中间内容
-    if (topic.type == AIRTopicTypeJoke) {
-        [self.contentView addSubview:[AIRJokeView AIR_LoadViewFromXib]];
-    } else if (topic.type == AIRTopicTypePhoto){
-        [self.contentView addSubview:[AIRPhotoView AIR_LoadViewFromXib]];
+    if (topic.type == AIRTopicTypePhoto){
+        //解决循环运用和重复添加
+        self.photoView.hidden = NO;
+        self.soundView.hidden = YES;
+        self.videoView.hidden = YES;
     } else if (topic.type == AIRTopicTypeVideo){
-        [self.contentView addSubview:[AIRVideoView AIR_LoadViewFromXib]];
+        self.videoView.hidden = NO;
+        self.photoView.hidden = YES;
+        self.soundView.hidden = YES;
     } else if (topic.type == AIRTopicTypeSound){
-        [self.contentView addSubview:[AIRSoundView AIR_LoadViewFromXib]];
+        self.soundView.hidden = NO;
+        self.soundView.topic = self.topic;
+        self.photoView.hidden = YES;
+        self.videoView.hidden = YES;
+    } else if (topic.type == AIRTopicTypeJoke){
+        self.photoView.hidden = YES;
+        self.soundView.hidden = YES;
+        self.videoView.hidden = YES;
     }
+    
     // 顶部控件的数据
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     self.nameLabel.text = topic.name;
     self.passtimeLabel.text = topic.passtime;
     self.text_label.text = topic.text;
@@ -114,6 +159,21 @@
     [super awakeFromNib];
     // Initialization code
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    //给contentview的中间控件设置frame
+    if (_topic.type == AIRTopicTypePhoto){
+        self.photoView.frame = _topic.middleFrame;
+    } else if (_topic.type == AIRTopicTypeVideo){
+        self.videoView.frame = _topic.middleFrame;
+    } else if (_topic.type == AIRTopicTypeSound){
+        self.soundView.frame = _topic.middleFrame;
+    } else if (_topic.type == AIRTopicTypeJoke){
+        self.photoView.frame = _topic.middleFrame;
+    }
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

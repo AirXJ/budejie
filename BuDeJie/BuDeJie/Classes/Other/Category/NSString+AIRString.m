@@ -10,7 +10,7 @@
 #import "AIRFileTool.h"
 
 @implementation NSString (AIRString)
-- (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize onlyOneLine:(BOOL)isOne
+- (CGSize)AIR_sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize onlyOneLine:(BOOL)isOne
 {
     if (![font isKindOfClass:[UIFont class]]) {
         
@@ -34,7 +34,7 @@
  *     @param directoryPath 文件夹路径
  
  *****/
-+ (NSString *)getPathStringsize:(NSString *)directoryPath completion:(void (^)(NSString *sizeStr))completion 
++ (NSString *)AIR_getPathStringsize:(NSString *)directoryPath completion:(void (^)(NSString *sizeStr))completion
 {
     NSString *sizeStr = @"清除缓存";
     [AIRFileTool getFileSize:directoryPath completion:^(NSInteger sumSize) {

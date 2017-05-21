@@ -16,12 +16,12 @@
  *  如果是算的是单行的size可以传 CGSizeZero
  *  isOne是否是单行来决定调用不同的方法
  *****/
-- (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize onlyOneLine:(BOOL)isOne;
+- (CGSize)AIR_sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize onlyOneLine:(BOOL)isOne;
 
 /*****
 *     拼接(缓存)文件大小字符串
 *     @param directoryPath 文件夹路径
 
 *****/
-+ (NSString *)getPathStringsize:(NSString *)directoryPath completion:(void (^)(NSString *sizeStr))completion;
++ (NSString *)AIR_getPathStringsize:(NSString *)directoryPath completion:(void (^)(NSString *sizeStr))completion;
 @end
