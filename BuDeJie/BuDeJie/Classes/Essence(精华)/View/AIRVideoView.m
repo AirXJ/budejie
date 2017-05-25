@@ -25,7 +25,7 @@
 - (void)setTopic:(AIRTopicsItem *)topic{
     _topic = topic;
     self.placeholderView.hidden = NO;
-    [self.imageView AIR_setOriginImage:topic.image1 thumbnailImage:topic.image0 placeholder:nil complete:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.imageView AIR_setOriginImage:topic.image1 thumbnailImage:topic.image0 placeholder:nil andModelItem:topic complete:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (!image) {
             return ;
         }

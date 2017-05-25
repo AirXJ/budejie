@@ -7,6 +7,7 @@
 //
 
 #import "UIImageView+AIRDownload.h"
+#import "AIRTopicsItem.h"
 //#import <AFNetworking.h>
 //#import <SDWebImage/UIImageView+WebCache.h>
 //可能以后用到其它地方还要加其它头文件进去
@@ -26,7 +27,7 @@
     //    [self sd_setImageWithURL:[NSURL URLWithString:headerUrl] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
 }
 
-- (void)AIR_setOriginImage:(NSString *)originImageURl thumbnailImage:(NSString *)thumbnailImageURL placeholder:(UIImage *)placeholer complete:(SDWebImageCompletionBlock)completedBlock{
+- (void)AIR_setOriginImage:(NSString *)originImageURl thumbnailImage:(NSString *)thumbnailImageURL placeholder:(UIImage *)placeholer andModelItem:(AIRTopicsItem *)topicItem complete:(SDWebImageCompletionBlock)completedBlock{
     
     //占位图片
     UIImage *placeholder = nil;
@@ -36,8 +37,22 @@
     //再从硬盘(先会查缓存有没有)获取原图(SDWebImage的图片缓存是用URL字符穿作为key的)
     UIImage *originImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:originImageURl];
     if (originImage) {
-        self.image = originImage;
+       
+        if (topicItem.isBigPicture) {
+            CGFloat imageW = topicItem.middleFrame.size.width;
+            CGFloat imageH = imageW * topicItem.height / topicItem.width;
+            
+            // 开启上下文
+            UIGraphicsBeginImageContext(CGSizeMake(imageW, imageH));
+            // 绘制图片到上下文中
+            [originImage drawInRect:CGRectMake(0, 0, imageW, imageH)];
+            self.image = UIGraphicsGetImageFromCurrentImageContext();
+            // 关闭上下文
+            UIGraphicsEndImageContext();
+        }
+         self.image = originImage;
         completedBlock(originImage, nil, SDImageCacheTypeNone, [NSURL URLWithString:originImageURl]);
+        
     }else {
         if (mgr.isReachableViaWiFi) {
             

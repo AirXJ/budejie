@@ -67,6 +67,7 @@ static NSString * const AIRTopicCellId = @"AIRTopicCellId";
     
     // 让header自动进入刷新
     [self headerBeginRefreshing];
+    
 }
 
 
@@ -347,9 +348,7 @@ static NSString * const AIRTopicCellId = @"AIRTopicCellId";
  *  作用:主要是精确算出contentsize的高度,(表现现象)获取滚动条高度,一般不推荐全部算出高度，建议估算出总高度estimated。
  **/
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    AIRFUNCLog;
-    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{    
     return  self.topics[indexPath.row].cellHeight;
 }
 

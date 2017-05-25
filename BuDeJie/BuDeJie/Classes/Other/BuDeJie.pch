@@ -13,7 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 /*
- 
+ viewdidload方法中从xib加载view，view的frame是xib的高度宽度，需要设置这个view的autoresizingMask;或者在viewDidLayoutSubviews方法中布局子控件
  
  
  
