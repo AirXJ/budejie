@@ -28,24 +28,24 @@
     _topic = topic;
     
     self.placeholderView.hidden = NO;
-    [self.imageView AIR_setOriginImage:topic.image1 thumbnailImage:topic.image0 placeholder:nil andModelItem:topic complete:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.imageView AIR_setOriginImage:topic.image1 thumbnailImage:topic.image0 placeholder:nil complete:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (!image) {
             return ;
         }
         self.placeholderView.hidden = YES;
-        // 处理超长图片的大小,这步的时候self.imageView已经释放了
-//        if (topic.isBigPicture) {
-//            CGFloat imageW = topic.middleFrame.size.width;
-//            CGFloat imageH = imageW * topic.height / topic.width;
-//            
-//            // 开启上下文
-//            UIGraphicsBeginImageContext(CGSizeMake(imageW, imageH));
-//            // 绘制图片到上下文中
-//            [self.imageView.image drawInRect:CGRectMake(0, 0, imageW, imageH)];
-//            self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-//            // 关闭上下文
-//            UIGraphicsEndImageContext();
-//        }
+        // 处理超长图片的大小
+        if (topic.isBigPicture) {
+            CGFloat imageW = topic.middleFrame.size.width;
+            CGFloat imageH = imageW * topic.height / topic.width;
+            
+            // 开启上下文
+            UIGraphicsBeginImageContext(CGSizeMake(imageW, imageH));
+            // 绘制图片到上下文中
+            [self.imageView.image drawInRect:CGRectMake(0, 0, imageW, imageH)];
+            self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+            // 关闭上下文
+            UIGraphicsEndImageContext();
+        }
     }];
     
     //gif
@@ -78,7 +78,7 @@
     self.autoresizingMask = UIViewAutoresizingNone;
     UITapGestureRecognizer *tapGtr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(modalVcController)];
     self.imageView.userInteractionEnabled = YES;
-    [self.imageView addGestureRecognizer:tapGtr];
+    [self addGestureRecognizer:tapGtr];
     //控制按钮内部的子控件对齐，不是用contentMode，是用以下2个属性,或者xib中
     //    self.seebigpictureBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     //    self.seebigpictureBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
