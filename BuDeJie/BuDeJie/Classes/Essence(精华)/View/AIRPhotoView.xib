@@ -11,13 +11,64 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AIRPhotoView">
-            <rect key="frame" x="0.0" y="0.0" width="252" height="73"/>
+        <view contentMode="scaleToFill" id="dmW-Yb-XG6" customClass="AIRPhotoView">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="222"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ru0-wp-lZF">
+                    <rect key="frame" x="0.0" y="0.0" width="343" height="222"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Xzl-Fb-dL4">
+                    <rect key="frame" x="20" y="28" width="303" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="JAJ-gI-F2P"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-gif" translatesAutoresizingMaskIntoConstraints="NO" id="oxf-Xk-qXE">
+                    <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31" id="Xm0-KF-wqm"/>
+                        <constraint firstAttribute="height" constant="31" id="sgx-8v-inb"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ju-UU-x5R">
+                    <rect key="frame" x="0.0" y="179" width="343" height="43"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                    <state key="normal" title="点击查看大图" image="see-big-picture" backgroundImage="see-big-picture-background"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7Ju-UU-x5R" firstAttribute="leading" secondItem="dmW-Yb-XG6" secondAttribute="leading" id="BNR-qN-9ce"/>
+                <constraint firstItem="Xzl-Fb-dL4" firstAttribute="top" secondItem="oxf-Xk-qXE" secondAttribute="bottom" constant="-3" id="L1h-u0-feH"/>
+                <constraint firstItem="ru0-wp-lZF" firstAttribute="leading" secondItem="dmW-Yb-XG6" secondAttribute="leading" id="QJL-Mv-edQ"/>
+                <constraint firstItem="ru0-wp-lZF" firstAttribute="top" secondItem="dmW-Yb-XG6" secondAttribute="top" id="SoP-b4-JCs"/>
+                <constraint firstItem="Xzl-Fb-dL4" firstAttribute="leading" secondItem="dmW-Yb-XG6" secondAttribute="leading" constant="20" id="T8O-qN-CZB"/>
+                <constraint firstAttribute="trailing" secondItem="ru0-wp-lZF" secondAttribute="trailing" id="fKg-Dr-WTc"/>
+                <constraint firstAttribute="trailing" secondItem="7Ju-UU-x5R" secondAttribute="trailing" id="j3W-3h-UPg"/>
+                <constraint firstAttribute="bottom" secondItem="7Ju-UU-x5R" secondAttribute="bottom" id="jgS-Df-c6W"/>
+                <constraint firstAttribute="bottom" secondItem="ru0-wp-lZF" secondAttribute="bottom" id="lSi-tI-Ai0"/>
+                <constraint firstItem="oxf-Xk-qXE" firstAttribute="leading" secondItem="dmW-Yb-XG6" secondAttribute="leading" id="n2q-db-EH1"/>
+                <constraint firstItem="oxf-Xk-qXE" firstAttribute="top" secondItem="dmW-Yb-XG6" secondAttribute="top" id="njp-8g-VKS"/>
+                <constraint firstAttribute="trailing" secondItem="Xzl-Fb-dL4" secondAttribute="trailing" constant="20" id="yXD-SY-HYZ"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="107" y="-416.5"/>
+            <connections>
+                <outlet property="gifView" destination="oxf-Xk-qXE" id="HQH-Zo-HVY"/>
+                <outlet property="imageView" destination="ru0-wp-lZF" id="78K-bU-cHr"/>
+                <outlet property="placeholderView" destination="Xzl-Fb-dL4" id="zcH-fw-z8Q"/>
+                <outlet property="seebigpictureBtn" destination="7Ju-UU-x5R" id="EvW-21-C83"/>
+            </connections>
+            <point key="canvasLocation" x="289.5" y="234"/>
         </view>
     </objects>
+    <resources>
+        <image name="common-gif" width="31" height="31"/>
+        <image name="imageBackground" width="75" height="15"/>
+        <image name="see-big-picture" width="19" height="19"/>
+        <image name="see-big-picture-background" width="285" height="43"/>
+    </resources>
 </document>

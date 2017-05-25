@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class AIRTopicsItem;
 @interface AIRPhotoView : UIView
-
+/** 模型数据 */
+@property (nonatomic, strong) AIRTopicsItem *topic;
 @end

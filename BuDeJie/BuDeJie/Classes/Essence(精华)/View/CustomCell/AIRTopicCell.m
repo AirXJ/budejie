@@ -84,11 +84,13 @@
     //中间内容
     if (topic.type == AIRTopicTypePhoto){
         //解决循环运用和重复添加
+        self.photoView.topic = self.topic;
         self.photoView.hidden = NO;
         self.soundView.hidden = YES;
         self.videoView.hidden = YES;
     } else if (topic.type == AIRTopicTypeVideo){
         self.videoView.hidden = NO;
+        self.videoView.topic = self.topic;
         self.photoView.hidden = YES;
         self.soundView.hidden = YES;
     } else if (topic.type == AIRTopicTypeSound){

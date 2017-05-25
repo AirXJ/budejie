@@ -26,7 +26,7 @@
     //    [self sd_setImageWithURL:[NSURL URLWithString:headerUrl] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
 }
 
-- (void)AIR_setOriginImage:(NSString *)originImageURl thumbnailImage:(NSString *)thumbnailImageURL placeholder:(UIImage *)placeholer{
+- (void)AIR_setOriginImage:(NSString *)originImageURl thumbnailImage:(NSString *)thumbnailImageURL placeholder:(UIImage *)placeholer complete:(SDWebImageCompletionBlock)completedBlock{
     
     //占位图片
     UIImage *placeholder = nil;
@@ -37,23 +37,26 @@
     UIImage *originImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:originImageURl];
     if (originImage) {
         self.image = originImage;
+        completedBlock(originImage, nil, SDImageCacheTypeNone, [NSURL URLWithString:originImageURl]);
     }else {
         if (mgr.isReachableViaWiFi) {
             
-            [self sd_setImageWithURL:[NSURL URLWithString:originImageURl] placeholderImage:placeholder];
+            [self sd_setImageWithURL:[NSURL URLWithString:originImageURl] placeholderImage:placeholder completed:completedBlock];
         }else if (mgr.isReachableViaWWAN){
             BOOL downloadOriginImageWhen3GOr4G = YES;
             if (downloadOriginImageWhen3GOr4G) {
-                [self sd_setImageWithURL:[NSURL URLWithString:originImageURl] placeholderImage:placeholder];
+                [self sd_setImageWithURL:[NSURL URLWithString:originImageURl] placeholderImage:placeholder completed:completedBlock];
             } else {
                 //有就从缓存里取，没有救下载
-                [self sd_setImageWithURL:[NSURL URLWithString:thumbnailImageURL] placeholderImage:placeholder];
+                [self sd_setImageWithURL:[NSURL URLWithString:thumbnailImageURL] placeholderImage:placeholder completed:completedBlock];
                 
             }
         } else {//没有网络
             UIImage *thumbnailImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:thumbnailImageURL];
             if (thumbnailImage) {
                 self.image = thumbnailImage;
+                completedBlock(thumbnailImage, nil, SDImageCacheTypeNone, [NSURL URLWithString:thumbnailImageURL]);
+                
             } else {
                 self.image = placeholder;
             }

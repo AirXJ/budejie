@@ -51,8 +51,10 @@
     
     self.window.rootViewController = tabVc;
     [self.window makeKeyAndVisible];
-    //开始监控网络状况
+    //开始监控网络状况，这个方法必须初始化一次
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    //每次启动清楚过期图片硬盘缓存
+    [[SDImageCache sharedImageCache] cleanDisk];
     return YES;
 }
 

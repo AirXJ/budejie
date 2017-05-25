@@ -56,7 +56,9 @@ static NSString * const AIRTopicCellId = @"AIRTopicCellId";
     
     self.view.backgroundColor = AIRGrayColor(206);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     self.tableView.estimatedRowHeight = 100;
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleBtnDidRepeatClick:) name:AIRTitleBtnDidRepeatClickNotification object:nil];
     
@@ -102,6 +104,9 @@ static NSString * const AIRTopicCellId = @"AIRTopicCellId";
     [self dealFooterRefreshing];
     //处理下拉刷新
     [self dealHeaderRefreshing];
+    
+    //清除缓存
+    //[[SDImageCache sharedImageCache]clearMemory];
 }
 
 /*********手一松开*********/
@@ -114,6 +119,7 @@ static NSString * const AIRTopicCellId = @"AIRTopicCellId";
         //自动刷新
         [self headerBeginRefreshing];
     }
+   
 }
 
 #pragma mark - header
@@ -240,6 +246,9 @@ static NSString * const AIRTopicCellId = @"AIRTopicCellId";
 }
 
 #pragma mark - 数据处理
+- (AIRTopicType)type{
+    return AIRTopicTypePhoto;
+}
 - (AFHTTPSessionManager *)manger{
     if (!_manger) {
         AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
@@ -259,10 +268,10 @@ static NSString * const AIRTopicCellId = @"AIRTopicCellId";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @31;
+    parameters[@"type"] = @(self.type);
     
     [self.manger GET:AIRCommonUrl parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
-        
+        //AIRAFNResponseObjectWriteToPlistFile(nima);
         self.topics = [AIRTopicsItem mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         self.maxtime = responseObject[@"info"][@"maxtime"];
@@ -288,7 +297,7 @@ static NSString * const AIRTopicCellId = @"AIRTopicCellId";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @31;
+    parameters[@"type"] = @(self.type);
     parameters[@"maxtime"] = self.maxtime;
     
     [self.manger GET:AIRCommonUrl parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
@@ -339,8 +348,11 @@ static NSString * const AIRTopicCellId = @"AIRTopicCellId";
  **/
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    AIRFUNCLog;
+    
     return  self.topics[indexPath.row].cellHeight;
 }
+
 
 #pragma mark - lazy
 

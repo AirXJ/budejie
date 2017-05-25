@@ -24,9 +24,19 @@
         if (self.type != AIRTopicTypeJoke) {//中间有内容图片声音视频
             CGFloat middleW = textMaxSize.width;
             CGFloat middleH = middleW * self.height / self.width;
+            
+            if (middleH>=AIRScreenH) { // 显示的图片高度超过一个屏幕，就是超长图片
+                self.bigPicture = YES;
+                middleH = 200;
+
+            }else{
+                self.bigPicture = NO;
+                middleH = middleW * self.height / self.width;
+            }
             CGFloat middleY = _cellHeight - AIRMargin;
             CGFloat middleX = AIRMargin;
             _middleFrame = CGRectMake(middleX, middleY, middleW, middleH);
+            
             _cellHeight += (middleH + AIRMargin);
         }
         

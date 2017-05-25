@@ -49,14 +49,17 @@ typedef NS_ENUM(NSUInteger,AIRTopicType) {
 @property (nonatomic, assign) NSInteger width;
 /******************** 高度(像素) *******************/
 @property (nonatomic, assign) NSInteger height;
-/******************** 中间内容的Frame *******************/
-@property (nonatomic, assign) CGRect middleFrame;
+
 /******************** 小图 *******************/
 @property (nonatomic, strong) NSString *image0;
 /******************** 大图 *******************/
 @property (nonatomic, strong) NSString *image1;
 /******************** 中图 *******************/
 @property (nonatomic, strong) NSString *image2;
+
+/** 是否为动图 */
+@property (nonatomic, assign) BOOL is_gif;
+
 /******************** 音频时长 *******************/
 @property (nonatomic, assign) NSInteger voicetime;
 /******************** 视频时长 *******************/
@@ -69,7 +72,12 @@ typedef NS_ENUM(NSUInteger,AIRTopicType) {
 @property (nonatomic, strong) NSArray *top_cmt;
 
 
-
+// 额外增加的属性（并非服务器返回的属性，仅仅是为了提高开发效率）
 /******************** cell高度(额外增加的属性不是服务器返回的属性，为了提高程序运行效率) *******************/
 @property (nonatomic, assign) CGFloat cellHeight;
+
+/******************** 中间内容的Frame *******************/
+@property (nonatomic, assign) CGRect middleFrame;
+/** 是否为超长图片 */
+@property (nonatomic, assign, getter=isBigPicture) BOOL bigPicture;
 @end
